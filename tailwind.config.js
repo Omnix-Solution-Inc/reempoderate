@@ -8,47 +8,47 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        // === LOGO PALETTE ===
-        // Pink/Magenta dominant + Gold + Hot Pink accents
         bloom: {
-          DEFAULT: '#E090D0',
-          light: '#F0B0E0',
-          soft: '#F8E0F0',
-          deep: '#D060B0',
+          DEFAULT: '#E8A5C7',   /* pastel pink — from logo, softened */
+          light: '#F5D0E0',     /* very soft pink — like petals */
+          deep: '#D17BA8',      /* medium pink for contrast */
+          pale: '#FDF2F8',      /* barely-there pink */
         },
         rose: {
-          DEFAULT: '#F05090',
-          light: '#F479A8',
-          dark: '#D03878',
+          DEFAULT: '#E899C4',   /* warm pink accent */
+          light: '#F2BCD8',     /* soft rose */
         },
         gold: {
-          DEFAULT: '#F0E060',
-          light: '#F8EE99',
-          dark: '#D4C248',
+          DEFAULT: '#F5E6A8',   /* buttery soft gold from logo */
+          light: '#FAF0C8',     /* pale gold */
+          deep: '#E8D57A',      /* deeper gold for text */
+        },
+        mint: {
+          DEFAULT: '#C5E8D0',   /* fresh soft mint for contrast */
+          light: '#E0F2E9',     /* barely-there mint */
         },
         ink: {
-          DEFAULT: '#405060',
-          light: '#5A6A7A',
-          soft: '#7A8A9A',
+          DEFAULT: '#5D4E5C',   /* warm mauve-brown for text — softer than slate */
+          light: '#8B7B89',     /* lighter mauve for secondary text */
+          dark: '#3D3340',      /* deep mauve for headings */
         },
         cream: {
-          DEFAULT: '#FBF5F8',
-          light: '#FDF9FB',
-          dark: '#F0E8F0',
+          DEFAULT: '#FEFAFC',   /* almost white with hint of pink */
+          light: '#FFFEFF',     /* pure white-ish */
+          dark: '#F8F0F5',      /* soft pink-cream */
         },
-        dark: '#405060',
-        'light-bg': '#FBF5F8',
-        // === LEGACY ALIASES (map old names to new palette) ===
+        /* Aliases so existing components work without changes */
         shamrock: {
-          DEFAULT: '#405060',   // → ink (dark slate)
-          light: '#5A6A7A',     // → ink-light
-          dark: '#2A3A4A',      // → darker ink
+          DEFAULT: '#5D4E5C',
+          light: '#8B7B89',
+          dark: '#3D3340',
         },
         terracotta: {
-          DEFAULT: '#E090D0',   // → bloom (pink)
-          light: '#F0B0E0',     // → bloom-light
-          dark: '#D060B0',      // → bloom-deep
+          DEFAULT: '#E8A5C7',
+          light: '#F5D0E0',
+          dark: '#D17BA8',
         },
+        'light-bg': '#FEFAFC',
       },
       fontFamily: {
         playfair: ['Playfair Display', 'serif'],
