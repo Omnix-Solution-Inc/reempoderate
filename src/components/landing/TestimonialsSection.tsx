@@ -1,33 +1,64 @@
 export function TestimonialsSection() {
   return (
-    <section className="py-24 bg-cream">
-      <div className="max-w-5xl mx-auto px-6">
-        <h2 className="font-playfair text-3xl md:text-4xl text-shamrock font-bold mb-12 text-center">
-          El Sentido del Acompañamiento
-        </h2>
+    <section id="bio" className="py-24 bg-cream">
+      <div className="max-w-4xl mx-auto px-6">
+        <div className="text-center mb-12">
+          <p className="text-terracotta italic text-lg mb-3">Autotransformación Consciente</p>
+          <h2 className="font-playfair text-3xl md:text-5xl text-shamrock font-bold">
+            Mariela Barbetti
+          </h2>
+        </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
-          <div className="bg-white rounded-2xl p-8 shadow-sm border border-shamrock/10">
-            <div className="text-3xl mb-4">🌿</div>
-            <h3 className="font-playfair text-xl text-shamrock mb-4">Vivir en Consciencia</h3>
-            <p className="text-gray-600 leading-relaxed">
-              Vivimos a menudo bajo un estado de supervivencia y automatismo, desconectadas de nuestro verdadero potencial. En ReEmpoderate entendemos que los resultados sostenibles en tu vida personal, académica o laboral son la consecuencia natural de la alineación entre tu cuerpo, tu mente y tu lenguaje.
-            </p>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-10">
+          <div className="text-center">
+            <div className="aspect-square rounded-full bg-gradient-to-br from-shamrock/15 to-terracotta/15 flex items-center justify-center mb-4 mx-auto max-w-[180px]">
+              <span className="text-5xl">🌸</span>
+            </div>
+            <p className="font-playfair text-sm text-shamrock">Coach Ontológica</p>
+            <p className="text-xs text-gray-400">ICF Member</p>
           </div>
-
-          <div className="bg-white rounded-2xl p-8 shadow-sm border border-terracotta/10">
-            <div className="text-3xl mb-4">🤝</div>
-            <h3 className="font-playfair text-xl text-shamrock mb-4">La Experiencia del Primer Contacto</h3>
-            <p className="text-gray-600 leading-relaxed">
-              Cada interacción ha sido cuidadosamente trazada desde antes de nuestro primer encuentro. Esta atención minuciosa al detalle asegura que cada conversación, cada confirmación y cada espacio compartido se desenvuelvan en un entorno de alta confianza, fluidez operativa y respeto absoluto por tus tiempos.
-            </p>
+          <div className="text-center">
+            <div className="aspect-square rounded-full bg-gradient-to-br from-terracotta/15 to-shamrock/15 flex items-center justify-center mb-4 mx-auto max-w-[180px]">
+              <span className="text-5xl">💐</span>
+            </div>
+            <p className="font-playfair text-sm text-shamrock">Florista desde 2015</p>
+            <p className="text-xs text-gray-400">Alquimia Floral</p>
+          </div>
+          <div className="text-center">
+            <div className="aspect-square rounded-full bg-gradient-to-br from-shamrock/15 to-terracotta/15 flex items-center justify-center mb-4 mx-auto max-w-[180px]">
+              <span className="text-5xl">🌎</span>
+            </div>
+            <p className="font-playfair text-sm text-shamrock">Mujer Migrante</p>
+            <p className="text-xs text-gray-400">Madre de cuatro</p>
           </div>
         </div>
 
-        <div className="bg-gradient-to-r from-shamrock/5 to-terracotta/5 rounded-2xl p-10 text-center">
-          <h3 className="font-playfair text-2xl text-shamrock mb-4">Filosofía No Directiva</h3>
-          <p className="text-gray-600 text-lg leading-relaxed max-w-3xl mx-auto">
-            A través de un proceso reflexivo y transformacional, honramos tu autonomía absoluta. Acompañamos mediante metodologías profesionales estructuradas para facilitar que las respuestas y el poder emerjan desde tu propia individualidad interna.
+        <div className="space-y-6 text-gray-600 text-lg leading-relaxed max-w-3xl mx-auto">
+          <p>
+            Mi nombre es <span className="font-semibold text-shamrock">Mariela Barbetti</span> y mi propósito es acompañar en la construcción de nuevas realidades desde el autoconocimiento y la exploración de la individualidad interna.
+          </p>
+          <p>
+            Como madre de cuatro y mujer migrante en los Estados Unidos, he atravesado procesos personales que me han enseñado que la verdadera competencia nace del autodescubrimiento.
+          </p>
+          <p>
+            Como Coach Ontológica y Profesional, miembro activo de la <span className="font-semibold text-shamrock">Federación Internacional de Coaching (ICF)</span>, he acompañado a mujeres a tomar el control de sus vidas.
+          </p>
+          <p>
+            Creé <span className="font-semibold text-terracotta">Alquimia Floral</span> como un laboratorio creativo y manual donde fusiono mi experiencia como florista desde 2015. Aquí, cada persona crea con sus manos para escucharse, recordando quién es más allá de sus heridas y sus roles.
+          </p>
+        </div>
+
+        <div className="mt-12 bg-gradient-to-r from-shamrock/5 to-terracotta/5 rounded-2xl p-10 text-center">
+          <div className="space-y-2 mb-6">
+            <p className="font-playfair text-xl text-shamrock italic">¿Cuáles son mis pensamientos?</p>
+            <p className="font-playfair text-xl text-shamrock italic">¿Qué tipo de pensamientos tengo?</p>
+            <p className="font-playfair text-xl text-shamrock italic">¿Me limitan o crean posibilidades?</p>
+          </div>
+        </div>
+
+        <div className="mt-10 text-center max-w-3xl mx-auto">
+          <p className="text-gray-600 text-lg leading-relaxed">
+            ReEmpoderate nace como una iniciativa con el propósito de acompañar a quienes han decidido rediseñar su futuro, utilizando la conversación como puente hacia esa autotransformación.
           </p>
         </div>
       </div>
