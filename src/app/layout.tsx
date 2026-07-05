@@ -1,21 +1,20 @@
 import type { Metadata } from 'next'
-import { Inter, Playfair_Display } from 'next/font/google'
 import './globals.css'
 import { Providers } from '@/components/shared/Providers'
 
-const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
-const playfair = Playfair_Display({ subsets: ['latin'], variable: '--font-playfair' })
-
 export const metadata: Metadata = {
-  title: 'ReEmpoderate — Transformación Consciente',
-  description: 'Plataforma de coaching ontológico, arte y crecimiento personal',
-  icons: { icon: '/icons/favicon.ico' },
+  title: 'ReEmpoderate · Autotransformación Consciente',
+  description: 'Coaching ontológico certificado y talleres de alquimia floral para mujeres que eligen construir una vida con propósito.',
 }
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode
+}) {
   return (
-    <html lang="es" className={`${inter.variable} ${playfair.variable}`}>
-      <body className="bg-light-bg text-dark antialiased">
+    <html lang="es">
+      <body>
         <Providers>{children}</Providers>
       </body>
     </html>
