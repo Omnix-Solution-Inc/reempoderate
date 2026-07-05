@@ -8,23 +8,35 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        shamrock: {
-          DEFAULT: '#2E4D3E',
-          light: '#3D664F',
-          dark: '#1F3829',
+        // Logo palette — pink/magenta dominant with gold + hot pink accents
+        bloom: {
+          DEFAULT: '#E090D0',   // Primary pink (from logo)
+          light: '#F0B0E0',     // Light pink
+          soft: '#F8E0F0',      // Very soft pink for backgrounds
+          deep: '#D060B0',      // Deeper magenta
         },
-        terracotta: {
-          DEFAULT: '#E28743',
-          light: '#ED9D5C',
-          dark: '#C77233',
+        rose: {
+          DEFAULT: '#F05090',   // Hot pink accent (from logo)
+          light: '#F479A8',
+          dark: '#D03878',
+        },
+        gold: {
+          DEFAULT: '#F0E060',   // Golden yellow accent (from logo)
+          light: '#F8EE99',
+          dark: '#D4C248',
+        },
+        ink: {
+          DEFAULT: '#405060',   // Dark slate (from logo)
+          light: '#5A6A7A',
+          soft: '#7A8A9A',
         },
         cream: {
-          DEFAULT: '#F4F1EA',
-          light: '#F9F7F2',
-          dark: '#E8E3D8',
+          DEFAULT: '#FBF5F8',   // Very light pink-cream for page background
+          light: '#FDF9FB',
+          dark: '#F0E8F0',
         },
-        dark: '#333333',
-        'light-bg': '#F4F1EA',
+        dark: '#405060',
+        'light-bg': '#FBF5F8',
       },
       fontFamily: {
         playfair: ['Playfair Display', 'serif'],
