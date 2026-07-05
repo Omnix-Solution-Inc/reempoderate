@@ -1,9 +1,6 @@
-// Clients management — The Bella Wildflower
-// Reads from Base44 TBWClient entity via backend function
 'use client'
 import { useEffect, useState } from 'react'
 import { useSession } from 'next-auth/react'
-import { base44 } from '@/lib/base44/client'
 
 type Client = {
   id: string
@@ -21,9 +18,10 @@ export default function ClientsPage() {
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    base44.entity('TBWClient').list()
-      .then(setClients)
-      .catch(console.error)
+    fetch(`${process.env.NEXT_PUBLIC_BASE44_API_URL || ''}/tbwsystem?e=TBWClient`)
+      .then(r => r.json())
+      .then(data => setClients(Array.isArray(data) ? data : []))
+      .catch(() => setClients([]))
       .finally(() => setLoading(false))
   }, [])
 
