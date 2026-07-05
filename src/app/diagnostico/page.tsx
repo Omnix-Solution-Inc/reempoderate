@@ -1,265 +1,255 @@
 'use client'
-import { useState } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 
-const questions = [
+type Message = {
+  role: 'user' | 'coach'
+  text: string
+  step?: number
+}
+
+const coachingQuestions = [
   {
-    id: 1,
-    category: 'Observador',
-    icon: '🪞',
-    question: '¿Qué situación, hábito o patrón recurrente en tu vida sabes que necesita transformarse — y por qué has postergado esa transformación?',
-    placeholder: 'Describe con honestidad lo que ves en ti misma...',
-    hint: 'No busques la respuesta "correcta". Busca la respuesta verdadera.'
+    question: "¿Qué te lleva a buscar este espacio de transformación en este momento de tu vida, y qué observas sobre la urgencia que sientes?",
+    hint: "Tómate un momento. Respira. Escribe desde la honestidad, no desde lo que crees que deberías decir.",
   },
   {
-    id: 2,
-    category: 'Sistema',
-    icon: '⏳',
-    question: 'Si continúas exactamente como estás hoy, ¿qué costo emocional, relacional o profesional estarás pagando en los próximos 12 meses?',
-    placeholder: 'Visualiza tu vida dentro de un año si nada cambia...',
-    hint: 'El costo de la inacción casi siempre es mayor de lo que admitimos.'
+    question: "Si imaginas que ya has alcanzado ese cambio que buscas... ¿quién serías tú, siendo diferente a quien eres hoy?",
+    hint: "No describas lo que tendrías. Describe quién serías siendo. La diferencia es esencial.",
   },
   {
-    id: 3,
-    category: 'Consciencia',
-    icon: '🔍',
-    question: 'Recuerda una decisión reciente importante: ¿actuaste desde la automática o desde la consciencia? ¿Qué observas sobre tu forma de responder?',
-    placeholder: 'Trae aquí esa decisión específica y cómo la tomaste...',
-    hint: 'La diferencia entre reaccionar y elegir es donde nace el cambio.'
+    question: "¿Qué estarías dispuesta a soltar o a confrontar de ti misma para que esa transformación sea real y sostenible en el tiempo?",
+    hint: "El cambio sostenible siempre exige soltar algo. Identificar aquello es el primer acto de poder.",
   },
-  {
-    id: 4,
-    category: 'Compromiso',
-    icon: '🌿',
-    question: '¿Qué estás dispuesta a soltar, desaprender o confrontar sobre ti misma para que el cambio sea real y sostenible?',
-    placeholder: 'Nombra aquello que tendrías que dejar ir...',
-    hint: 'El cambio no exige hacer más. Exige soltar lo que ya no sirve.'
-  },
-  {
-    id: 5,
-    category: 'Acción',
-    icon: '🌸',
-    question: 'Si este espacio te ofrece la oportunidad de rediseñar tu observador y abrir futuros alternativos, ¿qué te impediría comprometerte hoy con ese proceso?',
-    placeholder: 'Reconoce honestamente tu barrera real...',
-    hint: 'Lo que se interpone rara vez es externo. Casi siempre es una conversación interna.'
-  }
 ]
 
+const WHATSAPP_NUMBER = "13217329993"
+
 export default function DiagnosticoPage() {
-  const [currentStep, setCurrentStep] = useState(0)
-  const [answers, setAnswers] = useState<string[]>(Array(5).fill(''))
-  const [submitted, setSubmitted] = useState(false)
+  const [messages, setMessages] = useState<Message[]>([
+    {
+      role: 'coach',
+      text: "Bienvenida a ReEmpoderate. Este es un espacio de indagación consciente.\n\nEscribe un mensaje inicial sobre lo que te trae aquí. Te acompañaré con tres preguntas, una a la vez.",
+    },
+  ])
+  const [input, setInput] = useState('')
+  const [step, setStep] = useState(0) // 0 = waiting for initial message, 1-3 = waiting for answer to question 1-3
+  const [isTyping, setIsTyping] = useState(false)
+  const [completed, setCompleted] = useState(false)
+  const messagesEndRef = useRef<HTMLDivElement>(null)
 
-  const handleNext = () => {
-    if (currentStep < 4) {
-      setCurrentStep(currentStep + 1)
-      window.scrollTo({ top: 0, behavior: 'smooth' })
+  useEffect(() => {
+    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' })
+  }, [messages, isTyping])
+
+  const buildWhatsAppMessage = (allMessages: Message[]) => {
+    let msg = "🌸 *Diagnóstico ReEmpoderate* 🌸\n\n"
+    msg += "Una persona ha completado su proceso de indagación inicial.\n\n"
+    msg += "--- *Mensaje inicial* ---\n"
+    const initialMsg = allMessages.find((m, i) => m.role === 'user' && i === 1)
+    if (initialMsg) msg += initialMsg.text + "\n\n"
+    
+    let qNum = 1
+    let userResponses: string[] = []
+    
+    for (let i = 2; i < allMessages.length; i++) {
+      const m = allMessages[i]
+      if (m.role === 'coach' && m.step) {
+        if (userResponses.length > 0) {
+          msg += `--- *Pregunta ${qNum}* ---\n`
+          msg += coachingQuestions[qNum - 1].question + "\n"
+          msg += `*Respuesta:* ${userResponses[userResponses.length - 1]}\n\n`
+          qNum++
+        }
+      }
+      if (m.role === 'user') {
+        userResponses.push(m.text)
+      }
+    }
+    
+    // Handle last response
+    if (userResponses.length >= 3) {
+      msg += `--- *Pregunta 3* ---\n`
+      msg += coachingQuestions[2].question + "\n"
+      msg += `*Respuesta:* ${userResponses[2]}\n\n`
+    }
+    
+    msg += "Esta persona está lista para una sesión de coaching ontológico."
+    return encodeURIComponent(msg)
+  }
+
+  const handleSend = () => {
+    if (!input.trim() || input.trim().length < 10) return
+
+    const userMsg: Message = { role: 'user', text: input.trim() }
+    const newMessages = [...messages, userMsg]
+    setMessages(newMessages)
+    setInput('')
+    setIsTyping(true)
+
+    // Determine next step
+    const currentStep = step
+
+    if (currentStep === 0) {
+      // User sent initial message → send question 1
+      setTimeout(() => {
+        setMessages(prev => [...prev, {
+          role: 'coach',
+          text: coachingQuestions[0].question + "\n\n_" + coachingQuestions[0].hint + "_",
+          step: 1,
+        }])
+        setIsTyping(false)
+        setStep(1)
+      }, 1800)
+    } else if (currentStep >= 1 && currentStep <= 2) {
+      // User answered question N → send question N+1
+      setTimeout(() => {
+        setMessages(prev => [...prev, {
+          role: 'coach',
+          text: coachingQuestions[currentStep].question + "\n\n_" + coachingQuestions[currentStep].hint + "_",
+          step: currentStep + 1,
+        }])
+        setIsTyping(false)
+        setStep(currentStep + 1)
+      }, 1800)
+    } else if (currentStep === 3) {
+      // User answered question 3 → completion
+      setTimeout(() => {
+        setMessages(prev => [...prev, {
+          role: 'coach',
+          text: "Gracias por tu honestidad y tu valentía al responder estas tres preguntas.\n\nLo que has escrito revela una disposición al cambio que vale la pena honrar.\n\nTe invito a dar el siguiente paso: una sesión de coaching ontológico donde podamos profundizar en lo que has compartido.\n\nToca el botón de abajo para conectar directamente con Mariela y agendar tu sesión.",
+        }])
+        setIsTyping(false)
+        setCompleted(true)
+      }, 2200)
     }
   }
 
-  const handlePrev = () => {
-    if (currentStep > 0) {
-      setCurrentStep(currentStep - 1)
-      window.scrollTo({ top: 0, behavior: 'smooth' })
-    }
-  }
-
-  const handleSubmit = () => {
-    setSubmitted(true)
-    
-    // Build WhatsApp message with all answers
-    const message = questions.map((q, i) => {
-      return `${q.icon} *Pregunta ${i + 1} — ${q.category}*\n\n${q.question}\n\n_R: ${answers[i] || 'Sin respuesta'}_`
-    }).join('\n\n━━━━━━━━━━━\n\n')
-
-    const waMessage = `Hola Mariela, completé el diagnóstico de ReEmpoderate. Estas son mis respuestas:\n\n${message}`
-    
-    // Open WhatsApp with the answers
-    window.open(
-      `https://wa.me/13217329993?text=${encodeURIComponent(waMessage)}`,
-      '_blank'
-    )
-  }
-
-  const canProceed = answers[currentStep]?.trim().length >= 20
-  const progress = ((currentStep + 1) / 5) * 100
-
-  if (submitted) {
-    return (
-      <div className="min-h-screen bg-gradient-to-br from-cream via-cream-light to-bloom/5 flex items-center justify-center px-6 pt-24 pb-16">
-        <div className="max-w-2xl mx-auto text-center">
-          <div className="flex justify-center mb-8">
-            <div className="text-6xl">🌸</div>
-          </div>
-          <h1 className="font-playfair text-3xl md:text-4xl text-ink font-bold mb-6">
-            Tu reflexión ya está en camino
-          </h1>
-          <p className="text-lg text-ink/70 leading-relaxed mb-8">
-            Hemos abierto WhatsApp con tus respuestas. Este primer ejercicio de observación es el inicio de un proceso profundo de transformación consciente.
-          </p>
-          <p className="text-base text-ink/60 italic mb-10">
-            "El cambio no comienza cuando actúas diferente. Comienza cuando te ves diferente."
-          </p>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Link
-              href="/"
-              className="bg-bloom-deep text-white px-8 py-4 rounded-2xl font-medium hover:bg-bloom transition shadow-lg shadow-bloom/25"
-            >
-              Volver al inicio
-            </Link>
-            <button
-              onClick={() => {
-                setSubmitted(false)
-                setCurrentStep(0)
-                setAnswers(Array(5).fill(''))
-              }}
-              className="border border-ink text-ink px-8 py-4 rounded-2xl font-medium hover:bg-ink/5 transition"
-            >
-              Reintentar el diagnóstico
-            </button>
-          </div>
-        </div>
-      </div>
-    )
-  }
-
-  const q = questions[currentStep]
+  const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${buildWhatsAppMessage(messages)}`
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-cream via-cream-light to-bloom/5 pt-24 pb-16">
-      <div className="max-w-3xl mx-auto px-6">
-        {/* Header */}
-        <div className="text-center mb-12">
-          <div className="flex justify-center mb-6">
-            <Image
-              src="/logo.png"
-              alt="ReEmpoderate"
-              width={120}
-              height={120}
-              className="w-24 h-24 object-contain drop-shadow-lg"
-            />
-          </div>
-          <h1 className="font-playfair text-3xl md:text-4xl text-ink font-bold mb-3">
-            Diagnóstico de Autotransformación
-          </h1>
-          <p className="text-ink/60 text-base max-w-xl mx-auto">
-            5 preguntas para observar tu observador. Responde con honestidad — no hay respuestas correctas, solo respuestas verdaderas.
-          </p>
-        </div>
-
-        {/* Progress bar */}
-        <div className="mb-10">
-          <div className="flex justify-between items-center mb-3">
-            <span className="text-sm text-ink/50 font-medium">
-              Pregunta {currentStep + 1} de 5
-            </span>
-            <span className="text-sm text-bloom-deep font-medium">
-              {Math.round(progress)}% completado
-            </span>
-          </div>
-          <div className="h-2 bg-cream-dark rounded-full overflow-hidden">
-            <div
-              className="h-full bg-gradient-to-r from-bloom to-bloom-deep rounded-full transition-all duration-500 ease-out"
-              style={{ width: `${progress}%` }}
-            />
-          </div>
-        </div>
-
-        {/* Question card */}
-        <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-8 md:p-12 shadow-lg shadow-bloom/5 border border-bloom/10">
-          {/* Category badge */}
-          <div className="flex items-center gap-3 mb-6">
-            <span className="text-3xl">{q.icon}</span>
-            <span className="inline-block bg-bloom/10 text-bloom-deep text-xs font-semibold tracking-wider uppercase px-4 py-2 rounded-full">
-              {q.category}
-            </span>
-          </div>
-
-          {/* Question */}
-          <h2 className="font-playfair text-xl md:text-2xl text-ink font-bold leading-relaxed mb-4">
-            {q.question}
-          </h2>
-
-          {/* Hint */}
-          <p className="text-sm text-bloom-deep/70 italic mb-6">
-            {q.hint}
-          </p>
-
-          {/* Textarea */}
-          <textarea
-            value={answers[currentStep]}
-            onChange={(e) => {
-              const newAnswers = [...answers]
-              newAnswers[currentStep] = e.target.value
-              setAnswers(newAnswers)
-            }}
-            placeholder={q.placeholder}
-            rows={5}
-            className="w-full bg-cream/50 border border-bloom/15 rounded-2xl p-5 text-ink text-base leading-relaxed focus:outline-none focus:border-bloom-deep focus:ring-2 focus:ring-bloom/20 transition resize-none placeholder:text-ink/30"
+    <section className="min-h-screen flex flex-col bg-gradient-to-br from-cream via-cream-light to-bloom/5 pt-20">
+      {/* Header */}
+      <div className="max-w-2xl mx-auto w-full px-6 py-6 text-center">
+        <Link href="/" className="inline-block">
+          <Image
+            src="/logo.png"
+            alt="ReEmpoderate"
+            width={80}
+            height={80}
+            className="w-16 h-16 object-contain mx-auto mb-3"
           />
-
-          {/* Character counter */}
-          <div className="text-right mt-2">
-            <span className={`text-xs ${canProceed ? 'text-mint' : 'text-ink/30'}`}>
-              {answers[currentStep]?.trim().length || 0} caracteres (mínimo 20)
-            </span>
-          </div>
-
-          {/* Step indicators */}
-          <div className="flex items-center justify-center gap-2 mt-8 mb-6">
-            {questions.map((_, i) => (
-              <div
-                key={i}
-                className={`w-2 h-2 rounded-full transition-all ${
-                  i === currentStep
-                    ? 'w-8 bg-bloom-deep'
-                    : i < currentStep
-                    ? 'bg-bloom'
-                    : 'bg-cream-dark'
-                }`}
-              />
-            ))}
-          </div>
-
-          {/* Navigation */}
-          <div className="flex items-center justify-between gap-4">
-            <button
-              onClick={handlePrev}
-              disabled={currentStep === 0}
-              className="text-ink/50 hover:text-ink disabled:opacity-30 disabled:cursor-not-allowed transition text-sm font-medium px-4 py-2"
-            >
-              ← Anterior
-            </button>
-
-            {currentStep < 4 ? (
-              <button
-                onClick={handleNext}
-                disabled={!canProceed}
-                className="bg-bloom-deep text-white px-8 py-3 rounded-2xl font-medium hover:bg-bloom transition disabled:opacity-40 disabled:cursor-not-allowed shadow-lg shadow-bloom/25"
-              >
-                Siguiente pregunta →
-              </button>
-            ) : (
-              <button
-                onClick={handleSubmit}
-                disabled={!canProceed}
-                className="bg-bloom-deep text-white px-8 py-3 rounded-2xl font-medium hover:bg-bloom transition disabled:opacity-40 disabled:cursor-not-allowed shadow-lg shadow-bloom/25 inline-flex items-center gap-2"
-              >
-                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-                </svg>
-                Enviar a Mariela
-              </button>
-            )}
-          </div>
-        </div>
-
-        {/* Footer note */}
-        <p className="text-center text-xs text-ink/40 mt-8 max-w-md mx-auto">
-          Al completar este diagnóstico, tus respuestas se enviarán directamente a Mariela vía WhatsApp para iniciar tu conversación de transformación.
+        </Link>
+        <h1 className="font-playfair text-2xl md:text-3xl text-ink font-bold mb-2">
+          Indagación Inicial
+        </h1>
+        <p className="text-sm text-ink/50">
+          Un espacio de reflexión consciente · 3 preguntas poderosas
         </p>
       </div>
-    </div>
+
+      {/* Chat container */}
+      <div className="flex-1 max-w-2xl mx-auto w-full px-4 pb-4 flex flex-col">
+        <div className="flex-1 bg-white/70 backdrop-blur-sm rounded-3xl border border-bloom/15 shadow-lg shadow-bloom/5 overflow-hidden flex flex-col" style={{ minHeight: '400px', maxHeight: '60vh' }}>
+          {/* Messages */}
+          <div className="flex-1 overflow-y-auto p-6 space-y-4">
+            {messages.map((msg, i) => (
+              <div key={i} className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}>
+                <div
+                  className={`max-w-[80%] rounded-2xl px-5 py-3 text-sm leading-relaxed whitespace-pre-line ${
+                    msg.role === 'user'
+                      ? 'bg-bloom-deep text-white rounded-br-md'
+                      : 'bg-cream-light text-ink rounded-bl-md border border-bloom/10'
+                  }`}
+                >
+                  {msg.text}
+                </div>
+              </div>
+            ))}
+            {isTyping && (
+              <div className="flex justify-start">
+                <div className="bg-cream-light rounded-2xl rounded-bl-md px-5 py-4 border border-bloom/10">
+                  <div className="flex gap-1.5">
+                    <span className="w-2 h-2 bg-bloom/40 rounded-full animate-bounce" style={{ animationDelay: '0ms' }}></span>
+                    <span className="w-2 h-2 bg-bloom/40 rounded-full animate-bounce" style={{ animationDelay: '150ms' }}></span>
+                    <span className="w-2 h-2 bg-bloom/40 rounded-full animate-bounce" style={{ animationDelay: '300ms' }}></span>
+                  </div>
+                </div>
+              </div>
+            )}
+            <div ref={messagesEndRef} />
+          </div>
+
+          {/* Input or CTA */}
+          <div className="border-t border-bloom/10 p-4">
+            {completed ? (
+              <a
+                href={whatsappUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full bg-[#25D366] text-white py-4 rounded-2xl font-medium hover:bg-[#1da851] transition flex items-center justify-center gap-3"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.001-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.001 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+                </svg>
+                Enviar a Mariela y agendar mi sesión
+              </a>
+            ) : (
+              <div className="flex gap-2">
+                <input
+                  type="text"
+                  value={input}
+                  onChange={(e) => setInput(e.target.value)}
+                  onKeyDown={(e) => { if (e.key === 'Enter') handleSend() }}
+                  placeholder={
+                    step === 0
+                      ? "Escribe tu mensaje inicial..."
+                      : "Tu respuesta..."
+                  }
+                  className="flex-1 bg-cream-light border border-bloom/15 rounded-2xl px-5 py-3 text-sm text-ink placeholder:text-ink/30 focus:outline-none focus:border-bloom/40 transition"
+                />
+                <button
+                  onClick={handleSend}
+                  disabled={!input.trim() || input.trim().length < 10 || isTyping}
+                  className="bg-bloom-deep text-white px-5 py-3 rounded-2xl font-medium hover:bg-bloom transition disabled:opacity-30 disabled:cursor-not-allowed"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M5 10l7-7m0 0l7 7m-7-7v18" transform="rotate(90 12 12)" />
+                  </svg>
+                </button>
+              </div>
+            )}
+          </div>
+
+          {/* Hint */}
+          {!completed && input.trim().length > 0 && input.trim().length < 10 && (
+            <p className="text-xs text-ink/30 px-4 pb-2">Escribe al menos 10 caracteres para enviar</p>
+          )}
+        </div>
+
+        {/* Progress indicator */}
+        <div className="flex items-center justify-center gap-2 mt-4">
+          {[0, 1, 2, 3].map((s) => (
+            <div
+              key={s}
+              className={`h-1.5 rounded-full transition-all duration-500 ${
+                step >= s ? 'bg-bloom-deep w-8' : 'bg-bloom/20 w-4'
+              }`}
+            />
+          ))}
+        </div>
+        <p className="text-center text-xs text-ink/40 mt-2">
+          {step === 0 ? 'Mensaje inicial' : step === 1 ? 'Pregunta 1 de 3' : step === 2 ? 'Pregunta 2 de 3' : step === 3 ? 'Pregunta 3 de 3' : 'Proceso completado'}
+        </p>
+
+        {/* Footer */}
+        <div className="text-center mt-6">
+          <Link href="/" className="text-xs text-ink/40 hover:text-ink/60 transition">
+            ← Volver al inicio
+          </Link>
+        </div>
+      </div>
+    </section>
   )
 }
