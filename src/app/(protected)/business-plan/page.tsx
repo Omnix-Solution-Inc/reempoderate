@@ -1,10 +1,25 @@
-import { getServerSession } from 'next-auth'
-import { authOptions } from '@/lib/auth/config'
-import { redirect } from 'next/navigation'
+'use client'
+import { useSession } from 'next-auth/react'
+import { useRouter } from 'next/navigation'
+import { useEffect } from 'react'
 
-export default async function BusinessPlanPage() {
-  const session = await getServerSession(authOptions)
-  if (!session) redirect('/auth/login')
+export default function BusinessPlanPage() {
+  const { data: session, status } = useSession()
+  const router = useRouter()
+
+  useEffect(() => {
+    if (status === 'unauthenticated') router.push('/auth/login')
+  }, [status, router])
+
+  if (status === 'loading') {
+    return (
+      <main className="min-h-screen bg-light-bg flex items-center justify-center">
+        <p className="text-gray-400">Cargando...</p>
+      </main>
+    )
+  }
+
+  if (!session) return null
 
   return (
     <main className="min-h-screen bg-light-bg p-8">
@@ -14,7 +29,6 @@ export default async function BusinessPlanPage() {
           Construye, edita y comparte tu modelo de negocio. Powered by Witmakers.
         </p>
 
-        {/* Business Model Canvas */}
         <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-8">
           <h2 className="font-playfair text-xl mb-6 text-primary">
             Business Model Canvas
