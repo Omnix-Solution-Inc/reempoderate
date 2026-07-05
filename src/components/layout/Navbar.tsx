@@ -1,7 +1,10 @@
 'use client'
 import { useState } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import { useSession, signIn, signOut } from 'next-auth/react'
+
+const LOGO_URL = "https://media.base44.com/images/public/whatsapp/6a066d4f6fb4352d1a5946c3/your_agent/6a066d4f6fb4352d1a5946c4/8b68f2560_REEMPODERATE_Logo.png"
 
 export function Navbar() {
   const { data: session } = useSession()
@@ -9,9 +12,9 @@ export function Navbar() {
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-cream-light/90 backdrop-blur-md border-b border-shamrock/10">
-      <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-        <Link href="/" className="flex items-center gap-2">
-          <span className="text-2xl">🌿</span>
+      <div className="max-w-7xl mx-auto px-6 py-3 flex items-center justify-between">
+        <Link href="/" className="flex items-center gap-3">
+          <Image src={LOGO_URL} alt="ReEmpoderate" width={44} height={44} className="rounded-full" />
           <span className="font-playfair text-xl text-shamrock font-bold">ReEmpoderate</span>
         </Link>
 
