@@ -1,22 +1,5 @@
 {
   "buildCommand": "npm run build",
   "outputDirectory": ".next",
-  "framework": "nextjs",
-  "env": {
-    "NEXT_PUBLIC_BASE44_APP_ID": "@base44_app_id",
-    "NEXT_PUBLIC_BASE44_API_URL": "@base44_api_url",
-    "NEXTAUTH_SECRET": "@nextauth_secret",
-    "GOOGLE_CLIENT_ID": "@google_client_id",
-    "GOOGLE_CLIENT_SECRET": "@google_client_secret",
-    "AZURE_AD_CLIENT_ID": "@azure_ad_client_id",
-    "AZURE_AD_CLIENT_SECRET": "@azure_ad_client_secret",
-    "AZURE_AD_TENANT_ID": "@azure_ad_tenant_id",
-    "GEMINI_API_KEY": "@gemini_api_key"
-  },
-  "rewrites": [
-    {
-      "source": "/api/:path*",
-      "destination": "/api/:path*"
-    }
-  ]
+  "framework": "nextjs"
 }
