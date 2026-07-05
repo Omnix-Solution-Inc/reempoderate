@@ -19,7 +19,7 @@ export function Navbar() {
           <a href="#metodo" className="text-sm text-gray-600 hover:text-shamrock transition">Método</a>
           <a href="#coaching" className="text-sm text-gray-600 hover:text-shamrock transition">Coaching</a>
           <a href="#talleres" className="text-sm text-gray-600 hover:text-shamrock transition">Talleres</a>
-          <a href="#filosofia" className="text-sm text-gray-600 hover:text-shamrock transition">Filosofía</a>
+          <a href="#bio" className="text-sm text-gray-600 hover:text-shamrock transition">Bio</a>
           {session ? (
             <>
               <Link href="/dashboard" className="text-sm text-shamrock font-medium hover:text-shamrock-dark transition">Mi Portal</Link>
@@ -44,7 +44,7 @@ export function Navbar() {
           <a href="#metodo" className="text-sm text-gray-600" onClick={() => setOpen(false)}>Método</a>
           <a href="#coaching" className="text-sm text-gray-600" onClick={() => setOpen(false)}>Coaching</a>
           <a href="#talleres" className="text-sm text-gray-600" onClick={() => setOpen(false)}>Talleres</a>
-          <a href="#filosofia" className="text-sm text-gray-600" onClick={() => setOpen(false)}>Filosofía</a>
+          <a href="#bio" className="text-sm text-gray-600" onClick={() => setOpen(false)}>Bio</a>
           {session ? (
             <Link href="/dashboard" className="text-sm text-shamrock font-medium" onClick={() => setOpen(false)}>Mi Portal</Link>
           ) : (
