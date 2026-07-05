@@ -2,21 +2,7 @@
 // Connects the Next.js frontend to Base44 backend functions
 
 const BASE44_API = process.env.NEXT_PUBLIC_BASE44_API_URL || 
-  'https://witmakers-1a5946c3.base44.app/functions'
-
-const ENTITIES_MAP: Record<string, string> = {
-  // ReEmpoderate entities
-  Client:       'tbwsystem',
-  CoachSession: 'tbwsystem',
-  BusinessPlan: 'tbwsystem',
-  LandingPage:  'tbwsystem',
-  // Bella Wildflower entities
-  TBWClient:    'tbwsystem',
-  TBWEvent:     'tbwsystem',
-  TBWProposal:  'tbwsystem',
-  TBWPayment:   'tbwsystem',
-  TBWRecipe:    'tbwsystem',
-}
+  "https://witmakers-1a5946c3.base44.app/functions"
 
 async function request(
   method: string,
@@ -25,14 +11,13 @@ async function request(
   body?: object,
   token?: string
 ) {
-  const fn = ENTITIES_MAP[entity] || 'tbwsystem'
-  let url = `${BASE44_API}/${fn}?e=${entity}`
+  let url = `${BASE44_API}/tbwsystem?e=${entity}`
   if (id) url += `&id=${id}`
 
   const headers: Record<string, string> = {
-    'Content-Type': 'application/json',
+    "Content-Type": "application/json",
   }
-  if (token) headers['Authorization'] = `Bearer ${token}`
+  if (token) headers["Authorization"] = `Bearer ${token}`
 
   const res = await fetch(url, {
     method,
@@ -41,7 +26,7 @@ async function request(
   })
 
   if (!res.ok) {
-    const err = await res.json().catch(() => ({ error: 'Unknown error' }))
+    const err = await res.json().catch(() => ({ error: "Unknown error" }))
     throw new Error(err.error || `HTTP ${res.status}`)
   }
 
@@ -50,11 +35,11 @@ async function request(
 
 export const base44 = {
   entity: (name: string) => ({
-    list: (token?: string) => request('GET', name, undefined, undefined, token),
-    get: (id: string, token?: string) => request('GET', name, id, undefined, token),
-    create: (data: object, token?: string) => request('POST', name, undefined, data, token),
-    update: (id: string, data: object, token?: string) => request('PUT', name, id, data, token),
-    delete: (id: string, token?: string) => request('DELETE', name, id, undefined, token),
+    list: (token?: string) => request("GET", name, undefined, undefined, token),
+    get: (id: string, token?: string) => request("GET", name, id, undefined, token),
+    create: (data: object, token?: string) => request("POST", name, undefined, data, token),
+    update: (id: string, data: object, token?: string) => request("PUT", name, id, data, token),
+    delete: (id: string, token?: string) => request("DELETE", name, id, undefined, token),
   }),
 }
 
