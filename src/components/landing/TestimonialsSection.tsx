@@ -26,10 +26,10 @@ export function TestimonialsSection() {
           </div>
           <div className="text-center">
             <div className="aspect-square rounded-full bg-gradient-to-br from-shamrock/15 to-terracotta/15 flex items-center justify-center mb-4 mx-auto max-w-[180px]">
-              <span className="text-5xl">🌎</span>
+              <span className="text-5xl">🌟</span>
             </div>
-            <p className="font-playfair text-sm text-shamrock">Mujer Migrante</p>
-            <p className="text-xs text-gray-400">Madre de cuatro</p>
+            <p className="font-playfair text-sm text-shamrock">Madre de Cuatro</p>
+            <p className="text-xs text-gray-400">Fundadora</p>
           </div>
         </div>
 
@@ -38,7 +38,7 @@ export function TestimonialsSection() {
             Mi nombre es <span className="font-semibold text-shamrock">Mariela Barbetti</span> y mi propósito es acompañar en la construcción de nuevas realidades desde el autoconocimiento y la exploración de la individualidad interna.
           </p>
           <p>
-            Como madre de cuatro y mujer migrante en los Estados Unidos, he atravesado procesos personales que me han enseñado que la verdadera competencia nace del autodescubrimiento.
+            Como madre de cuatro, he atravesado procesos personales que me han enseñado que la verdadera competencia nace del autodescubrimiento.
           </p>
           <p>
             Como Coach Ontológica y Profesional, miembro activo de la <span className="font-semibold text-shamrock">Federación Internacional de Coaching (ICF)</span>, he acompañado a mujeres a tomar el control de sus vidas.
