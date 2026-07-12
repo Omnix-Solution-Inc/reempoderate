@@ -8,7 +8,7 @@ export function ServicesSection() {
             La Tríada de la Coherencia Sistémica
           </h2>
           <p className="text-gray-600 max-w-2xl mx-auto mt-6 text-lg">
-            Nos apoyamos en el rigor de la estructura de Coherencia para abordar cada espacio de tu vida de manera integral, profunda y sistemática.
+            
           </p>
         </div>
 
