@@ -9,7 +9,7 @@ export function CoachingPreview() {
               Un proceso reflexivo y transformacional
             </h2>
             <p className="text-gray-600 text-lg leading-relaxed mb-8">
-              Acompañamos bajo estándares ICF mediante sesiones no directivas, honrando la autonomía absoluta del ser y facilitando que las respuestas emerjan desde tu propia individualidad.
+              Acompañamos bajo estándares ICF mediante sesiones no directivas, facilitando que las respuestas emerjan desde tu propia individualidad.
             </p>
 
             <div className="space-y-3 mb-8">
@@ -42,7 +42,7 @@ export function CoachingPreview() {
               <p className="font-playfair text-xl text-ink italic text-center leading-snug mt-4">
                 "El observador que eres determina el mundo que habitas"
               </p>
-              <p className="text-sm text-gray-400 mt-2 text-center">Autonomía absoluta del ser</p>
+              
             </div>
           </div>
         </div>
