@@ -8,7 +8,7 @@ export function Footer() {
               <img src="/logo.png" alt="ReEmpoderate" className="h-14 w-14 rounded-full object-cover" />
               <div>
                 <p className="font-playfair text-lg text-cream font-bold">ReEmpoderate</p>
-                <p className="text-xs text-cream/60 italic">Tu Poder, Tu Vida</p>
+                <p className="text-xs text-cream/60 italic">Tu Decisión, Tu Vida</p>
               </div>
             </div>
             <p className="text-sm text-cream/60 leading-relaxed">
