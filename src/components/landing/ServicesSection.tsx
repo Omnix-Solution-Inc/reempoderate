@@ -13,7 +13,7 @@ export function ServicesSection() {
           {/* SER */}
           <div className="bg-white rounded-xl p-8 border-b-4 border-shamrock shadow-sm">
             <div className="flex items-center justify-center w-full h-28 mb-4">
-              <img src="/observador_icon.png" alt="Ser" className="w-full h-full object-contain" />
+              <img src="/infinito.png" alt="Ser" className="w-full h-full object-contain" />
             </div>
             <h3 className="font-playfair text-2xl text-shamrock mb-3">El SER<br/><span className="text-base text-gray-500 font-normal">El Observador</span></h3>
             <p className="text-gray-600 text-sm leading-relaxed">
