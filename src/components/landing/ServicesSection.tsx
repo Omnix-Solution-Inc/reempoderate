@@ -14,7 +14,7 @@ export function ServicesSection() {
             <div className="text-4xl mb-4">🌱</div>
             <h3 className="font-playfair text-2xl text-shamrock mb-3">El SER<br/><span className="text-base text-gray-500 font-normal">El Observador</span></h3>
             <p className="text-gray-600 text-sm leading-relaxed">
-              Cultivamos la mirada interna. <em>¿Quién estoy siendo mientras transito este proceso?</em> Ordenamos tu mundo interno para abrir nuevas posibilidades.
+              Cultivamos la mirada interna. <em>¿Quién estoy siendo ante lo que me está ocurriendo?</em> Ordenamos tu mundo interno para abrir nuevas posibilidades.
             </p>
           </div>
 
