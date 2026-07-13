@@ -12,7 +12,7 @@ export function ServicesSection() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* SER */}
           <div className="bg-white rounded-xl p-8 border-b-4 border-shamrock shadow-sm">
-            <div className="flex items-center justify-center w-20 h-20 mb-4">
+            <div className="flex items-center justify-center w-full h-28 mb-4">
               <img src="/infinito.png" alt="Ser" className="w-full h-full object-contain" />
             </div>
             <h3 className="font-playfair text-2xl text-shamrock mb-3">El SER<br/><span className="text-base text-gray-500 font-normal">El Observador</span></h3>
@@ -23,18 +23,18 @@ export function ServicesSection() {
 
           {/* HACER */}
           <div className="bg-white rounded-xl p-8 border-b-4 border-terracotta shadow-sm">
-            <div className="flex items-center justify-center w-20 h-20 mb-4">
+            <div className="flex items-center justify-center w-full h-28 mb-4">
               <img src="/hacer_icon.png" alt="Hacer" className="w-full h-full object-contain" />
             </div>
             <h3 className="font-playfair text-2xl text-shamrock mb-3">El HACER<br/><span className="text-base text-gray-500 font-normal">La Acción</span></h3>
             <p className="text-gray-600 text-sm leading-relaxed">
-              El cliente determina qué acciones tomar en relación a lo que le sucede. Conversaciones generativas y creatividad manual como puente hacia sus propios objetivos.
+              Tú determinas qué acciones tomar en relación a lo que te sucede. Conversaciones generativas y creatividad manual como puente hacia tus propios objetivos.
             </p>
           </div>
 
           {/* TENER */}
           <div className="bg-white rounded-xl p-8 border-b-4 border-shamrock shadow-sm">
-            <div className="flex items-center justify-center w-20 h-20 mb-4">
+            <div className="flex items-center justify-center w-full h-28 mb-4">
               <img src="/tener_icon.png" alt="Tener" className="w-full h-full object-contain" />
             </div>
             <h3 className="font-playfair text-2xl text-shamrock mb-3">El TENER<br/><span className="text-base text-gray-500 font-normal">El Resultado</span></h3>
