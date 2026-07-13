@@ -2,11 +2,20 @@ export function ServicesSection() {
   return (
     <section id="metodo" className="py-24 bg-cream-light">
       <div className="max-w-5xl mx-auto px-6">
-        <div className="text-center mb-16">
+        <div className="text-center mb-10">
           <p className="text-terracotta italic text-lg mb-3">Metodología de cambio</p>
           <h2 className="font-playfair text-3xl md:text-4xl text-shamrock font-bold">
             La Tríada de la Coherencia Sistémica
           </h2>
+        </div>
+
+        {/* Símbolo del infinito centrado */}
+        <div className="flex justify-center mb-10">
+          <img
+            src="/infinito.png"
+            alt="Ciclo Ser Hacer Tener"
+            className="w-full max-w-lg opacity-90"
+          />
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
