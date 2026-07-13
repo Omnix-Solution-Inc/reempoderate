@@ -33,18 +33,12 @@ export function TestimonialsSection() {
           </div>
         </div>
 
-        <div className="space-y-6 text-gray-600 text-lg leading-relaxed max-w-3xl mx-auto">
+        <div className="space-y-5 text-gray-600 text-lg leading-relaxed max-w-3xl mx-auto">
           <p>
-            Mi nombre es <span className="font-semibold text-shamrock">Mariela Barbetti</span> y mi propósito es acompañar en la construcción de nuevas realidades desde el autoconocimiento y la exploración de la individualidad interna.
+            Mi nombre es <span className="font-semibold text-shamrock">Mariela Barbetti</span>. Acompañe la construcción de nuevas realidades desde el autoconocimiento y la exploración de la individualidad interna.
           </p>
           <p>
-            Como madre de cuatro, he atravesado procesos personales que me han enseñado que la verdadera competencia nace del autodescubrimiento.
-          </p>
-          <p>
-            Como Coach Ontológica y Profesional, miembro activo de la <span className="font-semibold text-shamrock">Federación Internacional de Coaching (ICF)</span>, he acompañado a mujeres a tomar el control de sus vidas.
-          </p>
-          <p>
-            Creé <span className="font-semibold text-terracotta">Alquimia Floral</span> como un laboratorio creativo y manual donde fusiono mi experiencia como florista desde 2015. Aquí, cada persona crea con sus manos para escucharse, recordando quién es más allá de sus heridas y sus roles.
+            Como Coach Ontológica y Profesional, miembro activo de la <span className="font-semibold text-shamrock">Federación Internacional de Coaching (ICF)</span>, he acompañado a mujeres a tomar el control de sus vidas. Creé <span className="font-semibold text-terracotta">Alquimia Floral</span> fusionando más de una década de experiencia como florista con el trabajo emocional y creativo.
           </p>
         </div>
 
@@ -54,11 +48,8 @@ export function TestimonialsSection() {
             <p className="font-playfair text-xl text-shamrock italic">¿Qué tipo de pensamientos tengo?</p>
             <p className="font-playfair text-xl text-shamrock italic">¿Me limitan o crean posibilidades?</p>
           </div>
-        </div>
-
-        <div className="mt-10 text-center max-w-3xl mx-auto">
-          <p className="text-gray-600 text-lg leading-relaxed">
-            ReEmpoderate nace como una iniciativa con el propósito de acompañar a quienes han decidido rediseñar su futuro, utilizando la conversación como puente hacia esa autotransformación.
+          <p className="text-gray-500 text-base max-w-2xl mx-auto">
+            ReEmpoderate acompaña a quienes han decidido rediseñar su futuro, utilizando la conversación como puente hacia la autotransformación.
           </p>
         </div>
       </div>
