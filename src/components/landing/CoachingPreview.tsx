@@ -35,7 +35,7 @@ export function CoachingPreview() {
           <div className="relative">
             <div className="aspect-square rounded-3xl bg-gradient-to-br from-bloom/10 to-gold/10 flex items-center justify-center p-12">
               <div className="text-center">
-                <div className="text-6xl mb-4">🧭</div>
+                <div className="mb-4 flex justify-center"><img src="/observador_icon.png" alt="El Observador" className="w-48 h-auto object-contain" /></div>
                 <p className="font-playfair text-xl text-ink italic">
                   "El observador que eres determina el mundo que habitas"
                 </p>
