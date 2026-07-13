@@ -30,7 +30,7 @@ export function Footer() {
             <p className="font-playfair text-sm text-cream mb-4 uppercase tracking-wider">Contacto</p>
             <ul className="space-y-2 text-sm text-cream/60">
               <li>📍 Estados Unidos</li>
-              <li><a href="mailto:marielabarbettio@gmail.com" className="hover:text-bloom transition">✉️ marielabarbettio@gmail.com</a></li>
+              <li><a href="mailto:marielabarbettio@gmail.com" className="text-bloom underline hover:text-bloom-deep transition cursor-pointer">✉️ marielabarbettio@gmail.com</a></li>
               <li>🌿 ICF Member</li>
             </ul>
           </div>
