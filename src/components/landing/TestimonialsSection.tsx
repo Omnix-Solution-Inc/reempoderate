@@ -35,7 +35,7 @@ export function TestimonialsSection() {
 
         <div className="space-y-5 text-gray-600 text-lg leading-relaxed max-w-3xl mx-auto">
           <p>
-            Mi nombre es <span className="font-semibold text-shamrock">Mariela Barbetti</span>. Acompañe la construcción de nuevas realidades desde el autoconocimiento y la exploración de la individualidad interna.
+            Mi nombre es <span className="font-semibold text-shamrock">Mariela Barbetti</span>. Acompaño la construcción de nuevas realidades desde el autoconocimiento y la exploración de la individualidad interna.
           </p>
           <p>
             Como Coach Ontológica y Profesional, miembro activo de la <span className="font-semibold text-shamrock">Federación Internacional de Coaching (ICF)</span>, he acompañado a mujeres a tomar el control de sus vidas. Creé <span className="font-semibold text-terracotta">Alquimia Floral</span> fusionando más de una década de experiencia como florista con el trabajo emocional y creativo.
