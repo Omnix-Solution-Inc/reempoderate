@@ -5,7 +5,6 @@ import { HeroSection } from '@/components/landing/HeroSection'
 import { ServicesSection } from '@/components/landing/ServicesSection'
 import { CoachingPreview } from '@/components/landing/CoachingPreview'
 import { GalleryPreview } from '@/components/landing/GalleryPreview'
-import { TestimonialsSection } from '@/components/landing/TestimonialsSection'
 import { CTASection } from '@/components/landing/CTASection'
 import { Footer } from '@/components/layout/Footer'
 import { Navbar } from '@/components/layout/Navbar'
@@ -18,7 +17,6 @@ export default function HomePage() {
       <ServicesSection />
       <CoachingPreview />
       <GalleryPreview />
-      <TestimonialsSection />
       <CTASection />
       <Footer />
     </main>
