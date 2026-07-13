@@ -3,7 +3,7 @@ export function ServicesSection() {
     <section id="metodo" className="py-24 bg-cream-light">
       <div className="max-w-5xl mx-auto px-6">
         <div className="text-center mb-16">
-          <p className="text-terracotta italic text-lg mb-3">Metodología de cambio · Modelo OSAR</p>
+          <p className="text-terracotta italic text-lg mb-3">Metodología de cambio</p>
           <h2 className="font-playfair text-3xl md:text-4xl text-shamrock font-bold">
             La Tríada de la Coherencia Sistémica
           </h2>
