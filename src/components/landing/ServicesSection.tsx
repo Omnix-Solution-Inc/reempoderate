@@ -31,7 +31,7 @@ export function ServicesSection() {
           </div>
 
           <div className="bg-white rounded-xl p-8 border-b-4 border-shamrock shadow-sm">
-            <div className="text-4xl mb-4">🌸</div>
+            <div className="mb-4"><img src="/tener_icon.png" alt="Tener" className="w-16 h-16 object-contain" /></div>
             <h3 className="font-playfair text-2xl text-shamrock mb-3">El TENER<br/><span className="text-base text-gray-500 font-normal">El Resultado</span></h3>
             <p className="text-gray-600 text-sm leading-relaxed">
               Resultados sostenibles en el tiempo. Cuando mente, cuerpo y emoción se alinean en un mismo propósito, el cambio es consecuencia natural.
