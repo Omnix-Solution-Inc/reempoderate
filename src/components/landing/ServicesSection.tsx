@@ -22,7 +22,7 @@ export function ServicesSection() {
             <div className="text-4xl mb-4">✨</div>
             <h3 className="font-playfair text-2xl text-shamrock mb-3">El HACER<br/><span className="text-base text-gray-500 font-normal">La Acción</span></h3>
             <p className="text-gray-600 text-sm leading-relaxed">
-              Diseñamos y ejecutamos acciones coherentes y conscientes. Conversaciones generativas y creatividad manual como puente hacia tus objetivos.
+              El cliente determina qué acciones tomar en relación a lo que le sucede. Conversaciones generativas y creatividad manual como puente hacia sus propios objetivos.
             </p>
           </div>
 
