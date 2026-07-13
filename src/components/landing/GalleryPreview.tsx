@@ -4,13 +4,14 @@ export function GalleryPreview() {
       <div className="max-w-5xl mx-auto px-6">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
 
-          {/* Imagen floristas - ocupa todo el recuadro */}
+          {/* Imagen floristas - grande y llena el recuadro */}
           <div className="relative order-2 md:order-1">
-            <div className="aspect-square rounded-3xl bg-gradient-to-br from-terracotta/10 to-shamrock/10 overflow-hidden flex items-end justify-center">
+            <div className="rounded-3xl bg-gradient-to-br from-terracotta/10 to-shamrock/10 overflow-hidden flex items-end justify-center min-h-[420px]">
               <img
                 src="/flores_taller.png"
                 alt="Alquimia Floral"
                 className="w-full object-contain object-bottom"
+                style={{ maxHeight: '480px' }}
               />
             </div>
           </div>
@@ -20,8 +21,8 @@ export function GalleryPreview() {
             <h2 className="font-playfair text-3xl md:text-4xl text-shamrock font-bold mb-6">
               La materia noble de la flor
             </h2>
-            <p className="text-gray-600 text-lg leading-relaxed mb-4">
-              <em>"La materia noble de la flor como espejo de tu esencia"</em>
+            <p className="text-gray-600 text-lg leading-relaxed mb-4 italic font-playfair">
+              "La materia noble de la flor como espejo de tu esencia"
             </p>
             <p className="text-gray-600 text-lg leading-relaxed mb-8">
               Creas con tus propias manos usando la flor como espejo para escucharte, procesar emociones y recordar quién eres más allá de tus roles. Más de una década de experiencia en el sector floral.
