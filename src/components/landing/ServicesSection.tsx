@@ -2,25 +2,18 @@ export function ServicesSection() {
   return (
     <section id="metodo" className="py-24 bg-cream-light">
       <div className="max-w-5xl mx-auto px-6">
-        <div className="text-center mb-10">
+        <div className="text-center mb-16">
           <p className="text-terracotta italic text-lg mb-3">Metodología de cambio</p>
           <h2 className="font-playfair text-3xl md:text-4xl text-shamrock font-bold">
             La Tríada de la Coherencia Sistémica
           </h2>
         </div>
 
-        {/* Símbolo del infinito centrado */}
-        <div className="flex justify-center mb-10">
-          <img
-            src="/infinito.png"
-            alt="Ciclo Ser Hacer Tener"
-            className="w-full max-w-lg opacity-90"
-          />
-        </div>
-
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div className="bg-white rounded-xl p-8 border-b-4 border-shamrock shadow-sm">
-            <div className="text-4xl mb-4">🌱</div>
+            <div className="mb-4">
+              <img src="/infinito.png" alt="Ser" className="w-20 h-auto object-contain" />
+            </div>
             <h3 className="font-playfair text-2xl text-shamrock mb-3">El SER<br/><span className="text-base text-gray-500 font-normal">El Observador</span></h3>
             <p className="text-gray-600 text-sm leading-relaxed">
               Somos el espejo donde te miras para descubrir tu propia realidad. <em>¿Quién elijo ser ante lo que estoy viviendo?</em> Te acompañamos mediante conversaciones a abrir nuevas posibilidades.
@@ -28,7 +21,9 @@ export function ServicesSection() {
           </div>
 
           <div className="bg-white rounded-xl p-8 border-b-4 border-terracotta shadow-sm">
-            <div className="mb-4"><img src="/hacer_icon.png" alt="Hacer" className="w-16 h-16 object-contain" /></div>
+            <div className="mb-4">
+              <img src="/hacer_icon.png" alt="Hacer" className="w-16 h-16 object-contain" />
+            </div>
             <h3 className="font-playfair text-2xl text-shamrock mb-3">El HACER<br/><span className="text-base text-gray-500 font-normal">La Acción</span></h3>
             <p className="text-gray-600 text-sm leading-relaxed">
               El cliente determina qué acciones tomar en relación a lo que le sucede. Conversaciones generativas y creatividad manual como puente hacia sus propios objetivos.
