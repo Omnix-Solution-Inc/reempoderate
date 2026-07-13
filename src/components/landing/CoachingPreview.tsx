@@ -33,14 +33,18 @@ export function CoachingPreview() {
           </div>
 
           <div className="relative">
-            <div className="aspect-square rounded-3xl bg-gradient-to-br from-bloom/10 to-gold/10 flex items-center justify-center p-12">
-              <div className="text-center">
-                <div className="mb-4 flex justify-center"><img src="/observador_icon.png" alt="El Observador" className="w-48 h-auto object-contain" /></div>
-                <p className="font-playfair text-xl text-ink italic">
-                  "El observador que eres determina el mundo que habitas"
-                </p>
-                <p className="text-sm text-gray-400 mt-3">Autonomía absoluta del ser</p>
+            <div className="aspect-square rounded-3xl bg-gradient-to-br from-bloom/10 to-gold/10 flex flex-col items-center justify-center p-8 overflow-hidden">
+              <div className="w-full flex items-center justify-center mb-6">
+                <img
+                  src="/observador_icon.png"
+                  alt="El Observador"
+                  className="w-full max-w-xs object-contain drop-shadow-lg"
+                />
               </div>
+              <p className="font-playfair text-xl text-ink italic text-center leading-snug">
+                "El observador que eres determina el mundo que habitas"
+              </p>
+              <p className="text-sm text-gray-400 mt-3 text-center">Autonomía absoluta del ser</p>
             </div>
           </div>
         </div>
