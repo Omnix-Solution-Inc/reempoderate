@@ -10,9 +10,10 @@ export function ServicesSection() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {/* SER */}
           <div className="bg-white rounded-xl p-8 border-b-4 border-shamrock shadow-sm">
-            <div className="mb-4">
-              <img src="/infinito.png" alt="Ser" className="w-20 h-auto object-contain" />
+            <div className="flex items-center justify-center w-20 h-20 mb-4">
+              <img src="/infinito.png" alt="Ser" className="w-full h-full object-contain" />
             </div>
             <h3 className="font-playfair text-2xl text-shamrock mb-3">El SER<br/><span className="text-base text-gray-500 font-normal">El Observador</span></h3>
             <p className="text-gray-600 text-sm leading-relaxed">
@@ -20,9 +21,10 @@ export function ServicesSection() {
             </p>
           </div>
 
+          {/* HACER */}
           <div className="bg-white rounded-xl p-8 border-b-4 border-terracotta shadow-sm">
-            <div className="mb-4">
-              <img src="/hacer_icon.png" alt="Hacer" className="w-16 h-16 object-contain" />
+            <div className="flex items-center justify-center w-20 h-20 mb-4">
+              <img src="/hacer_icon.png" alt="Hacer" className="w-full h-full object-contain" />
             </div>
             <h3 className="font-playfair text-2xl text-shamrock mb-3">El HACER<br/><span className="text-base text-gray-500 font-normal">La Acción</span></h3>
             <p className="text-gray-600 text-sm leading-relaxed">
@@ -30,8 +32,11 @@ export function ServicesSection() {
             </p>
           </div>
 
+          {/* TENER */}
           <div className="bg-white rounded-xl p-8 border-b-4 border-shamrock shadow-sm">
-            <div className="mb-4"><img src="/tener_icon.png" alt="Tener" className="w-16 h-16 object-contain" /></div>
+            <div className="flex items-center justify-center w-20 h-20 mb-4">
+              <img src="/tener_icon.png" alt="Tener" className="w-full h-full object-contain" />
+            </div>
             <h3 className="font-playfair text-2xl text-shamrock mb-3">El TENER<br/><span className="text-base text-gray-500 font-normal">El Resultado</span></h3>
             <p className="text-gray-600 text-sm leading-relaxed">
               Resultados sostenibles en el tiempo. Cuando mente, cuerpo y emoción se alinean en un mismo propósito, el cambio es consecuencia natural.
