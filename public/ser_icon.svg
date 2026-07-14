@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="none">
+  <!-- Figura izquierda (mirando a la derecha) -->
+  <!-- Cabeza -->
+  <circle cx="62" cy="45" r="14" stroke="#D17BA8" stroke-width="5" fill="none"/>
+  <!-- Cuerpo -->
+  <path d="M62 59 C62 59 55 75 53 95 C51 110 54 125 54 125" stroke="#D17BA8" stroke-width="5" stroke-linecap="round" fill="none"/>
+  <!-- Piernas -->
+  <path d="M54 125 C52 140 50 155 48 165" stroke="#D17BA8" stroke-width="5" stroke-linecap="round" fill="none"/>
+  <path d="M54 125 C56 140 58 155 60 165" stroke="#D17BA8" stroke-width="5" stroke-linecap="round" fill="none"/>
+  <!-- Brazos -->
+  <path d="M58 75 C50 85 45 90 40 92" stroke="#D17BA8" stroke-width="5" stroke-linecap="round" fill="none"/>
+  <path d="M60 78 C65 88 70 92 75 93" stroke="#D17BA8" stroke-width="5" stroke-linecap="round" fill="none"/>
+  <!-- Pelo largo -->
+  <path d="M50 38 C44 30 43 18 50 12 C55 8 70 8 74 18 C78 28 76 40 70 46" stroke="#D17BA8" stroke-width="4" stroke-linecap="round" fill="none"/>
+  <path d="M50 38 C46 50 46 65 48 75" stroke="#D17BA8" stroke-width="3" stroke-linecap="round" fill="none"/>
+  <!-- Burbuja de diálogo con ! -->
+  <rect x="68" y="12" width="28" height="22" rx="6" stroke="#D17BA8" stroke-width="4" fill="none"/>
+  <path d="M75 34 L70 42" stroke="#D17BA8" stroke-width="3" stroke-linecap="round" fill="none"/>
+  <!-- Signo ! -->
+  <line x1="82" y1="17" x2="82" y2="27" stroke="#D17BA8" stroke-width="4" stroke-linecap="round"/>
+  <circle cx="82" cy="31" r="2" fill="#D17BA8"/>
+
+  <!-- Figura derecha (mirando a la izquierda) -->
+  <!-- Cabeza -->
+  <circle cx="138" cy="45" r="14" stroke="#D17BA8" stroke-width="5" fill="none"/>
+  <!-- Cuerpo -->
+  <path d="M138 59 C138 59 145 75 147 95 C149 110 146 125 146 125" stroke="#D17BA8" stroke-width="5" stroke-linecap="round" fill="none"/>
+  <!-- Piernas -->
+  <path d="M146 125 C148 140 150 155 152 165" stroke="#D17BA8" stroke-width="5" stroke-linecap="round" fill="none"/>
+  <path d="M146 125 C144 140 142 155 140 165" stroke="#D17BA8" stroke-width="5" stroke-linecap="round" fill="none"/>
+  <!-- Brazos -->
+  <path d="M142 75 C150 85 155 90 160 92" stroke="#D17BA8" stroke-width="5" stroke-linecap="round" fill="none"/>
+  <path d="M140 78 C135 88 130 92 125 93" stroke="#D17BA8" stroke-width="5" stroke-linecap="round" fill="none"/>
+  <!-- Pelo largo -->
+  <path d="M150 38 C156 30 157 18 150 12 C145 8 130 8 126 18 C122 28 124 40 130 46" stroke="#D17BA8" stroke-width="4" stroke-linecap="round" fill="none"/>
+  <path d="M150 38 C154 50 154 65 152 75" stroke="#D17BA8" stroke-width="3" stroke-linecap="round" fill="none"/>
+  <!-- Burbuja de diálogo con ? -->
+  <rect x="104" y="12" width="28" height="22" rx="6" stroke="#D17BA8" stroke-width="4" fill="none"/>
+  <path d="M125 34 L130 42" stroke="#D17BA8" stroke-width="3" stroke-linecap="round" fill="none"/>
+  <!-- Signo ? -->
+  <path d="M114 17 C114 14 117 12 120 12 C123 12 126 14 126 17 C126 20 122 21 120 24" stroke="#D17BA8" stroke-width="4" stroke-linecap="round" fill="none"/>
+  <circle cx="120" cy="31" r="2" fill="#D17BA8"/>
+</svg>
