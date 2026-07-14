@@ -1,57 +1,31 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 220" fill="none">
-
-  <!-- FIGURA IZQUIERDA -->
-  <!-- Pelo largo ondulado -->
-  <path d="M52 28 C44 20 40 10 48 4 C54 0 70 0 76 8 C80 14 80 24 76 32 C74 40 72 55 74 80 C75 90 73 105 70 115" stroke="#D17BA8" stroke-width="4.5" stroke-linecap="round" fill="none"/>
-  <path d="M48 4 C42 12 40 26 44 40 C46 50 46 70 48 90" stroke="#D17BA8" stroke-width="3.5" stroke-linecap="round" fill="none"/>
-  <!-- Cabeza ovalada femenina -->
-  <ellipse cx="62" cy="32" rx="16" ry="19" stroke="#D17BA8" stroke-width="4.5" fill="none"/>
-  <!-- Cuello -->
-  <path d="M58 50 L58 58 M66 50 L66 58" stroke="#D17BA8" stroke-width="4" stroke-linecap="round" fill="none"/>
-  <!-- Hombros y torso femenino -->
-  <path d="M42 62 C48 58 56 56 62 56 C68 56 76 58 82 62" stroke="#D17BA8" stroke-width="4.5" stroke-linecap="round" fill="none"/>
-  <path d="M44 64 C42 80 40 96 42 112 C43 118 48 122 54 124 C58 125 66 125 70 124 C76 122 81 118 82 112 C84 96 82 80 80 64" stroke="#D17BA8" stroke-width="4.5" stroke-linecap="round" fill="none"/>
-  <!-- Cintura marcada -->
-  <path d="M46 95 C50 92 58 90 62 90 C66 90 74 92 78 95" stroke="#D17BA8" stroke-width="3" stroke-linecap="round" fill="none"/>
-  <!-- Brazos -->
-  <path d="M44 68 C36 78 30 90 28 100" stroke="#D17BA8" stroke-width="4" stroke-linecap="round" fill="none"/>
-  <path d="M80 68 C88 76 92 86 90 96" stroke="#D17BA8" stroke-width="4" stroke-linecap="round" fill="none"/>
-  <!-- Falda/vestido -->
-  <path d="M42 122 C38 138 36 155 38 170" stroke="#D17BA8" stroke-width="4.5" stroke-linecap="round" fill="none"/>
-  <path d="M82 122 C86 138 88 155 86 170" stroke="#D17BA8" stroke-width="4.5" stroke-linecap="round" fill="none"/>
-  <path d="M38 170 C44 175 56 177 62 177 C68 177 80 175 86 170" stroke="#D17BA8" stroke-width="4" stroke-linecap="round" fill="none"/>
-
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="none">
+  <!-- Figura izquierda (mirando a la derecha) -->
+  <circle cx="62" cy="45" r="14" stroke="#D17BA8" stroke-width="5" fill="none"/>
+  <path d="M62 59 C62 59 55 75 53 95 C51 110 54 125 54 125" stroke="#D17BA8" stroke-width="5" stroke-linecap="round" fill="none"/>
+  <path d="M54 125 C52 140 50 155 48 165" stroke="#D17BA8" stroke-width="5" stroke-linecap="round" fill="none"/>
+  <path d="M54 125 C56 140 58 155 60 165" stroke="#D17BA8" stroke-width="5" stroke-linecap="round" fill="none"/>
+  <path d="M58 75 C50 85 45 90 40 92" stroke="#D17BA8" stroke-width="5" stroke-linecap="round" fill="none"/>
+  <path d="M60 78 C65 88 70 92 75 93" stroke="#D17BA8" stroke-width="5" stroke-linecap="round" fill="none"/>
+  <path d="M50 38 C44 30 43 18 50 12 C55 8 70 8 74 18 C78 28 76 40 70 46" stroke="#D17BA8" stroke-width="4" stroke-linecap="round" fill="none"/>
+  <path d="M50 38 C46 50 46 65 48 75" stroke="#D17BA8" stroke-width="3" stroke-linecap="round" fill="none"/>
   <!-- Burbuja ! -->
-  <rect x="78" y="4" width="32" height="26" rx="8" stroke="#D17BA8" stroke-width="4" fill="none"/>
-  <path d="M84 30 L80 42" stroke="#D17BA8" stroke-width="3.5" stroke-linecap="round" fill="none"/>
-  <line x1="94" y1="9" x2="94" y2="20" stroke="#D17BA8" stroke-width="4.5" stroke-linecap="round"/>
-  <circle cx="94" cy="25" r="2.5" fill="#D17BA8"/>
+  <rect x="68" y="12" width="28" height="22" rx="6" stroke="#D17BA8" stroke-width="4" fill="none"/>
+  <path d="M75 34 L70 42" stroke="#D17BA8" stroke-width="3" stroke-linecap="round" fill="none"/>
+  <line x1="82" y1="17" x2="82" y2="27" stroke="#D17BA8" stroke-width="4" stroke-linecap="round"/>
+  <circle cx="82" cy="31" r="2" fill="#D17BA8"/>
 
-  <!-- FIGURA DERECHA -->
-  <!-- Pelo largo ondulado -->
-  <path d="M188 28 C196 20 200 10 192 4 C186 0 170 0 164 8 C160 14 160 24 164 32 C166 40 168 55 166 80 C165 90 167 105 170 115" stroke="#D17BA8" stroke-width="4.5" stroke-linecap="round" fill="none"/>
-  <path d="M192 4 C198 12 200 26 196 40 C194 50 194 70 192 90" stroke="#D17BA8" stroke-width="3.5" stroke-linecap="round" fill="none"/>
-  <!-- Cabeza ovalada femenina -->
-  <ellipse cx="178" cy="32" rx="16" ry="19" stroke="#D17BA8" stroke-width="4.5" fill="none"/>
-  <!-- Cuello -->
-  <path d="M174 50 L174 58 M182 50 L182 58" stroke="#D17BA8" stroke-width="4" stroke-linecap="round" fill="none"/>
-  <!-- Hombros y torso femenino -->
-  <path d="M158 62 C164 58 172 56 178 56 C184 56 192 58 198 62" stroke="#D17BA8" stroke-width="4.5" stroke-linecap="round" fill="none"/>
-  <path d="M160 64 C158 80 156 96 158 112 C159 118 164 122 170 124 C174 125 182 125 186 124 C192 122 197 118 198 112 C200 96 198 80 196 64" stroke="#D17BA8" stroke-width="4.5" stroke-linecap="round" fill="none"/>
-  <!-- Cintura marcada -->
-  <path d="M162 95 C166 92 174 90 178 90 C182 90 190 92 194 95" stroke="#D17BA8" stroke-width="3" stroke-linecap="round" fill="none"/>
-  <!-- Brazos -->
-  <path d="M196 68 C204 78 210 90 212 100" stroke="#D17BA8" stroke-width="4" stroke-linecap="round" fill="none"/>
-  <path d="M160 68 C152 76 148 86 150 96" stroke="#D17BA8" stroke-width="4" stroke-linecap="round" fill="none"/>
-  <!-- Falda/vestido -->
-  <path d="M158 122 C154 138 152 155 154 170" stroke="#D17BA8" stroke-width="4.5" stroke-linecap="round" fill="none"/>
-  <path d="M198 122 C202 138 204 155 202 170" stroke="#D17BA8" stroke-width="4.5" stroke-linecap="round" fill="none"/>
-  <path d="M154 170 C160 175 172 177 178 177 C184 177 196 175 202 170" stroke="#D17BA8" stroke-width="4" stroke-linecap="round" fill="none"/>
-
+  <!-- Figura derecha (mirando a la izquierda) -->
+  <circle cx="138" cy="45" r="14" stroke="#D17BA8" stroke-width="5" fill="none"/>
+  <path d="M138 59 C138 59 145 75 147 95 C149 110 146 125 146 125" stroke="#D17BA8" stroke-width="5" stroke-linecap="round" fill="none"/>
+  <path d="M146 125 C148 140 150 155 152 165" stroke="#D17BA8" stroke-width="5" stroke-linecap="round" fill="none"/>
+  <path d="M146 125 C144 140 142 155 140 165" stroke="#D17BA8" stroke-width="5" stroke-linecap="round" fill="none"/>
+  <path d="M142 75 C150 85 155 90 160 92" stroke="#D17BA8" stroke-width="5" stroke-linecap="round" fill="none"/>
+  <path d="M140 78 C135 88 130 92 125 93" stroke="#D17BA8" stroke-width="5" stroke-linecap="round" fill="none"/>
+  <path d="M150 38 C156 30 157 18 150 12 C145 8 130 8 126 18 C122 28 124 40 130 46" stroke="#D17BA8" stroke-width="4" stroke-linecap="round" fill="none"/>
+  <path d="M150 38 C154 50 154 65 152 75" stroke="#D17BA8" stroke-width="3" stroke-linecap="round" fill="none"/>
   <!-- Burbuja ? -->
-  <rect x="130" y="4" width="32" height="26" rx="8" stroke="#D17BA8" stroke-width="4" fill="none"/>
-  <path d="M156 30 L160 42" stroke="#D17BA8" stroke-width="3.5" stroke-linecap="round" fill="none"/>
-  <path d="M139 10 C139 7 142 5 146 5 C150 5 153 7 153 11 C153 15 148 17 146 21" stroke="#D17BA8" stroke-width="4" stroke-linecap="round" fill="none"/>
-  <circle cx="146" cy="26" r="2.5" fill="#D17BA8"/>
-
+  <rect x="104" y="12" width="28" height="22" rx="6" stroke="#D17BA8" stroke-width="4" fill="none"/>
+  <path d="M125 34 L130 42" stroke="#D17BA8" stroke-width="3" stroke-linecap="round" fill="none"/>
+  <path d="M114 17 C114 14 117 12 120 12 C123 12 126 14 126 17 C126 20 122 21 120 24" stroke="#D17BA8" stroke-width="4" stroke-linecap="round" fill="none"/>
+  <circle cx="120" cy="31" r="2" fill="#D17BA8"/>
 </svg>
