@@ -27,8 +27,8 @@ export function HeroSection() {
         <p className="text-terracotta italic text-lg mb-4">¿Cuándo fue la última vez que tomaste una decisión solo para ti?</p>
 
         <h1 className="font-playfair text-4xl md:text-6xl font-bold text-ink mb-6 leading-tight">
-          Deja de vivir para todos
-          <span className="text-gradient block">y empieza a vivir para ti.</span>
+          Tu vida empieza cuando
+          <span className="text-gradient block">decides quién quieres ser.</span>
         </h1>
 
         <p className="font-arimo text-base text-ink/70 max-w-2xl mx-auto mb-10 leading-relaxed">
