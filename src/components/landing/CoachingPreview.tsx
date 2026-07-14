@@ -33,11 +33,11 @@ export function CoachingPreview() {
           </div>
 
           <div className="relative">
-            <div className="aspect-square rounded-3xl bg-gradient-to-br from-bloom/10 to-gold/10 flex flex-col items-center justify-center p-6 overflow-hidden">
+            <div className="aspect-square rounded-3xl bg-[#FEFAFC] flex flex-col items-center justify-center p-6 overflow-hidden">
               <img
                 src="/observador_icon.png"
                 alt="El Observador"
-                className="w-full h-3/5 object-contain"
+                className="w-full h-3/5 object-contain bg-[#FEFAFC] rounded-xl"
               />
               <p className="font-playfair text-xl text-ink italic text-center leading-snug mt-4">
                 "El observador que eres determina el mundo que habitas"
