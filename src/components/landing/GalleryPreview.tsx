@@ -4,12 +4,7 @@ export function GalleryPreview() {
       <div className="max-w-5xl mx-auto px-6">
         <div className="max-w-2xl mx-auto text-center">
           <p className="text-terracotta italic text-lg mb-3">Alquimia Floral</p>
-          <h2 className="font-playfair text-3xl md:text-4xl text-shamrock font-bold mb-6">
-            La materia noble de la flor
-          </h2>
-          <p className="text-gray-600 text-lg leading-relaxed mb-4 italic font-playfair">
-            "La materia noble de la flor como espejo de tu esencia"
-          </p>
+
           <p className="text-gray-600 text-lg leading-relaxed mb-8">
             Creas con tus propias manos usando la flor como espejo para escucharte, procesar emociones y recordar quién eres más allá de tus roles. Más de una década de experiencia en el sector floral.
           </p>
