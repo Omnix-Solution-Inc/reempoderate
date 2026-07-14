@@ -24,13 +24,15 @@ export function HeroSection() {
           />
         </div>
 
+        <p className="text-terracotta italic text-lg mb-4">¿Cuándo fue la última vez que tomaste una decisión solo para ti?</p>
+
         <h1 className="font-playfair text-4xl md:text-6xl font-bold text-ink mb-6 leading-tight">
-          Rediseña tu futuro desde la
-          <span className="text-gradient block">Autotransformación Consciente</span>
+          Deja de vivir para todos
+          <span className="text-gradient block">y empieza a vivir para ti.</span>
         </h1>
 
-        <p className="text-lg md:text-xl text-ink/70 max-w-2xl mx-auto mb-10 leading-relaxed italic">
-          Un espacio de acompañamiento profesional diseñado para mujeres que eligen salir del automatismo, habitar su presencia y construir una nueva realidad en coherencia.
+        <p className="font-arimo text-base text-ink/70 max-w-2xl mx-auto mb-10 leading-relaxed">
+          ReEmpoderate es un espacio de acompañamiento para mujeres que ya saben que algo tiene que cambiar — y eligen ser ellas quienes lo cambien.
         </p>
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
