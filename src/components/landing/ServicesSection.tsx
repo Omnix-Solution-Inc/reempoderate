@@ -5,13 +5,13 @@ export function ServicesSection() {
         <div className="text-center mb-16">
           <p className="text-terracotta italic text-lg mb-3">Metodología de cambio</p>
           <h2 className="font-playfair text-3xl md:text-4xl text-shamrock font-bold">
-            La Tríada de la Coherencia Sistémica
+            La Tríada de la Coherencia
           </h2>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* SER */}
-          <div className="bg-white rounded-xl p-8 border-b-4 border-shamrock shadow-sm">
+          <div className="bg-white rounded-xl p-8 border-b-4 border-shamrock shadow-sm text-center">
             <div className="flex items-center justify-center w-full h-28 mb-4">
               <img src="/ser_icon.png" alt="Ser" className="w-full h-full object-contain" />
             </div>
@@ -22,7 +22,7 @@ export function ServicesSection() {
           </div>
 
           {/* HACER */}
-          <div className="bg-white rounded-xl p-8 border-b-4 border-terracotta shadow-sm">
+          <div className="bg-white rounded-xl p-8 border-b-4 border-terracotta shadow-sm text-center">
             <div className="flex items-center justify-center w-full h-28 mb-4">
               <img src="/hacer_icon.png" alt="Hacer" className="w-full h-full object-contain" />
             </div>
@@ -33,7 +33,7 @@ export function ServicesSection() {
           </div>
 
           {/* TENER */}
-          <div className="bg-white rounded-xl p-8 border-b-4 border-shamrock shadow-sm">
+          <div className="bg-white rounded-xl p-8 border-b-4 border-shamrock shadow-sm text-center">
             <div className="flex items-center justify-center w-full h-28 mb-4">
               <img src="/tener_icon.png" alt="Tener" className="w-full h-full object-contain" />
             </div>
