@@ -4,7 +4,7 @@ export function CoachingPreview() {
       <div className="max-w-5xl mx-auto px-6">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           <div>
-            <p className="text-bloom italic text-lg mb-3">Coaching Ontológico y Laboral</p>
+            <p className="text-terracotta italic text-lg mb-3">Coaching Ontológico y Laboral</p>
             <h2 className="font-playfair text-3xl md:text-4xl text-ink font-bold mb-6">
               Un proceso reflexivo y transformacional
             </h2>
