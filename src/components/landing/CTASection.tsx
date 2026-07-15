@@ -6,6 +6,19 @@ import Link from 'next/link'
 export function CTASection() {
   const { data: session } = useSession()
   const [showModal, setShowModal] = useState(false)
+  const [email, setEmail] = useState('')
+  const [submitted, setSubmitted] = useState(false)
+  const [loading, setLoading] = useState(false)
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+    if (!email) return
+    setLoading(true)
+    // Simula guardado — aquí se puede conectar a Base44 o Mailchimp
+    await new Promise(r => setTimeout(r, 1000))
+    setLoading(false)
+    setSubmitted(true)
+  }
 
   return (
     <section className="py-24 bg-shamrock relative overflow-hidden">
@@ -52,32 +65,74 @@ export function CTASection() {
         </div>
       </div>
 
-      {/* Modal Escuela Online en Construcción */}
+      {/* Modal Escuela Online + Newsletter */}
       {showModal && (
         <div
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm px-4"
-          onClick={() => setShowModal(false)}
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm px-4"
+          onClick={() => { setShowModal(false); setSubmitted(false); setEmail('') }}
         >
           <div
-            className="bg-cream rounded-3xl p-10 max-w-sm w-full text-center shadow-2xl"
+            className="bg-cream rounded-3xl p-8 max-w-md w-full text-center shadow-2xl"
             onClick={e => e.stopPropagation()}
           >
-            <div className="text-5xl mb-4">🌸</div>
-            <h3 className="font-playfair text-2xl text-ink font-bold mb-3">
-              Escuela Online
-            </h3>
-            <p className="text-ink/60 text-sm leading-relaxed mb-6">
-              Estamos construyendo algo hermoso para ti. Pronto podrás acceder a tu portal de aprendizaje y transformación.
-            </p>
-            <p className="text-bloom-deep font-medium text-sm mb-6 italic">
-              Tu Decisión. Tu Vida. 💕
-            </p>
-            <button
-              onClick={() => setShowModal(false)}
-              className="bg-bloom-deep text-white px-8 py-3 rounded-2xl font-medium hover:bg-bloom transition text-sm w-full"
-            >
-              Entendido
-            </button>
+            {!submitted ? (
+              <>
+                <div className="text-4xl mb-3">🌸</div>
+                <h3 className="font-playfair text-2xl text-ink font-bold mb-1">
+                  Escuela Online
+                </h3>
+                <p className="text-bloom-deep font-medium text-sm mb-3 italic">
+                  En construcción — pronto llegará algo hermoso
+                </p>
+                <p className="text-ink/60 text-sm leading-relaxed mb-6">
+                  Mientras tanto, recibe gratis nuestra guía <strong>"Las 3 dimensiones de tu transformación: SER, HACER y TENER"</strong> y sé la primera en enterarte cuando abramos.
+                </p>
+
+                <form onSubmit={handleSubmit} className="flex flex-col gap-3">
+                  <input
+                    type="email"
+                    required
+                    placeholder="Tu correo electrónico"
+                    value={email}
+                    onChange={e => setEmail(e.target.value)}
+                    className="w-full px-4 py-3 rounded-xl border border-bloom/30 bg-white text-ink text-sm focus:outline-none focus:ring-2 focus:ring-bloom-deep"
+                  />
+                  <button
+                    type="submit"
+                    disabled={loading}
+                    className="bg-bloom-deep text-white px-8 py-3 rounded-2xl font-medium hover:bg-bloom transition text-sm w-full disabled:opacity-60"
+                  >
+                    {loading ? 'Enviando...' : 'Quiero mi guía gratuita 💕'}
+                  </button>
+                </form>
+
+                <button
+                  onClick={() => setShowModal(false)}
+                  className="mt-4 text-xs text-ink/30 hover:text-ink/50 transition"
+                >
+                  Ahora no
+                </button>
+              </>
+            ) : (
+              <>
+                <div className="text-5xl mb-4">💌</div>
+                <h3 className="font-playfair text-2xl text-ink font-bold mb-3">
+                  ¡Gracias!
+                </h3>
+                <p className="text-ink/60 text-sm leading-relaxed mb-6">
+                  Tu guía está en camino a <strong>{email}</strong>. Revisa tu bandeja de entrada — y si no la ves, revisa el spam.
+                </p>
+                <p className="text-bloom-deep font-medium text-sm italic mb-6">
+                  Tu Decisión. Tu Vida. 🌸
+                </p>
+                <button
+                  onClick={() => { setShowModal(false); setSubmitted(false); setEmail('') }}
+                  className="bg-bloom-deep text-white px-8 py-3 rounded-2xl font-medium hover:bg-bloom transition text-sm w-full"
+                >
+                  Cerrar
+                </button>
+              </>
+            )}
           </div>
         </div>
       )}
