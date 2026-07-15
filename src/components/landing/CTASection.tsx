@@ -1,9 +1,11 @@
 'use client'
-import { useSession, signIn } from 'next-auth/react'
+import { useState } from 'react'
+import { useSession } from 'next-auth/react'
 import Link from 'next/link'
 
 export function CTASection() {
   const { data: session } = useSession()
+  const [showModal, setShowModal] = useState(false)
 
   return (
     <section className="py-24 bg-shamrock relative overflow-hidden">
@@ -30,9 +32,10 @@ export function CTASection() {
             </svg>
             Empieza tu transformación
           </a>
+
           {!session && (
             <button
-              onClick={() => signIn()}
+              onClick={() => setShowModal(true)}
               className="border border-cream/40 text-cream px-8 py-4 rounded-2xl font-medium hover:bg-cream/10 transition text-base"
             >
               Acceder a mi portal
@@ -47,9 +50,37 @@ export function CTASection() {
             </Link>
           )}
         </div>
-
-        
       </div>
+
+      {/* Modal Escuela Online en Construcción */}
+      {showModal && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm px-4"
+          onClick={() => setShowModal(false)}
+        >
+          <div
+            className="bg-cream rounded-3xl p-10 max-w-sm w-full text-center shadow-2xl"
+            onClick={e => e.stopPropagation()}
+          >
+            <div className="text-5xl mb-4">🌸</div>
+            <h3 className="font-playfair text-2xl text-ink font-bold mb-3">
+              Escuela Online
+            </h3>
+            <p className="text-ink/60 text-sm leading-relaxed mb-6">
+              Estamos construyendo algo hermoso para ti. Pronto podrás acceder a tu portal de aprendizaje y transformación.
+            </p>
+            <p className="text-bloom-deep font-medium text-sm mb-6 italic">
+              Tu Decisión. Tu Vida. 💕
+            </p>
+            <button
+              onClick={() => setShowModal(false)}
+              className="bg-bloom-deep text-white px-8 py-3 rounded-2xl font-medium hover:bg-bloom transition text-sm w-full"
+            >
+              Entendido
+            </button>
+          </div>
+        </div>
+      )}
     </section>
   )
 }
