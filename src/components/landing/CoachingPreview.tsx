@@ -4,9 +4,6 @@ export function CoachingPreview() {
       <div className="max-w-5xl mx-auto px-6">
         <div className="text-center mb-12">
           <p className="text-terracotta italic text-lg mb-3">Coaching Ontológico y Laboral</p>
-          <h2 className="font-playfair text-3xl md:text-4xl text-ink font-bold mb-6">
-            Un proceso reflexivo y transformacional
-          </h2>
         </div>
 
         {/* Coaching Ontológico */}
@@ -16,7 +13,7 @@ export function CoachingPreview() {
             Es una conversación donde te acompaño a mirarte a ti misma. A ver cómo piensas, cómo sientes y cómo te relacionas con todo lo que te rodea. A reconocer quién estás siendo hoy y quién eliges ser a partir de ahora.
           </p>
           <p className="text-ink font-medium text-sm mb-3">Aborda:</p>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+          <div className="space-y-2">
             <div className="flex items-start gap-2">
               <span className="text-bloom-deep text-sm mt-1">✦</span>
               <p className="text-gray-600 text-sm">Quién elijo ser ante lo que estoy viviendo</p>
@@ -31,7 +28,7 @@ export function CoachingPreview() {
             </div>
             <div className="flex items-start gap-2">
               <span className="text-bloom-deep text-sm mt-1">✦</span>
-              <p className="text-gray-600 text-sm">Mi propósito y si estoy viviendo en coherencia con lo que digo, siento y hago</p>
+              <p className="text-gray-600 text-sm">Mi propósito y si estoy viviendo en coherencia con lo que digo, siento y hago…</p>
             </div>
           </div>
         </div>
@@ -43,7 +40,7 @@ export function CoachingPreview() {
             Es una conversación donde te acompaño a mirar tu camino profesional. A ver dónde estás, hacia dónde quieres ir y qué pasos dar para llegar ahí. A tomar decisiones sobre tu trabajo con claridad y seguridad.
           </p>
           <p className="text-ink font-medium text-sm mb-3">Aborda:</p>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+          <div className="space-y-2">
             <div className="flex items-start gap-2">
               <span className="text-bloom-deep text-sm mt-1">✦</span>
               <p className="text-gray-600 text-sm">Mi carrera y hacia dónde quiero ir profesionalmente</p>
@@ -58,15 +55,15 @@ export function CoachingPreview() {
             </div>
             <div className="flex items-start gap-2">
               <span className="text-bloom-deep text-sm mt-1">✦</span>
-              <p className="text-gray-600 text-sm">Cómo alineo mi propósito personal con mi vida profesional</p>
+              <p className="text-gray-600 text-sm">Cómo alineo mi propósito personal con mi vida profesional…</p>
             </div>
           </div>
         </div>
 
-        {/* Bloque ICF unificado */}
+        {/* Bloque unificado */}
         <div className="bg-shamrock/5 rounded-2xl p-8 border border-shamrock/10">
-          <p className="text-gray-600 text-base leading-relaxed mb-6 text-center">
-            Acompañamos bajo estándares ICF mediante sesiones no directivas, honrando la autonomía absoluta del ser y facilitando que las respuestas emerjan desde tu propia individualidad.
+          <p className="text-gray-600 text-base leading-relaxed mb-6 text-center italic">
+            Es un proceso tuyo y las respuestas emergen de ti.
           </p>
           <div className="space-y-3 max-w-2xl mx-auto">
             <div className="flex items-start gap-3">
