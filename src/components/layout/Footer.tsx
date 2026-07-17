@@ -5,7 +5,7 @@ export function Footer() {
         <div>
           <h3 className="font-playfair text-xl text-bloom mb-3">ReEmpoderate</h3>
           <p className="text-white/50 text-sm leading-relaxed">
-            Transformacion consciente a traves del coaching ontologico, el arte y la comunidad.
+            Transformación consciente a través del coaching ontológico, el arte y la comunidad.
           </p>
         </div>
         <div>
