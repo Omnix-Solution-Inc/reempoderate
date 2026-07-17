@@ -39,7 +39,7 @@ export default function AgendarPage() {
     if (!selectedDate || !selectedTime) return
 
     const dateStr = `${dayNames[selectedDate.getDay()]} ${selectedDate.getDate()} de ${monthNames[selectedDate.getMonth()]}`
-    const typeLabel = selectedType === 'ontologico' ? 'Coaching Ontológico' : 'Coaching Laboral'
+    const typeLabel = selectedType === 'ontológico' ? 'Coaching Ontológico' : 'Coaching Laboral'
     
     const message = `Hola Mariela, agendé mi sesión de ${typeLabel}.\n\nFecha: ${dateStr}\nHora: ${selectedTime}\n\n¿Cuándo quieres comenzar? — ¡Ya elegí mi fecha! 🌸`
     
@@ -97,9 +97,9 @@ export default function AgendarPage() {
           </h2>
           <div className="grid grid-cols-2 gap-3">
             <button
-              onClick={() => setSelectedType('ontologico')}
+              onClick={() => setSelectedType('ontológico')}
               className={`p-4 rounded-2xl border-2 text-sm font-medium transition ${
-                selectedType === 'ontologico'
+                selectedType === 'ontológico'
                   ? 'border-bloom-deep bg-bloom/10 text-bloom-deep'
                   : 'border-bloom/15 text-ink/60 hover:border-bloom/30'
               }`}
