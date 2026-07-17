@@ -30,7 +30,7 @@ export function HeroSection() {
         </h1>
 
         <p className="font-arimo text-base text-ink/70 max-w-2xl mx-auto mb-10 leading-relaxed">
-          ReEmpoderate es un espacio de acompanamiento para mujeres que ya saben que algo tiene que cambiar — y eligen ser ellas quienes lo cambien.
+          ReEmpoderate es un espacio de acompañamiento para mujeres que ya saben que algo tiene que cambiar — y eligen ser ellas quienes lo cambien.
         </p>
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
