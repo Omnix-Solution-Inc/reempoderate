@@ -28,7 +28,7 @@ export function ServicesSection() {
             </div>
             <h3 className="font-playfair text-2xl text-shamrock mb-3">El HACER<br/><span className="text-base text-gray-500 font-normal">La Acción</span></h3>
             <p className="text-gray-600 text-sm leading-relaxed">
-              Tú determinas qué acciones tomar en relación a lo que te sucede. Conversaciones generativas y creatividad manual como puente hacia tus propios objetivos.
+              Tú determinas qué acciones tomar en relación a lo que te sucede. Conversaciones generativas como puente hacia tus propios objetivos.
             </p>
           </div>
 
