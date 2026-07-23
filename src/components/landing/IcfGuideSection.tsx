@@ -130,13 +130,12 @@ export function IcfGuideSection() {
             <div style={{ textAlign: 'center' as const, padding: '2rem 0' }}>
               <div style={{ fontSize: 52, marginBottom: '1rem' }}>🌸</div>
               <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: '1.4rem', color: '#F5F0E8', fontWeight: 400, marginBottom: '0.5rem' }}>¡Ya está en camino!</h3>
-              <p style={{ fontSize: '0.85rem', color: '#888', lineHeight: 1.6, marginBottom: '1.5rem' }}>
+              <p style={{ fontSize: '0.85rem', color: '#888', lineHeight: 1.6, marginBottom: '0.5rem' }}>
                 Revisa tu correo en los próximos minutos.<br />Si no aparece, revisa la carpeta de spam.
               </p>
-              <a href={PDF_URL} target="_blank" rel="noopener noreferrer" download
-                style={{ display: 'inline-block', background: '#D17BA8', color: '#fff', textDecoration: 'none', padding: '0.75rem 1.75rem', borderRadius: 8, fontSize: '0.8rem', fontWeight: 700, fontFamily: 'Inter, sans-serif' }}>
-                ⬇ También puedes descargarlo aquí
-              </a>
+              <p style={{ fontSize: '0.75rem', color: '#555', lineHeight: 1.5 }}>
+                La guía te llegó desde <em>onboarding@resend.dev</em> — busca ese remitente.
+              </p>
             </div>
           )}
         </div>
