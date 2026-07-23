@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 
-const API_URL = 'https://api.base44.com/api/apps/6a066d4f6fb4352d1a5946c3/functions/sendIcfGuide'
+const API_URL = 'https://witmakers-1a5946c3.base44.app/functions/sendIcfGuide'
 const PDF_URL = 'https://base44.app/api/apps/6a066d4f6fb4352d1a5946c3/files/mp/public/6a066d4f6fb4352d1a5946c3/d4875ba65_596392441_tabla_si_no_coaching_icf.pdf'
 
 const bullets = [
