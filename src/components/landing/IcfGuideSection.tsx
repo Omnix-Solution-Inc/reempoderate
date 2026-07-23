@@ -2,8 +2,8 @@
 
 import { useState } from 'react'
 
-const PDF_URL = 'https://base44.app/api/apps/6a066d4f6fb4352d1a5946c3/files/mp/public/6a066d4f6fb4352d1a5946c3/d4875ba65_596392441_tabla_si_no_coaching_icf.pdf'
 const API_URL = 'https://api.base44.com/api/apps/6a066d4f6fb4352d1a5946c3/functions/sendIcfGuide'
+const PDF_URL = 'https://base44.app/api/apps/6a066d4f6fb4352d1a5946c3/files/mp/public/6a066d4f6fb4352d1a5946c3/d4875ba65_596392441_tabla_si_no_coaching_icf.pdf'
 
 const bullets = [
   'Acuerdos y Contratos — qué co-crear desde el inicio',
@@ -37,11 +37,10 @@ export function IcfGuideSection() {
       if (data.success) {
         setSuccess(true)
       } else {
-        setError('Hubo un problema. Intenta de nuevo.')
+        setError(data.error || 'Hubo un problema. Intenta de nuevo.')
       }
     } catch {
-      window.open(PDF_URL, '_blank')
-      setSuccess(true)
+      setError('Error de conexión. Intenta de nuevo.')
     } finally {
       setLoading(false)
     }
