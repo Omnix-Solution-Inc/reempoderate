@@ -133,6 +133,7 @@ export function IcfGuideSection() {
               <p style={{ fontSize: '0.85rem', color: '#888', lineHeight: 1.6, marginBottom: '0.5rem' }}>
                 Revisa tu correo en los próximos minutos.<br />Si no aparece, revisa la carpeta de spam.
               </p>
+            </div>
           )}
         </div>
       </div>
