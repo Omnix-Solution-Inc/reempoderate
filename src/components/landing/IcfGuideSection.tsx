@@ -133,10 +133,6 @@ export function IcfGuideSection() {
               <p style={{ fontSize: '0.85rem', color: '#888', lineHeight: 1.6, marginBottom: '0.5rem' }}>
                 Revisa tu correo en los próximos minutos.<br />Si no aparece, revisa la carpeta de spam.
               </p>
-              <p style={{ fontSize: '0.75rem', color: '#555', lineHeight: 1.5 }}>
-                La guía te llegó desde <em>onboarding@resend.dev</em> — busca ese remitente.
-              </p>
-            </div>
           )}
         </div>
       </div>
