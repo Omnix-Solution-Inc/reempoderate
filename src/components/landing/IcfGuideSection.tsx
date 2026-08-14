@@ -56,17 +56,6 @@ export function IcfGuideSection() {
       }}
     >
       <div style={{ maxWidth: 680, margin: '0 auto', textAlign: 'center' }}>
-        <div style={{
-          display: 'inline-block',
-          background: 'rgba(209,123,168,0.15)',
-          border: '1px solid rgba(209,123,168,0.3)',
-          color: '#E8A5C7', fontSize: '0.6rem', fontWeight: 700,
-          letterSpacing: '0.2em', textTransform: 'uppercase' as const,
-          padding: '0.4rem 1rem', borderRadius: 100, marginBottom: '1.5rem',
-        }}>
-          Recurso Gratuito · Código de Ética ICF 2026
-        </div>
-
         <h2 style={{
           fontFamily: "'Playfair Display', serif",
           fontSize: 'clamp(1.8rem, 4vw, 2.6rem)',
