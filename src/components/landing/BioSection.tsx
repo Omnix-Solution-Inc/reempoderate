@@ -61,7 +61,7 @@ export function BioSection() {
             ReEmpodérate nace como una respuesta a esos momentos de transición en los que sentimos que algo debe cambiar. A lo largo de mi historia he comprobado que las mayores limitaciones no provienen de la falta de capacidad, sino de los bucles de pensamientos y relatos que nos desconectan de nuestro propio potencial.
           </p>
           <p>
-            Mi propósito es ser un espejo para acompañar a personas y profesionales a:
+            Mi propósito es ser un espejo para acompañar en lo personal y profesional a:
           </p>
           <div className="space-y-3 pl-4">
             <p className="flex gap-3">
