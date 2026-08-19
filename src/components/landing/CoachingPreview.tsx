@@ -2,10 +2,6 @@ export function CoachingPreview() {
   return (
     <section id="coaching" className="py-24 bg-cream">
       <div className="max-w-5xl mx-auto px-6">
-        <div className="text-center mb-12">
-          <p className="text-terracotta italic text-lg mb-3">Coaching Ontológico y Laboral</p>
-        </div>
-
         {/* Coaching Ontológico */}
         <div className="bg-white rounded-2xl p-8 shadow-sm mb-6">
           <h3 className="font-playfair text-2xl text-bloom-deep mb-4">Coaching Ontológico</h3>
