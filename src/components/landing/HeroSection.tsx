@@ -30,7 +30,7 @@ export function HeroSection() {
         </h1>
 
         <p className="font-arimo text-base text-ink/70 max-w-2xl mx-auto mb-10 leading-relaxed">
-          ReEmpodérate es un espacio de acompañamiento para mujeres que ya saben que algo tiene que cambiar — y eligen ser ellas quienes lo cambien.
+          ReEmpodérate es un espacio de acompañamiento para personas que ya saben que algo tiene que cambiar — y eligen ser quienes lo cambien.
         </p>
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -74,7 +74,7 @@ export function HeroSection() {
           </div>
           <div className="text-center">
             <p className="font-playfair text-3xl text-bloom-deep font-bold">ICF</p>
-            <p className="text-xs text-ink/50 mt-1">Certificacion</p>
+            <p className="text-xs text-ink/50 mt-1">Miembro ICF</p>
           </div>
         </div>
       </div>
