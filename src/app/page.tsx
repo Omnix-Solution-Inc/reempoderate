@@ -5,7 +5,6 @@ import { HeroSection } from '@/components/landing/HeroSection'
 import { ServicesSection } from '@/components/landing/ServicesSection'
 import { CoachingPreview } from '@/components/landing/CoachingPreview'
 import { BioSection } from '@/components/landing/BioSection'
-import { GalleryPreview } from '@/components/landing/GalleryPreview'
 import { CTASection } from '@/components/landing/CTASection'
 import { IcfGuideSection } from '@/components/landing/IcfGuideSection'
 import { Footer } from '@/components/layout/Footer'
@@ -19,7 +18,6 @@ export default function HomePage() {
       <ServicesSection />
       <CoachingPreview />
       <BioSection />
-      <GalleryPreview />
       <CTASection />
       <IcfGuideSection />
       <Footer />
