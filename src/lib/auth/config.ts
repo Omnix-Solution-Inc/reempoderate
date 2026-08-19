@@ -1,14 +1,37 @@
 // NextAuth Configuration
-// Handles Google OAuth for protected routes
+// Handles Google, Facebook and LinkedIn OAuth for protected routes
 
 import type { NextAuthOptions } from "next-auth"
 import GoogleProvider from "next-auth/providers/google"
+import FacebookProvider from "next-auth/providers/facebook"
+import LinkedInProvider from "next-auth/providers/linkedin"
 
 export const authOptions: NextAuthOptions = {
   providers: [
     GoogleProvider({
       clientId: process.env.GOOGLE_CLIENT_ID || "placeholder",
       clientSecret: process.env.GOOGLE_CLIENT_SECRET || "placeholder",
+    }),
+    FacebookProvider({
+      clientId: process.env.FACEBOOK_CLIENT_ID || "placeholder",
+      clientSecret: process.env.FACEBOOK_CLIENT_SECRET || "placeholder",
+    }),
+    LinkedInProvider({
+      clientId: process.env.LINKEDIN_CLIENT_ID || "placeholder",
+      clientSecret: process.env.LINKEDIN_CLIENT_SECRET || "placeholder",
+      issuer: "https://www.linkedin.com/oauth",
+      jwks_endpoint: "https://www.linkedin.com/oauth/openid/jwks",
+      authorization: {
+        params: { scope: "openid profile email" },
+      },
+      profile(profile) {
+        return {
+          id: profile.sub,
+          name: profile.name,
+          email: profile.email,
+          image: profile.picture,
+        }
+      },
     }),
   ],
   pages: {
