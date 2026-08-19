@@ -1,7 +1,7 @@
 'use client'
 import Image from 'next/image'
 
-const MARIELA_PHOTO = 'https://base44.app/api/apps/6a066d4f6fb4352d1a5946c3/files/mp/public/6a066d4f6fb4352d1a5946c3/701b8a237_mariela_bio.jpg'
+const MARIELA_PHOTO = '/mariela-bio.jpg'
 
 export function BioSection() {
   return (
