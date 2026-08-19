@@ -30,7 +30,7 @@ export default function DiagnosticoPage() {
   const [messages, setMessages] = useState<Message[]>([
     {
       role: 'coach',
-      text: "Bienvenida a ReEmpoderate. Este es un espacio de indagación consciente.\n\nEscribe un mensaje inicial sobre lo que te trae aquí. Te acompañaré con tres preguntas, una a la vez.",
+      text: "Bienvenida a ReEmpodérate. Este es un espacio de indagación consciente.\n\nEscribe un mensaje inicial sobre lo que te trae aquí. Te acompañaré con tres preguntas, una a la vez.",
     },
   ])
   const [input, setInput] = useState('')
@@ -44,7 +44,7 @@ export default function DiagnosticoPage() {
   }, [messages, isTyping])
 
   const buildWhatsAppMessage = (allMessages: Message[]) => {
-    let msg = "🌸 *Diagnóstico ReEmpoderate* 🌸\n\n"
+    let msg = "🌸 *Diagnóstico ReEmpodérate* 🌸\n\n"
     msg += "Una persona ha completado su proceso de indagación inicial.\n\n"
     msg += "--- *Mensaje inicial* ---\n"
     const initialMsg = allMessages.find((m, i) => m.role === 'user' && i === 1)
@@ -135,7 +135,7 @@ export default function DiagnosticoPage() {
         <Link href="/" className="inline-block">
           <Image
             src="/logo.png"
-            alt="ReEmpoderate"
+            alt="ReEmpodérate"
             width={80}
             height={80}
             className="w-16 h-16 object-contain mx-auto mb-3"

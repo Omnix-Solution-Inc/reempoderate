@@ -3,7 +3,7 @@ import './globals.css'
 import { Providers } from '@/components/shared/Providers'
 
 export const metadata: Metadata = {
-  title: 'ReEmpoderate · Autotransformación Consciente',
+  title: 'ReEmpodérate · Autotransformación Consciente',
   description: 'Coaching ontológico certificado y talleres de alquimia floral para mujeres que eligen construir una vida con propósito.',
 }
 

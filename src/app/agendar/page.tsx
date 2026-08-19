@@ -77,7 +77,7 @@ export default function AgendarPage() {
         <div className="text-center mb-10">
           <Image
             src="/logo.png"
-            alt="ReEmpoderate"
+            alt="ReEmpodérate"
             width={80}
             height={80}
             className="w-16 h-16 object-contain mx-auto mb-4"

@@ -17,7 +17,7 @@ export function Navbar() {
     <nav className="fixed top-0 w-full bg-cream/95 backdrop-blur-sm border-b border-bloom/10 z-50">
       <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
         <Link href="/" className="font-playfair text-xl text-bloom-deep font-semibold">
-          ReEmpoderate
+          ReEmpodérate
         </Link>
 
         {/* Desktop links */}

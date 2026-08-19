@@ -14,7 +14,7 @@ export default function LoginPage() {
   return (
     <main className="min-h-screen bg-light-bg flex items-center justify-center">
       <div className="bg-white rounded-2xl shadow-xl p-10 w-full max-w-md text-center">
-        <h1 className="font-playfair text-3xl text-primary mb-2">ReEmpoderate</h1>
+        <h1 className="font-playfair text-3xl text-primary mb-2">ReEmpodérate</h1>
         <p className="text-gray-500 mb-8 text-sm">Accede a tu espacio de transformación</p>
 
         <button

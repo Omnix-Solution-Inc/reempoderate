@@ -6,10 +6,10 @@ const API_URL = 'https://witmakers-1a5946c3.base44.app/functions/sendIcfGuide'
 const PDF_URL = 'https://base44.app/api/apps/6a066d4f6fb4352d1a5946c3/files/mp/public/6a066d4f6fb4352d1a5946c3/9ac518e2b_5761e49c0_tabla_si_no_coaching_horizontal_1_pagina-v5.pdf'
 
 const bullets = [
-  'Acuerdos y Contratos — qué co-crear desde el inicio',
-  'Confidencialidad y Privacidad — protección en todos los canales',
-  'Relaciones y Linderos — límites claros y respetuosos',
-  'Integridad, Competencia, Humanidad y Equidad',
+  'Acuerdos y Contratos — qué co-creamos desde el inicio de cada sesión.',
+  'Confidencialidad y Privacidad — protegemos tu información en todos los canales.',
+  'Relaciones — sostenemos límites claros y respetuosos en cada encuentro.',
+  'Integridad, Competencia, Humanidad y Equidad — los pilares de nuestra práctica profesional.',
 ]
 
 export function IcfGuideSection() {
@@ -65,21 +65,12 @@ export function IcfGuideSection() {
           <span style={{ color: '#E8A5C7' }}>No</span> de la<br />Práctica Profesional de Coaching
         </h2>
 
-        <p style={{ fontSize: '0.85rem', color: '#888', lineHeight: 1.7, marginBottom: '2.5rem', maxWidth: 500, margin: '0 auto 2.5rem' }}>
-          Descarga la guía con la Matriz Comparativa de Compromisos y Prohibiciones del Código de Ética ICF 2026. Te llega directo a tu correo.
-        </p>
-
         <div style={{ background: '#111', border: '1px solid #2a1a2a', borderRadius: 16, padding: '2.5rem', textAlign: 'left' }}>
           {!success ? (
             <>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '1.5rem', marginBottom: '1.5rem', flexWrap: 'wrap' as const }}>
-                <div style={{ width: 64, height: 64, background: 'linear-gradient(135deg, #D17BA8, #E8A5C7)', borderRadius: 12, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 28, flexShrink: 0 }}>
-                  📋
-                </div>
-                <div>
-                  <h4 style={{ fontFamily: "'Playfair Display', serif", fontSize: '1.05rem', color: '#F5F0E8', fontWeight: 400, margin: '0 0 0.25rem' }}>Guía de Práctica Ética del Coaching</h4>
-                  <p style={{ fontSize: '0.75rem', color: '#666', margin: 0 }}>Matriz Comparativa · Código ICF 2026 · PDF descargable</p>
-                </div>
+              <div style={{ marginBottom: '1.5rem' }}>
+                <h4 style={{ fontFamily: "'Playfair Display', serif", fontSize: '1.05rem', color: '#F5F0E8', fontWeight: 400, margin: '0 0 0.25rem' }}>Guía de Práctica Ética del Coaching</h4>
+                <p style={{ fontSize: '0.75rem', color: '#666', margin: 0 }}>Matriz Comparativa · Código ICF 2026 · PDF descargable</p>
               </div>
 
               <div style={{ marginBottom: '1.5rem', display: 'flex', flexDirection: 'column' as const, gap: '0.5rem' }}>

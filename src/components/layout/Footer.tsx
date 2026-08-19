@@ -3,7 +3,7 @@ export function Footer() {
     <footer className="bg-ink text-white py-16">
       <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-10">
         <div>
-          <h3 className="font-playfair text-xl text-bloom mb-3">ReEmpoderate</h3>
+          <h3 className="font-playfair text-xl text-bloom mb-3">ReEmpodérate</h3>
           <p className="text-white/50 text-sm leading-relaxed">
             Transformación consciente a través del coaching ontológico, el arte y la comunidad.
           </p>
@@ -71,7 +71,7 @@ export function Footer() {
         </div>
       </div>
       <div className="max-w-7xl mx-auto px-6 mt-10 pt-6 border-t border-white/10 text-xs text-white/30 text-center">
-        <span>2026 ReEmpoderate. Todos los derechos reservados.</span>
+        <span>2026 ReEmpodérate. Todos los derechos reservados.</span>
       </div>
     </footer>
   )

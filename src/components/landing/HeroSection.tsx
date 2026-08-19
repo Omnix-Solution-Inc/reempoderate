@@ -16,7 +16,7 @@ export function HeroSection() {
         <div className="flex justify-center mb-10">
           <Image
             src="/logo.png"
-            alt="ReEmpoderate"
+            alt="ReEmpodérate"
             width={480}
             height={480}
             className="w-80 h-80 md:w-[480px] md:h-[480px] object-contain drop-shadow-xl"
@@ -30,12 +30,12 @@ export function HeroSection() {
         </h1>
 
         <p className="font-arimo text-base text-ink/70 max-w-2xl mx-auto mb-10 leading-relaxed">
-          ReEmpoderate es un espacio de acompañamiento para mujeres que ya saben que algo tiene que cambiar — y eligen ser ellas quienes lo cambien.
+          ReEmpodérate es un espacio de acompañamiento para mujeres que ya saben que algo tiene que cambiar — y eligen ser ellas quienes lo cambien.
         </p>
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
           <a
-            href="https://wa.me/13217329993?text=Hola%2C%20quiero%20iniciar%20mi%20proceso%20de%20transformaci%C3%B3n%20con%20ReEmpoderate"
+            href="https://wa.me/13217329993?text=Hola%2C%20quiero%20iniciar%20mi%20proceso%20de%20transformaci%C3%B3n%20con%20ReEmpodérate"
             target="_blank"
             rel="noopener noreferrer"
             className="bg-bloom-deep text-white px-8 py-4 rounded-2xl font-medium hover:bg-bloom transition text-base shadow-lg shadow-bloom/25 inline-flex items-center gap-2"

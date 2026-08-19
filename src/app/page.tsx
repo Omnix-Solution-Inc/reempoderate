@@ -1,4 +1,4 @@
-// Root landing page — ReEmpoderate
+// Root landing page — ReEmpodérate
 // Public route — no auth required
 
 import { HeroSection } from '@/components/landing/HeroSection'

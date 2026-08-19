@@ -12,19 +12,19 @@ export function CoachingPreview() {
           <div className="space-y-2">
             <div className="flex items-start gap-2">
               <span className="text-bloom-deep text-sm mt-1">✦</span>
-              <p className="text-gray-600 text-sm">Quién elijo ser ante lo que estoy viviendo</p>
+              <p className="text-gray-600 text-sm">¿Quién elijo ser ante lo que estoy viviendo?</p>
             </div>
             <div className="flex items-start gap-2">
               <span className="text-bloom-deep text-sm mt-1">✦</span>
-              <p className="text-gray-600 text-sm">Mis conversaciones internas y cómo me hablo</p>
+              <p className="text-gray-600 text-sm">¿Cómo son mis conversaciones internas y cómo me hablo?</p>
             </div>
             <div className="flex items-start gap-2">
               <span className="text-bloom-deep text-sm mt-1">✦</span>
-              <p className="text-gray-600 text-sm">Mis relaciones y vínculos</p>
+              <p className="text-gray-600 text-sm">¿Cómo son mis relaciones y vínculos?</p>
             </div>
             <div className="flex items-start gap-2">
               <span className="text-bloom-deep text-sm mt-1">✦</span>
-              <p className="text-gray-600 text-sm">Mi propósito y si estoy viviendo en coherencia con lo que digo, siento y hago…</p>
+              <p className="text-gray-600 text-sm">¿Cuál es mi propósito y estoy viviendo en coherencia con lo que digo, siento y hago?</p>
             </div>
           </div>
         </div>
@@ -39,19 +39,46 @@ export function CoachingPreview() {
           <div className="space-y-2">
             <div className="flex items-start gap-2">
               <span className="text-bloom-deep text-sm mt-1">✦</span>
-              <p className="text-gray-600 text-sm">Mi carrera y hacia dónde quiero ir profesionalmente</p>
+              <p className="text-gray-600 text-sm">¿Hacia dónde quiero ir con mi carrera?</p>
             </div>
             <div className="flex items-start gap-2">
               <span className="text-bloom-deep text-sm mt-1">✦</span>
-              <p className="text-gray-600 text-sm">Decisiones de empleo, emprendimiento o cambio de rumbo</p>
+              <p className="text-gray-600 text-sm">¿Qué decisiones tomo sobre empleo, emprendimiento o cambio de rumbo?</p>
             </div>
             <div className="flex items-start gap-2">
               <span className="text-bloom-deep text-sm mt-1">✦</span>
-              <p className="text-gray-600 text-sm">Mi liderazgo, comunicación y desempeño en el trabajo</p>
+              <p className="text-gray-600 text-sm">¿Cómo son mi liderazgo, comunicación y desempeño en el trabajo?</p>
             </div>
             <div className="flex items-start gap-2">
               <span className="text-bloom-deep text-sm mt-1">✦</span>
-              <p className="text-gray-600 text-sm">Cómo alineo mi propósito personal con mi vida profesional…</p>
+              <p className="text-gray-600 text-sm">¿Cómo alineo mi propósito personal con mi vida profesional?</p>
+            </div>
+          </div>
+        </div>
+
+        {/* Alquimia Floral */}
+        <div className="bg-white rounded-2xl p-8 shadow-sm mb-10">
+          <h3 className="font-playfair text-2xl text-bloom-deep mb-4">Alquimia Floral</h3>
+          <p className="text-gray-600 text-base leading-relaxed mb-6">
+            Es un taller presencial donde creas con tus propias manos. La flor y los elementos naturales son tu espejo, para escucharte, procesar tus emociones y recordar quién eres más allá de tus roles. Más de una década en el mundo floral me llevó a unir mis dos pasiones: el arte floral y el coaching.
+          </p>
+          <p className="text-ink font-medium text-sm mb-3">Aborda:</p>
+          <div className="space-y-2">
+            <div className="flex items-start gap-2">
+              <span className="text-bloom-deep text-sm mt-1">✦</span>
+              <p className="text-gray-600 text-sm">¿Quién soy más allá de mis roles?</p>
+            </div>
+            <div className="flex items-start gap-2">
+              <span className="text-bloom-deep text-sm mt-1">✦</span>
+              <p className="text-gray-600 text-sm">¿Qué emociones estoy procesando a través de lo que creo?</p>
+            </div>
+            <div className="flex items-start gap-2">
+              <span className="text-bloom-deep text-sm mt-1">✦</span>
+              <p className="text-gray-600 text-sm">¿Qué me refleja la flor y los elementos que elijo?</p>
+            </div>
+            <div className="flex items-start gap-2">
+              <span className="text-bloom-deep text-sm mt-1">✦</span>
+              <p className="text-gray-600 text-sm">¿Cómo convierto esta creación en una herramienta de sanación y expansión de mi consciencia?</p>
             </div>
           </div>
         </div>
