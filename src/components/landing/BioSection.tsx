@@ -42,7 +42,7 @@ export function BioSection() {
           </p>
 
           <p>
-            Esa búsqueda continua me llevó a certificarme como Coach Ontológica y Laboral, especializada en meditación y ser miembro de la International Coaching Federation (ICF).
+            Esa búsqueda continua me llevó a certificarme como Coach Ontológica y Laboral, especializada en Mindfulness y ser miembro de la International Coaching Federation (ICF).
           </p>
 
           {/* Gratitud y Reconocimiento */}
