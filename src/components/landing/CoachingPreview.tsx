@@ -6,7 +6,7 @@ export function CoachingPreview() {
         <div className="bg-white rounded-2xl p-8 shadow-sm mb-6">
           <h3 className="font-playfair text-2xl text-bloom-deep mb-4">Coaching Ontológico</h3>
           <p className="text-gray-600 text-base leading-relaxed mb-6">
-            Es una conversación donde te acompaño a mirarte a ti misma. A ver cómo piensas, cómo sientes y cómo te relacionas con todo lo que te rodea. A reconocer quién estás siendo hoy y quién eliges ser a partir de ahora.
+            Es una conversación donde te acompaño a mirarte. A ver cómo piensas, cómo sientes y cómo te relacionas con todo lo que te rodea. A reconocer quién estás siendo hoy y quién eliges ser a partir de ahora.
           </p>
           <p className="text-ink font-medium text-sm mb-3">Aborda:</p>
           <div className="space-y-2">
