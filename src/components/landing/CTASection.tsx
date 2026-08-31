@@ -85,7 +85,7 @@ export function CTASection() {
                   En construcción — pronto llegará algo hermoso
                 </p>
                 <p className="text-ink/60 text-sm leading-relaxed mb-6">
-                  Mientras tanto, recibe gratis nuestra guía <strong>"Las 3 dimensiones de tu transformación: SER, HACER y TENER"</strong> y sé la primera en enterarte cuando abramos.
+                  Mientras tanto, recibe gratis nuestra guía <strong>"Las 3 dimensiones de tu transformación: SER, HACER y TENER"</strong> y sé de las primeras personas en enterarte cuando abramos.
                 </p>
 
                 <form onSubmit={handleSubmit} className="flex flex-col gap-3">

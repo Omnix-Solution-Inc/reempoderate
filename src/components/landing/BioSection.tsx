@@ -34,7 +34,7 @@ export function BioSection() {
         {/* Biografia */}
         <div className="max-w-3xl mx-auto space-y-6 font-arimo text-ink/70 text-base leading-relaxed">
           <p>
-            ¡Hola! 💜 Soy Mariela Barbetti, venezolana, inmigrante en EE. UU. desde 2015, madre de cuatro hijos (Paul, Abraham, Alena y Ana), esposa, hija y hermana.
+            ¡Hol@! 💜 Soy Mariela Barbetti, venezolana, inmigrante en EE. UU. desde 2015, madre de cuatro hijos (Paul, Abraham, Alena y Ana), esposa, hija y hermana.
           </p>
 
           <p>

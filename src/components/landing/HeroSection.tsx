@@ -26,7 +26,7 @@ export function HeroSection() {
 
         <h1 className="font-playfair text-4xl md:text-6xl font-bold text-ink mb-6 leading-tight">
           Tu vida empieza cuando
-          <span className="text-gradient block">decides quien quieres ser.</span>
+          <span className="text-gradient block">decides quién quieres ser.</span>
         </h1>
 
         <p className="font-arimo text-base text-ink/70 max-w-2xl mx-auto mb-10 leading-relaxed">

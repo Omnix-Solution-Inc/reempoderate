@@ -9,7 +9,7 @@ export function Navbar() {
   const links = [
     { href: '#metodo', label: 'Método' },
     { href: '#coaching', label: 'Coaching' },
-    { href: '#talleres', label: 'Talleres' },
+    
     { href: '#bio', label: 'Bio' },
   ]
 

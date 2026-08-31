@@ -17,7 +17,7 @@ export function ServicesSection() {
             </div>
             <h3 className="font-playfair text-2xl text-shamrock mb-3">El SER<br/><span className="text-base text-gray-500 font-normal">El Observador</span></h3>
             <p className="text-gray-600 text-sm leading-relaxed">
-              Somos el espejo donde te miras para descubrir tu propia realidad. <em>¿Quién elijo ser ante lo que estoy viviendo?</em> Te acompañamos mediante conversaciones a abrir nuevas posibilidades.
+              Soy el espejo donde te miras para descubrir tu propia realidad. <em>¿Quién elijo ser ante lo que estoy viviendo?</em> Te acompaño mediante conversaciones a abrir nuevas posibilidades.
             </p>
           </div>
 
