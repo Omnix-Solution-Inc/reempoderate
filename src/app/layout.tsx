@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import './globals.css'
 import { Providers } from '@/components/shared/Providers'
+import { VisitTracker } from '@/components/shared/VisitTracker'
 
 export const metadata: Metadata = {
   title: 'ReEmpodérate · Autotransformación Consciente',
@@ -37,7 +38,7 @@ export default function RootLayout({
   return (
     <html lang="es">
       <body>
-        <Providers>{children}</Providers>
+        <Providers><VisitTracker />{children}</Providers>
       </body>
     </html>
   )
