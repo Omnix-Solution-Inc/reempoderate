@@ -7,7 +7,6 @@ import { ServicesSection } from '@/components/landing/ServicesSection'
 import { CoachingPreview } from '@/components/landing/CoachingPreview'
 import { BioSection } from '@/components/landing/BioSection'
 import { CTASection } from '@/components/landing/CTASection'
-import { IcfGuideSection } from '@/components/landing/IcfGuideSection'
 import { Footer } from '@/components/layout/Footer'
 import { Navbar } from '@/components/layout/Navbar'
 
@@ -21,7 +20,6 @@ export default function HomePage() {
       <CoachingPreview />
       <BioSection />
       <CTASection />
-      <IcfGuideSection />
       <Footer />
     </main>
   )
