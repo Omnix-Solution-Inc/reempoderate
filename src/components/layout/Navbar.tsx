@@ -9,6 +9,7 @@ export function Navbar() {
   const links = [
     { href: '#metodo', label: 'Método' },
     { href: '#coaching', label: 'Coaching' },
+    { href: '/rueda-de-la-vida', label: 'Rueda de la Vida' },
     
     { href: '#bio', label: 'Bio' },
   ]
