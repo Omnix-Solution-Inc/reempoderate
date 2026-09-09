@@ -1,12 +1,14 @@
 'use client'
 
-// Acceso al Panel Administrativo — ReEmpodérate / Bella Wildflower
+// Acceso al Panel — ReEmpodérate
 // Login con Nombre y Clave (sin dependencia de Google/Facebook/LinkedIn)
 
 import { useState } from 'react'
+import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 
 const API = 'https://witmakers-1a5946c3.base44.app/functions'
+const MAILTO = 'mailto:hola@reempoderate.com?subject=Solicitud%20de%20Servicio%20T%C3%A9cnico'
 
 export default function LoginPage() {
   const router = useRouter()
@@ -70,6 +72,14 @@ export default function LoginPage() {
               placeholder="Tu clave"
               className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-primary"
             />
+            <div className="text-right mt-1">
+              <a
+                href={MAILTO}
+                className="text-xs text-primary/70 hover:text-primary transition underline underline-offset-2"
+              >
+                Olvidé mi clave
+              </a>
+            </div>
           </div>
 
           {error && (
@@ -87,8 +97,22 @@ export default function LoginPage() {
           </button>
         </form>
 
+        <p className="text-sm text-gray-500 mt-6">
+          ¿Primera vez?{' '}
+          <Link
+            href="/auth/registro"
+            className="text-primary font-medium hover:underline underline-offset-2 transition"
+          >
+            Crea tu cuenta
+          </Link>
+        </p>
+
         <p className="text-xs text-gray-400 mt-6">
-          ¿No tienes acceso? Escríbele a Pedro para que te dé tu usuario y clave.
+          ¿Necesitas ayuda?{' '}
+          <a href={MAILTO} className="text-primary/80 hover:text-primary transition underline underline-offset-2">
+            Servicio Técnico
+          </a>
+          {' '}— hola@reempoderate.com
         </p>
       </div>
     </main>
