@@ -47,7 +47,7 @@ export default function LoginPage() {
   return (
     <main className="min-h-screen bg-light-bg flex items-center justify-center px-4">
       <div className="bg-white rounded-2xl shadow-xl p-10 w-full max-w-md text-center">
-        <h1 className="font-playfair text-3xl text-primary mb-2">ReEmpodérate</h1>
+        <h1 className="font-playfair text-3xl text-bloom-deep mb-2">ReEmpodérate</h1>
         <p className="text-gray-500 mb-8 text-sm">Accede a tu panel</p>
 
         <form onSubmit={handleSubmit} className="space-y-4 text-left">
@@ -59,7 +59,7 @@ export default function LoginPage() {
               onChange={set('name')}
               required
               placeholder="Tu nombre de usuario"
-              className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-primary"
+              className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-bloom-deep"
             />
           </div>
 
@@ -72,13 +72,13 @@ export default function LoginPage() {
                             onChange={set('password')}
                             required
                             placeholder="Tu clave"
-                            className="w-full border border-gray-200 rounded-xl px-4 py-3 pr-12 text-sm focus:outline-none focus:border-primary"
+                            className="w-full border border-gray-200 rounded-xl px-4 py-3 pr-12 text-sm focus:outline-none focus:border-bloom-deep"
                           />
               <button
                 type="button"
                 onClick={() => setShow(v => !v)}
                 aria-label={show ? 'Ocultar clave' : 'Ver clave'}
-                className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-primary transition"
+                className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-bloom-deep transition"
               >
                 {show ? (
                   <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M9.88 9.88a3 3 0 1 0 4.24 4.24"/><path d="M10.73 5.08A10.43 10.43 0 0 1 12 5c7 0 10 7 10 7a13.16 13.16 0 0 1-1.67 2.68"/><path d="M6.61 6.61A13.526 13.526 0 0 0 2 12s3 7 10 7a9.74 9.74 0 0 0 5.39-1.61"/><line x1="2" x2="22" y1="2" y2="22"/></svg>
@@ -90,7 +90,7 @@ export default function LoginPage() {
             <div className="text-right mt-1">
               <a
                 href={MAILTO}
-                className="text-xs text-primary/70 hover:text-primary transition underline underline-offset-2"
+                className="text-xs text-bloom-deep/70 hover:text-bloom-deep transition underline underline-offset-2"
               >
                 Olvidé mi clave
               </a>
@@ -106,7 +106,7 @@ export default function LoginPage() {
           <button
             type="submit"
             disabled={loading}
-            className="w-full bg-primary text-white font-semibold text-sm py-3.5 rounded-full hover:opacity-90 transition disabled:opacity-60"
+            className="w-full bg-bloom-deep text-white font-semibold text-sm py-3.5 rounded-full hover:bg-bloom transition disabled:opacity-60"
           >
             {loading ? 'Entrando…' : 'Entrar'}
           </button>
@@ -116,7 +116,7 @@ export default function LoginPage() {
           ¿Primera vez?{' '}
           <Link
             href="/auth/registro"
-            className="text-primary font-medium hover:underline underline-offset-2 transition"
+            className="text-bloom-deep font-medium hover:underline underline-offset-2 transition"
           >
             Crea tu cuenta
           </Link>
@@ -124,7 +124,7 @@ export default function LoginPage() {
 
         <p className="text-xs text-gray-400 mt-6">
           ¿Necesitas ayuda?{' '}
-          <a href={MAILTO} className="text-primary/80 hover:text-primary transition underline underline-offset-2">
+          <a href={MAILTO} className="text-bloom-deep/80 hover:text-bloom-deep transition underline underline-offset-2">
             Servicio Técnico
           </a>
           {' '}— hola@reempoderate.com

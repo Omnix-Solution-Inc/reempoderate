@@ -67,7 +67,7 @@ export default function RegistroAdminPage() {
   return (
     <main className="min-h-screen bg-light-bg flex items-center justify-center px-4">
       <div className="bg-white rounded-2xl shadow-xl p-10 w-full max-w-md text-center">
-        <h1 className="font-playfair text-3xl text-primary mb-2">ReEmpodérate</h1>
+        <h1 className="font-playfair text-3xl text-bloom-deep mb-2">ReEmpodérate</h1>
         <p className="text-gray-500 mb-8 text-sm">Crea tu cuenta de acceso</p>
 
         <form onSubmit={handleSubmit} className="space-y-4 text-left">
@@ -79,7 +79,7 @@ export default function RegistroAdminPage() {
               onChange={set('name')}
               required
               placeholder="Tu nombre de usuario"
-              className={`${inputBase} border-gray-200 focus:border-primary`}
+              className={`${inputBase} border-gray-200 focus:border-bloom-deep`}
             />
           </div>
 
@@ -93,13 +93,13 @@ export default function RegistroAdminPage() {
                             required
                             minLength={6}
                             placeholder="Mínimo 6 caracteres"
-                            className={`${inputBase} border-gray-200 focus:border-primary pr-12`}
+                            className={`${inputBase} border-gray-200 focus:border-bloom-deep pr-12`}
                           />
               <button
                 type="button"
                 onClick={() => setShow(v => !v)}
                 aria-label={show ? 'Ocultar clave' : 'Ver clave'}
-                className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-primary transition"
+                className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-bloom-deep transition"
               >
                 {show ? (
                   <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M9.88 9.88a3 3 0 1 0 4.24 4.24"/><path d="M10.73 5.08A10.43 10.43 0 0 1 12 5c7 0 10 7 10 7a13.16 13.16 0 0 1-1.67 2.68"/><path d="M6.61 6.61A13.526 13.526 0 0 0 2 12s3 7 10 7a9.74 9.74 0 0 0 5.39-1.61"/><line x1="2" x2="22" y1="2" y2="22"/></svg>
@@ -122,14 +122,14 @@ export default function RegistroAdminPage() {
                             className={`pr-12 ${inputBase} ${
                               mismatch
                                 ? 'border-red-400 bg-red-50 focus:border-red-500'
-                                : 'border-gray-200 focus:border-primary'
+                                : 'border-gray-200 focus:border-bloom-deep'
                             }`}
                           />
               <button
                 type="button"
                 onClick={() => setShow2(v => !v)}
                 aria-label={show2 ? 'Ocultar clave' : 'Ver clave'}
-                className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-primary transition"
+                className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-bloom-deep transition"
               >
                 {show2 ? (
                   <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M9.88 9.88a3 3 0 1 0 4.24 4.24"/><path d="M10.73 5.08A10.43 10.43 0 0 1 12 5c7 0 10 7 10 7a13.16 13.16 0 0 1-1.67 2.68"/><path d="M6.61 6.61A13.526 13.526 0 0 0 2 12s3 7 10 7a9.74 9.74 0 0 0 5.39-1.61"/><line x1="2" x2="22" y1="2" y2="22"/></svg>
@@ -151,7 +151,7 @@ export default function RegistroAdminPage() {
               onChange={set('invite_code')}
               required
               placeholder="Código que te compartió el Servicio Técnico"
-              className={`${inputBase} border-gray-200 focus:border-primary`}
+              className={`${inputBase} border-gray-200 focus:border-bloom-deep`}
             />
           </div>
 
@@ -164,7 +164,7 @@ export default function RegistroAdminPage() {
           <button
             type="submit"
             disabled={loading || mismatch}
-            className="w-full bg-primary text-white font-semibold text-sm py-3.5 rounded-full hover:opacity-90 transition disabled:opacity-60"
+            className="w-full bg-bloom-deep text-white font-semibold text-sm py-3.5 rounded-full hover:bg-bloom transition disabled:opacity-60"
           >
             {loading ? 'Creando tu cuenta…' : 'Crear cuenta'}
           </button>
@@ -174,7 +174,7 @@ export default function RegistroAdminPage() {
           ¿Ya tienes cuenta?{' '}
           <Link
             href="/auth/login"
-            className="text-primary font-medium hover:underline underline-offset-2 transition"
+            className="text-bloom-deep font-medium hover:underline underline-offset-2 transition"
           >
             Entrar
           </Link>
