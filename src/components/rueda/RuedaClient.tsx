@@ -356,7 +356,7 @@ export default function RuedaClient() {
           </h1>
           <p className="max-w-2xl mx-auto text-base leading-relaxed" style={{ color: C.ink }}>
             Un espejo honesto de dónde estás hoy y hacia dónde decides ir. Califica cada área
-            del 0 al 10 — primero cómo la vives <strong>ahora</strong>, luego dónde te gustaría
+            del 1 al 10 — primero cómo la vives <strong>ahora</strong>, luego dónde te gustaría
             estar. Observa tu rueda dibujarse en tiempo real.
           </p>
         </div>
@@ -365,7 +365,7 @@ export default function RuedaClient() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-12">
           {[
             ['1', 'Renombra o agrega áreas', 'Tu rueda, tus palabras.'],
-            ['2', 'Califica tu HOY', 'Del 0 al 10, con honestidad.'],
+            ['2', 'Califica tu HOY', 'Del 1 al 10, con honestidad.'],
             ['3', 'Marca tu META', 'El puntaje al que decides llegar.'],
             ['4', 'Descárgala', 'En PNG o PDF, y recíbela en tu correo.'],
           ].map(([n, t, d]) => (
@@ -467,7 +467,7 @@ export default function RuedaClient() {
                         Ahora · {a.now}
                       </p>
                       <input
-                        type="range" min={0} max={10} value={a.now}
+                        type="range" min={1} max={10} value={a.now}
                         onChange={(e) => update(a.id, 'now', Number(e.target.value))}
                         className="w-full" style={{ accentColor: C.deep }}
                       />
@@ -477,7 +477,7 @@ export default function RuedaClient() {
                         Meta · {a.goal}
                       </p>
                       <input
-                        type="range" min={0} max={10} value={a.goal}
+                        type="range" min={1} max={10} value={a.goal}
                         onChange={(e) => update(a.id, 'goal', Number(e.target.value))}
                         className="w-full" style={{ accentColor: C.gold }}
                       />
