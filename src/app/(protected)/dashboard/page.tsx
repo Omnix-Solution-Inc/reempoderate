@@ -1,15 +1,10 @@
 'use client'
-import { useSession } from 'next-auth/react'
 import { useRouter } from 'next/navigation'
-import { useEffect } from 'react'
+import { useAdminGuard, adminLogout } from '@/lib/auth/useAdminGuard'
 
 export default function DashboardPage() {
-  const { data: session, status } = useSession()
+  const { status, name } = useAdminGuard()
   const router = useRouter()
-
-  useEffect(() => {
-    if (status === 'unauthenticated') router.push('/auth/login')
-  }, [status, router])
 
   if (status === 'loading') {
     return (
@@ -19,21 +14,29 @@ export default function DashboardPage() {
     )
   }
 
-  if (!session) return null
+  if (status !== 'authenticated') return null
 
   const env = process.env.NEXT_PUBLIC_ENVIRONMENT || 'reempoderate'
-  const firstName = session.user?.name?.split(' ')[0] || ''
+  const firstName = name.split(' ')[0] || ''
 
   return (
     <main className="min-h-screen bg-light-bg p-8">
       <div className="max-w-7xl mx-auto">
-        <div className="mb-8">
-          <h1 className="font-playfair text-3xl text-dark">
-            Bienvenida, {firstName} ✦
-          </h1>
-          <p className="text-gray-500 mt-1 text-sm">
-            Ambiente activo: <span className="font-medium text-primary">{env}</span>
-          </p>
+        <div className="mb-8 flex items-center justify-between">
+          <div>
+            <h1 className="font-playfair text-3xl text-dark">
+              Bienvenida, {firstName} ✦
+            </h1>
+            <p className="text-gray-500 mt-1 text-sm">
+              Ambiente activo: <span className="font-medium text-primary">{env}</span>
+            </p>
+          </div>
+          <button
+            onClick={() => adminLogout(router)}
+            className="text-sm text-gray-500 hover:text-primary transition"
+          >
+            Cerrar sesión
+          </button>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">

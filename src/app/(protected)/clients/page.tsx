@@ -1,6 +1,6 @@
 'use client'
 import { useEffect, useState } from 'react'
-import { useSession } from 'next-auth/react'
+import { useAdminGuard } from '@/lib/auth/useAdminGuard'
 
 type Client = {
   id: string
@@ -13,17 +13,28 @@ type Client = {
 }
 
 export default function ClientsPage() {
-  const { data: session } = useSession()
+  const { status } = useAdminGuard()
   const [clients, setClients] = useState<Client[]>([])
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
+    if (status !== 'authenticated') return
     fetch(`${process.env.NEXT_PUBLIC_BASE44_API_URL || ''}/tbwsystem?e=TBWClient`)
       .then(r => r.json())
       .then(data => setClients(Array.isArray(data) ? data : []))
       .catch(() => setClients([]))
       .finally(() => setLoading(false))
-  }, [])
+  }, [status])
+
+  if (status === 'loading') {
+    return (
+      <main className="min-h-screen bg-[#F4EFEB] flex items-center justify-center">
+        <p className="text-gray-400">Cargando...</p>
+      </main>
+    )
+  }
+
+  if (status !== 'authenticated') return null
 
   return (
     <main className="min-h-screen bg-[#F4EFEB] p-8">

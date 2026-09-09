@@ -1,57 +1,94 @@
 'use client'
-import { signIn, useSession } from 'next-auth/react'
+
+// Acceso al Panel Administrativo — ReEmpodérate / Bella Wildflower
+// Login con Nombre y Clave (sin dependencia de Google/Facebook/LinkedIn)
+
+import { useState } from 'react'
 import { useRouter } from 'next/navigation'
-import { useEffect } from 'react'
+
+const API = 'https://witmakers-1a5946c3.base44.app/functions'
 
 export default function LoginPage() {
-  const { data: session } = useSession()
   const router = useRouter()
+  const [form, setForm] = useState({ name: '', password: '' })
+  const [error, setError] = useState('')
+  const [loading, setLoading] = useState(false)
 
-  useEffect(() => {
-    if (session) router.push('/dashboard')
-  }, [session, router])
+  const set = (k: string) => (e: React.ChangeEvent<HTMLInputElement>) =>
+    setForm({ ...form, [k]: e.target.value })
+
+  async function handleSubmit(e: React.FormEvent) {
+    e.preventDefault()
+    setError('')
+    setLoading(true)
+    try {
+      const res = await fetch(`${API}/adminLogin`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(form),
+      })
+      const data = await res.json()
+      if (res.ok && data.token) {
+        localStorage.setItem('ree_admin', JSON.stringify({ token: data.token, name: data.name }))
+        router.push('/dashboard')
+      } else {
+        setError(data.error || 'No pudimos iniciar sesión')
+      }
+    } catch {
+      setError('Hubo un problema de conexión. Inténtalo de nuevo.')
+    } finally {
+      setLoading(false)
+    }
+  }
 
   return (
-    <main className="min-h-screen bg-light-bg flex items-center justify-center">
+    <main className="min-h-screen bg-light-bg flex items-center justify-center px-4">
       <div className="bg-white rounded-2xl shadow-xl p-10 w-full max-w-md text-center">
         <h1 className="font-playfair text-3xl text-primary mb-2">ReEmpodérate</h1>
-        <p className="text-gray-500 mb-8 text-sm">Accede a tu espacio de transformación</p>
+        <p className="text-gray-500 mb-8 text-sm">Accede a tu panel</p>
 
-        <button
-          onClick={() => signIn('google', { callbackUrl: '/dashboard' })}
-          className="w-full flex items-center justify-center gap-3 border border-gray-200 rounded-xl py-3 px-4 mb-3 hover:bg-gray-50 transition font-medium text-sm"
-        >
-          <svg className="w-5 h-5" viewBox="0 0 24 24">
-            <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
-            <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
-            <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/>
-            <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/>
-          </svg>
-          Continuar con Google
-        </button>
+        <form onSubmit={handleSubmit} className="space-y-4 text-left">
+          <div>
+            <label className="block text-sm font-medium text-gray-600 mb-1">Nombre</label>
+            <input
+              type="text"
+              value={form.name}
+              onChange={set('name')}
+              required
+              placeholder="Tu nombre de usuario"
+              className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-primary"
+            />
+          </div>
 
-        <button
-          onClick={() => signIn('facebook', { callbackUrl: '/dashboard' })}
-          className="w-full flex items-center justify-center gap-3 border border-gray-200 rounded-xl py-3 px-4 mb-3 hover:bg-gray-50 transition font-medium text-sm"
-        >
-          <svg className="w-5 h-5" viewBox="0 0 24 24">
-            <path fill="#1877F2" d="M24 12.07C24 5.4 18.63 0 12 0S0 5.4 0 12.07C0 18.1 4.39 23.09 10.13 24v-8.44H7.08v-3.49h3.05V9.41c0-3.02 1.79-4.7 4.53-4.7 1.31 0 2.68.24 2.68.24v2.95h-1.51c-1.49 0-1.95.93-1.95 1.89v2.28h3.32l-.53 3.49h-2.79V24C19.61 23.09 24 18.1 24 12.07z"/>
-          </svg>
-          Continuar con Facebook
-        </button>
+          <div>
+            <label className="block text-sm font-medium text-gray-600 mb-1">Clave</label>
+            <input
+              type="password"
+              value={form.password}
+              onChange={set('password')}
+              required
+              placeholder="Tu clave"
+              className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-primary"
+            />
+          </div>
 
-        <button
-          onClick={() => signIn('linkedin', { callbackUrl: '/dashboard' })}
-          className="w-full flex items-center justify-center gap-3 border border-gray-200 rounded-xl py-3 px-4 mb-3 hover:bg-gray-50 transition font-medium text-sm"
-        >
-          <svg className="w-5 h-5" viewBox="0 0 24 24">
-            <path fill="#0A66C2" d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.03-1.85-3.03-1.85 0-2.14 1.44-2.14 2.94v5.66H9.34V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.38-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14zM7.12 20.45H3.56V9h3.56v11.45z"/>
-          </svg>
-          Continuar con LinkedIn
-        </button>
+          {error && (
+            <p className="text-sm text-red-600 bg-red-50 border border-red-100 rounded-xl px-4 py-3">
+              {error}
+            </p>
+          )}
+
+          <button
+            type="submit"
+            disabled={loading}
+            className="w-full bg-primary text-white font-semibold text-sm py-3.5 rounded-full hover:opacity-90 transition disabled:opacity-60"
+          >
+            {loading ? 'Entrando…' : 'Entrar'}
+          </button>
+        </form>
 
         <p className="text-xs text-gray-400 mt-6">
-          Al continuar, aceptas nuestros términos de uso y política de privacidad.
+          ¿No tienes acceso? Escríbele a Pedro para que te dé tu usuario y clave.
         </p>
       </div>
     </main>

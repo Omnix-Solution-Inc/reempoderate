@@ -1,10 +1,12 @@
 'use client'
-import { useSession, signIn } from 'next-auth/react'
 import Link from 'next/link'
 import Image from 'next/image'
+import { useEffect, useState } from 'react'
+import { hasAdminSessionHint } from '@/lib/auth/adminSessionHint'
 
 export function HeroSection() {
-  const { data: session } = useSession()
+  const [hasSession, setHasSession] = useState(false)
+  useEffect(() => setHasSession(hasAdminSessionHint()), [])
 
   return (
     <section className="min-h-screen flex items-center justify-center relative overflow-hidden bg-gradient-to-br from-cream via-cream-light to-bloom/5 pt-24 pb-16">
@@ -45,15 +47,15 @@ export function HeroSection() {
             </svg>
             Empieza tu transformación
           </a>
-          {!session && (
-            <button
-              onClick={() => signIn()}
+          {!hasSession && (
+            <Link
+              href="/auth/login"
               className="border border-ink text-ink px-8 py-4 rounded-2xl font-medium hover:bg-ink/5 transition text-base"
             >
               Acceder a mi portal
-            </button>
+            </Link>
           )}
-          {session && (
+          {hasSession && (
             <Link
               href="/dashboard"
               className="border border-ink text-ink px-8 py-4 rounded-2xl font-medium hover:bg-ink/5 transition text-base"

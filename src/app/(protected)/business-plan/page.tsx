@@ -1,15 +1,8 @@
 'use client'
-import { useSession } from 'next-auth/react'
-import { useRouter } from 'next/navigation'
-import { useEffect } from 'react'
+import { useAdminGuard } from '@/lib/auth/useAdminGuard'
 
 export default function BusinessPlanPage() {
-  const { data: session, status } = useSession()
-  const router = useRouter()
-
-  useEffect(() => {
-    if (status === 'unauthenticated') router.push('/auth/login')
-  }, [status, router])
+  const { status } = useAdminGuard()
 
   if (status === 'loading') {
     return (
@@ -19,7 +12,7 @@ export default function BusinessPlanPage() {
     )
   }
 
-  if (!session) return null
+  if (status !== 'authenticated') return null
 
   return (
     <main className="min-h-screen bg-light-bg p-8">

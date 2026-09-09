@@ -1,10 +1,11 @@
 'use client'
-import { useState } from 'react'
-import { useSession } from 'next-auth/react'
+import { useEffect, useState } from 'react'
+import { hasAdminSessionHint } from '@/lib/auth/adminSessionHint'
 import Link from 'next/link'
 
 export function CTASection() {
-  const { data: session } = useSession()
+  const [hasSession, setHasSession] = useState(false)
+  useEffect(() => setHasSession(hasAdminSessionHint()), [])
   const [showModal, setShowModal] = useState(false)
   const [email, setEmail] = useState('')
   const [submitted, setSubmitted] = useState(false)
@@ -46,7 +47,7 @@ export function CTASection() {
             Empieza tu transformación
           </a>
 
-          {!session && (
+          {!hasSession && (
             <button
               onClick={() => setShowModal(true)}
               className="border border-cream/40 text-cream px-8 py-4 rounded-2xl font-medium hover:bg-cream/10 transition text-base"
@@ -54,7 +55,7 @@ export function CTASection() {
               Acceder a mi portal
             </button>
           )}
-          {session && (
+          {hasSession && (
             <Link
               href="/dashboard"
               className="border border-cream/40 text-cream px-8 py-4 rounded-2xl font-medium hover:bg-cream/10 transition text-base"
