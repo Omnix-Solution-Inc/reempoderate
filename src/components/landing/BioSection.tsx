@@ -85,7 +85,7 @@ export function BioSection() {
             Te invito a conocer más sobre mis espacios de acompañamiento.
           </p>
           <a
-            href="https://wa.me/13217329993?text=Hola%2C%20quiero%20iniciar%20mi%20proceso%20de%20transformaci%C3%B3n%20con%20ReEmpodérate"
+            href="https://wa.me/13217329993?text=Hola%2C%20quiero%20iniciar%20mi%20proceso%20de%20transformaci%C3%B3n%20con%20ReEmpoderate"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 bg-bloom-deep text-white px-8 py-4 rounded-2xl font-medium hover:bg-bloom transition text-base shadow-lg shadow-bloom/25"

@@ -13,20 +13,11 @@ export function Footer() {
           <ul className="space-y-2 text-sm text-white/50">
             <li>Coaching 1:1</li>
             <li>Talleres</li>
-            <li>Galería <span className="text-bloom/60 text-xs ml-1 italic">en construcción</span></li>
-            <li>Marketplace <span className="text-bloom/60 text-xs ml-1 italic">en construcción</span></li>
+            <li>Galería</li>
+            <li>Marketplace</li>
           </ul>
         </div>
-        <div>
-          <h4 className="text-sm font-semibold mb-4 text-white/70">Comunidad</h4>
-          <ul className="space-y-2 text-sm text-white/50">
-            <li>Red de Coaches <span className="text-bloom/60 text-xs ml-1 italic">en construcción</span></li>
-            <li>Facilitadores <span className="text-bloom/60 text-xs ml-1 italic">en construcción</span></li>
-            <li>Blog <span className="text-bloom/60 text-xs ml-1 italic">en construcción</span></li>
-            <li>Recursos <span className="text-bloom/60 text-xs ml-1 italic">en construcción</span></li>
-          </ul>
-        </div>
-        <div>
+                <div>
           <h4 className="text-sm font-semibold mb-4 text-white/70">Contacto</h4>
           <ul className="space-y-2 text-sm text-white/50">
             <li>hola@reempoderate.com</li>
