@@ -9,7 +9,7 @@ export function BioSection() {
       <div className="max-w-5xl mx-auto px-6">
         {/* Foto con bordes suavizados */}
         <div className="flex justify-center mb-12">
-          <div className="relative w-72 h-72 md:w-80 md:h-80">
+          <div className="relative w-52 h-52 md:w-60 md:h-60">
             <div className="absolute inset-0 rounded-full overflow-hidden shadow-xl shadow-bloom/20 ring-4 ring-bloom-light/40">
               <Image
                 src={MARIELA_PHOTO}
@@ -17,7 +17,7 @@ export function BioSection() {
                 fill
                 className="object-cover rounded-full"
                 style={{ borderRadius: '9999px' }}
-                sizes="(max-width: 768px) 18rem, 20rem"
+                sizes="(max-width: 768px) 13rem, 15rem"
               />
             </div>
           </div>
