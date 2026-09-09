@@ -35,7 +35,7 @@ function makeAreas(): Area[] {
     id: `a${i}`,
     name: a.name,
     now: 5,
-    goal: 5,
+    goal: 10,
   }))
 }
 
@@ -164,7 +164,7 @@ export default function RuedaClient() {
   const [pendingAction, setPendingAction] = useState<'png' | 'pdf' | null>(null)
   const [error, setError] = useState('')
   const canvasRef = useRef<HTMLCanvasElement>(null)
-  const [avg, setAvg] = useState({ now: 5, goal: 5 })
+  const [avg, setAvg] = useState({ now: 5, goal: 10 })
 
   useEffect(() => {
     const canvas = canvasRef.current
@@ -190,7 +190,7 @@ export default function RuedaClient() {
   const addArea = () =>
     setAreas((prev) => [
       ...prev,
-      { id: `a${Date.now()}`, name: 'Nueva área', now: 5, goal: 5 },
+      { id: `a${Date.now()}`, name: 'Nueva área', now: 5, goal: 10 },
     ])
 
   const removeArea = (id: string) =>
@@ -406,11 +406,11 @@ export default function RuedaClient() {
             <div className="grid grid-cols-2 gap-4 mt-6">
               <div className="rounded-2xl p-4 text-center" style={{ background: C.soft }}>
                 <p className="text-xs uppercase tracking-wider" style={{ color: C.deep }}>Promedio ahora</p>
-                <p className="font-serif text-3xl" style={{ color: C.ink }}>{avg.now}</p>
+                <p className="font-serif text-3xl" style={{ color: C.ink }}>{avg.now} <span className="text-base" style={{ color: 'rgba(93,78,92,0.5)' }}>/ 10</span></p>
               </div>
               <div className="rounded-2xl p-4 text-center" style={{ background: 'rgba(201,162,39,0.14)' }}>
                 <p className="text-xs uppercase tracking-wider" style={{ color: C.gold }}>Promedio meta</p>
-                <p className="font-serif text-3xl" style={{ color: C.ink }}>{avg.goal}</p>
+                <p className="font-serif text-3xl" style={{ color: C.ink }}>{avg.goal} <span className="text-base" style={{ color: 'rgba(93,78,92,0.5)' }}>/ 10</span></p>
               </div>
             </div>
 
