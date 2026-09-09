@@ -216,7 +216,7 @@ export default function RuedaClient() {
     ctx.fillText('Mi Rueda de la Vida', s / 2, 190)
     ctx.fillStyle = 'rgba(93, 78, 92, 0.6)'
     ctx.font = '400 30px Arimo, sans-serif'
-    ctx.fillText('Dónde estoy hoy — y hacia dónde decido ir', s / 2, 245)
+    ctx.fillText('¿Dónde estás hoy y hacia dónde quieres ir?', s / 2, 245)
 
     // rueda
     const wheel = document.createElement('canvas')
@@ -253,9 +253,10 @@ export default function RuedaClient() {
       ctx.textAlign = 'left'
       ctx.fillStyle = C.ink
       ctx.font = '500 28px Arimo, sans-serif'
-      ctx.fillText(a.name, x, y)
+      ctx.fillText(a.name, x, y, 300)
       ctx.fillStyle = C.deep
-      ctx.fillText(`${a.now} → ${a.goal}`, x + 240, y)
+      ctx.textAlign = 'right'
+      ctx.fillText(`${a.now} → ${a.goal}`, x + 460, y)
     })
 
     // pie
