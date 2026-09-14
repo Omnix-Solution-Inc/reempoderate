@@ -1,7 +1,4 @@
 'use client'
-import Image from 'next/image'
-
-const XIOMARA_PHOTO = '/xiomara-coach.jpg'
 
 export function RedCoachesSection() {
   return (
@@ -20,22 +17,6 @@ export function RedCoachesSection() {
 
         {/* Tarjeta de Xiomara Moreno Bello */}
         <div className="max-w-3xl mx-auto bg-white/60 rounded-3xl p-8 md:p-12 shadow-lg shadow-bloom/10 ring-1 ring-bloom-light/30">
-          {/* Foto */}
-          <div className="flex justify-center mb-8">
-            <div className="relative w-44 h-44 md:w-52 md:h-52">
-              <div className="absolute inset-0 rounded-full overflow-hidden shadow-xl shadow-bloom/20 ring-4 ring-bloom-light/40">
-                <Image
-                  src={XIOMARA_PHOTO}
-                  alt="Xiomara Moreno Bello"
-                  fill
-                  className="object-cover rounded-full"
-                  style={{ borderRadius: '9999px' }}
-                  sizes="(max-width: 768px) 11rem, 13rem"
-                />
-              </div>
-            </div>
-          </div>
-
           {/* Nombre y título */}
           <h3 className="font-playfair text-2xl md:text-3xl text-ink text-center mb-3">
             Xiomara Moreno Bello
