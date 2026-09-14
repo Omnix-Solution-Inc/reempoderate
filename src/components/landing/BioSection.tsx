@@ -1,60 +1,16 @@
 'use client'
-import Image from 'next/image'
-
-const MARIELA_PHOTO = '/mariela-bio.jpg'
 
 export function BioSection() {
   return (
     <section id="bio" className="py-24 bg-gradient-to-b from-cream to-cream-dark">
       <div className="max-w-5xl mx-auto px-6">
-        {/* Foto con bordes suavizados */}
-        <div className="flex justify-center mb-12">
-          <div className="relative w-52 h-52 md:w-60 md:h-60">
-            <div className="absolute inset-0 rounded-full overflow-hidden shadow-xl shadow-bloom/20 ring-4 ring-bloom-light/40">
-              <Image
-                src={MARIELA_PHOTO}
-                alt="Mariela Barbetti"
-                fill
-                className="object-cover rounded-full"
-                style={{ borderRadius: '9999px' }}
-                sizes="(max-width: 768px) 13rem, 15rem"
-              />
-            </div>
-          </div>
-        </div>
-
-        {/* Nombre y titulo */}
-        <h2 className="font-playfair text-3xl md:text-4xl text-ink text-center mb-3">
-          Mariela Barbetti
-        </h2>
-        <p className="font-arimo text-sm text-bloom-deep text-center mb-10 tracking-wide uppercase">
-          Coach Ontológica y Laboral · Miembro de ICF
-        </p>
-
-        {/* Biografia */}
         <div className="max-w-3xl mx-auto space-y-6 font-arimo text-ink/70 text-base leading-relaxed">
-          <p>
-            ¡Hol@! 💜 Soy Mariela Barbetti, venezolana, inmigrante en EE. UU. desde 2015, madre de cuatro hijos (Paul, Abraham, Alena y Ana), esposa, hija, hermana y amiga.
-          </p>
-
-          <p>
-            Mi camino se sostiene sobre una pasión constante: aprender. Con formación previa en Derecho en Venezuela, el rigor analítico me dio una base sólida, mientras que mi propia experiencia de vida —emigrar, reinventarme y sostener el equilibrio familiar— me enseñó que el verdadero crecimiento exige redescubrirnos y transformar nuestra mirada.
-          </p>
-
-          <p>
-            Esa búsqueda continua me llevó a certificarme como Coach Ontológica y Laboral, en proceso de certificación de Mindfulness y ser miembro de la International Coaching Federation (ICF).
-          </p>
-
-          <p>
-            Miro mi recorrido con profundo reconocimiento: gracias a mis muchos profesores y mentores, cuyo conocimiento y guía me impulsaron a cuestionar, expandir mi mirada y confiar en mi potencial para acompañar a otros.
-          </p>
-
           {/* ¿Por qué nace ReEmpodérate? */}
-          <h3 className="font-playfair text-2xl text-ink pt-6">
+          <h3 className="font-playfair text-2xl md:text-3xl text-ink text-center mb-6">
             ¿Por qué nace ReEmpodérate? 🌿
           </h3>
           <p>
-            ReEmpodérate nace como una respuesta a esos momentos de transición en los que sentimos que algo debe cambiar. Mi propósito es ser un espejo para acompañarte en lo personal y profesional a:
+            ReEmpodérate nace como una respuesta a esos momentos de transición en los que sentimos que algo debe cambiar. Nuestro propósito es ser un espejo para acompañarte en lo personal y profesional a:
           </p>
           <div className="space-y-3 pl-4">
             <p className="flex gap-3">
@@ -72,7 +28,7 @@ export function BioSection() {
           </div>
 
           <p className="pt-2">
-            Creo firmemente en el valor de la escucha empática, la presencia activa y la flexibilidad para habitar la vida con serenidad.
+            Creemos firmemente en el valor de la escucha empática, la presencia activa y la flexibilidad para habitar la vida con serenidad.
           </p>
         </div>
 
@@ -82,7 +38,7 @@ export function BioSection() {
             ¿List@ para iniciar tu propio proceso de transformación?
           </h3>
           <p className="font-arimo text-ink/60 text-base mb-8">
-            Te invito a conocer más sobre mis espacios de acompañamiento.
+            Te invitamos a conocer más sobre nuestros espacios de acompañamiento.
           </p>
           <a
             href="https://wa.me/13217329993?text=Hola%2C%20quiero%20iniciar%20mi%20proceso%20de%20transformaci%C3%B3n%20con%20ReEmpoderate"
