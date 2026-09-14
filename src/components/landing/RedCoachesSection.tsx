@@ -18,7 +18,7 @@ export function RedCoachesSection() {
           </p>
         </div>
 
-        {/* Tarjeta de Xiomara Moreno */}
+        {/* Tarjeta de Xiomara Moreno Bello */}
         <div className="max-w-3xl mx-auto bg-white/60 rounded-3xl p-8 md:p-12 shadow-lg shadow-bloom/10 ring-1 ring-bloom-light/30">
           {/* Foto */}
           <div className="flex justify-center mb-8">
@@ -26,7 +26,7 @@ export function RedCoachesSection() {
               <div className="absolute inset-0 rounded-full overflow-hidden shadow-xl shadow-bloom/20 ring-4 ring-bloom-light/40">
                 <Image
                   src={XIOMARA_PHOTO}
-                  alt="Xiomara Moreno"
+                  alt="Xiomara Moreno Bello"
                   fill
                   className="object-cover rounded-full"
                   style={{ borderRadius: '9999px' }}
@@ -38,10 +38,10 @@ export function RedCoachesSection() {
 
           {/* Nombre y título */}
           <h3 className="font-playfair text-2xl md:text-3xl text-ink text-center mb-3">
-            Xiomara Moreno
+            Xiomara Moreno Bello
           </h3>
           <p className="font-arimo text-sm text-bloom-deep text-center mb-8 tracking-wide uppercase">
-            Consultora Formadora · Facilitadora de Aprendizajes · Coach
+            Arquitecta de Resultados · Consultora Sistémica y Coach Ejecutiva
           </p>
 
           {/* Biografía */}
@@ -52,38 +52,28 @@ export function RedCoachesSection() {
             </p>
 
             <p>
-              Durante 40 años ininterrumpidos, Xiomara ha acompañado a
-              organizaciones como consultora, formadora y facilitadora de
-              aprendizajes. Hoy pone sus servicios y productos a la orden de las
-              organizaciones que desean optimizar sus equipos de talento,
-              transformando a su gente en consultores transformadores para el
-              negocio.
+              Con 45 años de trayectoria profesional ininterrumpida, Xiomara
+              Moreno Bello es especialista en gestión del cambio organizacional,
+              facilitación del aprendizaje significativo y desarrollo de
+              liderazgo ejecutivo. A lo largo de más de cuatro décadas, ha
+              acompañado a empresas y líderes a cerrar la brecha entre la
+              identidad corporativa y sus resultados estratégicos.
             </p>
 
             <p>
-              Su acompañamiento genera cambios conscientes e inmediatos en las
-              habilidades blandas: manejo efectivo de equipos de trabajo,
-              formación de líderes transformacionales, cultura de
-              responsabilidad, mejora de la gestión del tiempo y reducción del
-              retrabajo — respuestas claras a las necesidades reales de las
-              empresas de hoy.
+              Es fundadora y creadora de metodologías enfocadas en la
+              Transformación Sistémica, integrando herramientas de metacognición,
+              consciencia inmediata y el marco de Trilogía de Vida (armonización
+              personal, profesional y ciudadana). Su enfoque combina la solidez
+              conceptual de la gestión estratégica moderna con una mirada humana
+              orientada a la sostenibilidad organizativa.
             </p>
 
             <p>
-              Sus productos, <strong className="text-ink">La Mentoría</strong> y{' '}
-              <strong className="text-ink">El Coaching en línea</strong>,
-              fortalecen el Ser para optimizar el Hacer con modelos
-              personalizados y adaptables: personas, grupos y equipos de
-              organizaciones de salud, educativas, tecnológicas, de
-              construcción o manufactura que buscan desarrollar las habilidades
-              blandas de su gente.
-            </p>
-
-            <p>
-              Trabaja con indicadores de resultados medibles, alineados al
-              corazón del negocio y a sus objetivos financieros, de mejora de la
-              calidad y de calidez empresarial, como valores clave de su
-              cultura.
+              Actualmente asesora a organizaciones en arquitecturas de cambio,
+              formación de líderes transformadores y programas de continuidad
+              estratégica. Reside y opera desde Caracas, Venezuela, proyectando
+              su alcance a nivel internacional.
             </p>
           </div>
         </div>
