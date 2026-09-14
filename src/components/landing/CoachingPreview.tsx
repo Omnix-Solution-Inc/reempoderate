@@ -56,6 +56,47 @@ export function CoachingPreview() {
           </div>
         </div>
 
+        {/* Ejecución Sistémica | Programa Élite XM */}
+        <div className="bg-white rounded-2xl p-8 shadow-sm mb-10">
+          <h3 className="font-playfair text-2xl text-bloom-deep mb-4">Ejecución Sistémica | Programa Élite XM</h3>
+          <p className="text-gray-600 text-base leading-relaxed mb-6">
+            El Programa Élite XM transforma sistemas complejos y asegura resultados de alto impacto en 90 días, sin sacrificar la paz mental de tu equipo directivo. Diseñado específicamente para dueños de empresas, altos directivos (C-level) y comités gerenciales que enfrentan alta incertidumbre.
+          </p>
+          <p className="text-ink font-medium text-sm mb-3">¿En qué consiste?</p>
+          <p className="text-gray-600 text-base leading-relaxed mb-6">
+            Un programa de mentoría y consultoría de élite de 3 meses que sustituye la reflexión abstracta por un sistema riguroso de accountability y ejecución. Mediante el Modelo XM y el Kit de Ejecución Sistémica, diagnosticamos, alineamos y estructuramos tu compañía hacia metas exactas.
+          </p>
+          <p className="text-ink font-medium text-sm mb-3">El Camino a 90 Días</p>
+          <div className="space-y-2 mb-6">
+            <div className="flex items-start gap-2">
+              <span className="text-bloom-deep text-sm mt-1">✦</span>
+              <p className="text-gray-600 text-sm"><strong className="text-ink">Fase 1 — Scanner XM:</strong> Diagnóstico profundo del sistema corporativo para aislar cuellos de botella operativos y brechas de liderazgo.</p>
+            </div>
+            <div className="flex items-start gap-2">
+              <span className="text-bloom-deep text-sm mt-1">✦</span>
+              <p className="text-gray-600 text-sm"><strong className="text-ink">Fase 2 — Procesos Limpios:</strong> Rediseño de flujos de trabajo directivos con herramientas de comunicación de alta precisión.</p>
+            </div>
+            <div className="flex items-start gap-2">
+              <span className="text-bloom-deep text-sm mt-1">✦</span>
+              <p className="text-gray-600 text-sm"><strong className="text-ink">Fase 3 — Ejecución SMART:</strong> Implementación de tableros de control con KPIs estrictos para garantizar rentabilidad y cumplimiento en plazo.</p>
+            </div>
+          </div>
+          <p className="text-ink font-medium text-sm mb-3">Por qué tu Empresa lo Necesita</p>
+          <div className="space-y-2 mb-6">
+            <div className="flex items-start gap-2">
+              <span className="text-bloom-deep text-sm mt-1">✦</span>
+              <p className="text-gray-600 text-sm"><strong className="text-ink">100% ejecución:</strong> Pasamos de la idea a la acción medible y sostenida.</p>
+            </div>
+            <div className="flex items-start gap-2">
+              <span className="text-bloom-deep text-sm mt-1">✦</span>
+              <p className="text-gray-600 text-sm"><strong className="text-ink">Sin burnout directivo:</strong> Resultados tangibles para líderes que manejan operaciones complejas.</p>
+            </div>
+          </div>
+          <p className="text-gray-600 text-base leading-relaxed italic">
+            ¿Tu comité directivo está listo para asegurar resultados medibles?
+          </p>
+        </div>
+
         {/* Alquimia Floral */}
         <div className="bg-white rounded-2xl p-8 shadow-sm mb-10">
           <h3 className="font-playfair text-2xl text-bloom-deep mb-4">Alquimia Floral</h3>
