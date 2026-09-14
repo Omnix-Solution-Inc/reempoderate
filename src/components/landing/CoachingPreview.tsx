@@ -80,6 +80,22 @@ export function CoachingPreview() {
               <span className="text-bloom-deep text-sm mt-1">✦</span>
               <p className="text-gray-600 text-sm"><strong className="text-ink">Fase 3 — Ejecución SMART:</strong> Implementación de tableros de control con KPIs estrictos para garantizar rentabilidad y cumplimiento en plazo.</p>
             </div>
+            <div className="flex items-start gap-2">
+              <span className="text-bloom-deep text-sm mt-1">✦</span>
+              <div className="flex-1">
+                <p className="text-gray-600 text-sm"><strong className="text-ink">Fase 4 — Formación de Equipos:</strong> Desarrollo de equipos de trabajo de alto rendimiento y de equipos directivos con cultura de excelencia.</p>
+                <div className="mt-2 space-y-2 pl-2">
+                  <div className="flex items-start gap-2">
+                    <span className="text-bloom-deep text-xs mt-1.5">•</span>
+                    <p className="text-gray-600 text-sm"><strong className="text-ink">4.1 Equipos de Alto Rendimiento:</strong> Desarrollo de capacidades críticas y alineación de capital humano para sostener la excelencia operativa y la autonomía ejecutiva.</p>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <span className="text-bloom-deep text-xs mt-1.5">•</span>
+                    <p className="text-gray-600 text-sm"><strong className="text-ink">4.2 Equipos Directivos con Cultura de Excelencia:</strong> Capacitación directiva y estandarización de competencias clave para que los equipos gerenciales de primera línea operen de manera autónoma con estándares de alta efectividad.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
           <p className="text-ink font-medium text-sm mb-3">Por qué tu Empresa lo Necesita</p>
           <div className="space-y-2 mb-6">
