@@ -62,7 +62,7 @@ export function Footer() {
         </div>
       </div>
       <div className="max-w-7xl mx-auto px-6 mt-10 pt-6 border-t border-white/10 text-xs text-white/30 text-center flex flex-col md:flex-row items-center justify-center gap-1 md:gap-2">
-        <span>2026 ReEmpodérate. Todos los derechos reservados.</span>
+        <span>2026 ReEmpodérate. Todos los derechos reservados. · New York – USA</span>
         <span className="hidden md:inline">·</span>
         <a
           href="https://witmakers.com"
