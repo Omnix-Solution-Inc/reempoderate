@@ -5,7 +5,7 @@
 // Usa la frase exacta del botón del sitio para activar el flujo de bienvenida.
 
 const WA_MESSAGE = encodeURIComponent(
-  'Hola, quiero iniciar mi proceso de transformación con ReEmpoderate'
+  'Hola, quiero iniciar mi proceso de transformación con ReEmpodérate'
 )
 const WA_URL = `https://wa.me/13217329993?text=${WA_MESSAGE}`
 
