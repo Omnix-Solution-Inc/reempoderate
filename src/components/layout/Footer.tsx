@@ -61,8 +61,17 @@ export function Footer() {
           </div>
         </div>
       </div>
-      <div className="max-w-7xl mx-auto px-6 mt-10 pt-6 border-t border-white/10 text-xs text-white/30 text-center">
+      <div className="max-w-7xl mx-auto px-6 mt-10 pt-6 border-t border-white/10 text-xs text-white/30 text-center flex flex-col md:flex-row items-center justify-center gap-1 md:gap-2">
         <span>2026 ReEmpodérate. Todos los derechos reservados.</span>
+        <span className="hidden md:inline">·</span>
+        <a
+          href="https://witmakers.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="hover:text-bloom transition-colors duration-200"
+        >
+          Powered by <span className="font-semibold">Witmakers</span>
+        </a>
       </div>
     </footer>
   )
