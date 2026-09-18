@@ -2,6 +2,8 @@
 import { useState, useRef, useEffect } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
+import { useI18n } from '@/lib/i18n'
+import { LangToggle } from '@/components/shared/LangToggle'
 
 type Message = {
   role: 'user' | 'coach'
@@ -9,28 +11,21 @@ type Message = {
   step?: number
 }
 
-const coachingQuestions = [
-  {
-    question: "¿Qué te lleva a buscar este espacio de transformación en este momento de tu vida, y qué observas sobre la urgencia que sientes?",
-    hint: "Tómate un momento. Respira. Escribe desde la honestidad, no desde lo que crees que deberías decir.",
-  },
-  {
-    question: "Si imaginas que ya has alcanzado ese cambio que buscas... ¿quién serías tú, siendo diferente a quien eres hoy?",
-    hint: "No describas lo que tendrías. Describe quién serías siendo. La diferencia es esencial.",
-  },
-  {
-    question: "¿Qué estarías dispuesta a soltar o a confrontar de ti misma para que esa transformación sea real y sostenible en el tiempo?",
-    hint: "El cambio sostenible siempre exige soltar algo. Identificar aquello es el primer acto de poder.",
-  },
-]
-
 const WHATSAPP_NUMBER = "13217329993"
 
 export default function DiagnosticoPage() {
+  const { t } = useI18n()
+
+  const coachingQuestions = [
+    { question: t('diag.q1'), hint: t('diag.q1h') },
+    { question: t('diag.q2'), hint: t('diag.q2h') },
+    { question: t('diag.q3'), hint: t('diag.q3h') },
+  ]
+
   const [messages, setMessages] = useState<Message[]>([
     {
       role: 'coach',
-      text: "Bienvenida a ReEmpodérate. Este es un espacio de indagación consciente.\n\nEscribe un mensaje inicial sobre lo que te trae aquí. Te acompañaré con tres preguntas, una a la vez.",
+      text: t('diag.welcome'),
     },
   ])
   const [input, setInput] = useState('')
@@ -44,9 +39,9 @@ export default function DiagnosticoPage() {
   }, [messages, isTyping])
 
   const buildWhatsAppMessage = (allMessages: Message[]) => {
-    let msg = "🌸 *Diagnóstico ReEmpodérate* 🌸\n\n"
-    msg += "Una persona ha completado su proceso de indagación inicial.\n\n"
-    msg += "--- *Mensaje inicial* ---\n"
+    let msg = t('diag.summaryHeader')
+    msg += t('diag.summaryP1')
+    msg += t('diag.summaryInit')
     const initialMsg = allMessages.find((m, i) => m.role === 'user' && i === 1)
     if (initialMsg) msg += initialMsg.text + "\n\n"
     
@@ -70,12 +65,12 @@ export default function DiagnosticoPage() {
     
     // Handle last response
     if (userResponses.length >= 3) {
-      msg += `--- *Pregunta 3* ---\n`
+      msg += t('diag.summaryQ').replace('{n}', '3') + "\n"
       msg += coachingQuestions[2].question + "\n"
-      msg += `*Respuesta:* ${userResponses[2]}\n\n`
+      msg += t('diag.summaryR') + `${userResponses[2]}\n\n`
     }
     
-    msg += "Esta persona está lista para una sesión de coaching ontológico."
+    msg += t('diag.summaryFinal')
     return encodeURIComponent(msg)
   }
 
@@ -118,7 +113,7 @@ export default function DiagnosticoPage() {
       setTimeout(() => {
         setMessages(prev => [...prev, {
           role: 'coach',
-          text: "Gracias por tu honestidad y tu valentía al responder estas tres preguntas.\n\nLo que has escrito revela una disposición al cambio que vale la pena honrar.\n\nTe invito a dar el siguiente paso: una sesión de coaching ontológico donde podamos profundizar en lo que has compartido.\n\nToca el botón de abajo para conectar directamente con Mariela y agendar tu sesión.",
+          text: t('diag.final'),
         }])
         setIsTyping(false)
         setCompleted(true)
@@ -132,6 +127,9 @@ export default function DiagnosticoPage() {
     <section className="min-h-screen flex flex-col bg-gradient-to-br from-cream via-cream-light to-bloom/5 pt-20">
       {/* Header */}
       <div className="max-w-2xl mx-auto w-full px-6 py-6 text-center">
+        <div className="flex justify-center mb-2">
+          <LangToggle />
+        </div>
         <Link href="/" className="inline-block">
           <Image
             src="/logo.png"
@@ -142,10 +140,10 @@ export default function DiagnosticoPage() {
           />
         </Link>
         <h1 className="font-playfair text-2xl md:text-3xl text-ink font-bold mb-2">
-          Indagación Inicial
+          {t('diag.h1')}
         </h1>
         <p className="text-sm text-ink/50">
-          Un espacio de reflexión consciente · 3 preguntas poderosas
+          {t('diag.p')}
         </p>
       </div>
 
@@ -193,7 +191,7 @@ export default function DiagnosticoPage() {
                 <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.001-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.001 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
                 </svg>
-                Enviar a Mariela y agendar mi sesión
+                {t('diag.enviar')}
               </a>
             ) : (
               <div className="flex gap-2">
@@ -204,8 +202,8 @@ export default function DiagnosticoPage() {
                   onKeyDown={(e) => { if (e.key === 'Enter') handleSend() }}
                   placeholder={
                     step === 0
-                      ? "Escribe tu mensaje inicial..."
-                      : "Tu respuesta..."
+                      ? t('diag.ph0')
+                      : t('diag.ph1')
                   }
                   className="flex-1 bg-cream-light border border-bloom/15 rounded-2xl px-5 py-3 text-sm text-ink placeholder:text-ink/30 focus:outline-none focus:border-bloom/40 transition"
                 />
@@ -224,7 +222,7 @@ export default function DiagnosticoPage() {
 
           {/* Hint */}
           {!completed && input.trim().length > 0 && input.trim().length < 10 && (
-            <p className="text-xs text-ink/30 px-4 pb-2">Escribe al menos 10 caracteres para enviar</p>
+            <p className="text-xs text-ink/30 px-4 pb-2">{t('diag.hintMin')}</p>
           )}
         </div>
 
@@ -240,13 +238,13 @@ export default function DiagnosticoPage() {
           ))}
         </div>
         <p className="text-center text-xs text-ink/40 mt-2">
-          {step === 0 ? 'Mensaje inicial' : step === 1 ? 'Pregunta 1 de 3' : step === 2 ? 'Pregunta 2 de 3' : step === 3 ? 'Pregunta 3 de 3' : 'Proceso completado'}
+          {step === 0 ? t('diag.prog0') : step === 1 ? t('diag.prog1') : step === 2 ? t('diag.prog2') : step === 3 ? t('diag.prog3') : t('diag.prog4')}
         </p>
 
         {/* Footer */}
         <div className="text-center mt-6">
           <Link href="/" className="text-xs text-ink/40 hover:text-ink/60 transition">
-            ← Volver al inicio
+            {t('login.volver')}
           </Link>
         </div>
       </div>

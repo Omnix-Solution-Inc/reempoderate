@@ -1,11 +1,13 @@
 'use client'
 import { useEffect, useState } from 'react'
 import { hasAdminSessionHint } from '@/lib/auth/adminSessionHint'
+import { useI18n } from '@/lib/i18n'
 import Link from 'next/link'
 
 export function CTASection() {
   const [hasSession, setHasSession] = useState(false)
   useEffect(() => setHasSession(hasAdminSessionHint()), [])
+  const { t } = useI18n()
   const [showModal, setShowModal] = useState(false)
   const [email, setEmail] = useState('')
   const [submitted, setSubmitted] = useState(false)
@@ -28,10 +30,10 @@ export function CTASection() {
 
       <div className="relative z-10 max-w-3xl mx-auto px-6 text-center">
         <h2 className="font-playfair text-3xl md:text-5xl text-cream font-bold mb-6">
-          Tu transformación comienza con una conversación
+          {t('cta.h2')}
         </h2>
         <p className="text-cream/80 text-lg mb-10 leading-relaxed">
-          Da el primer paso hacia una vida en coherencia. Acompañamos tu proceso con rigor profesional, respeto absoluto y la pureza del método no directivo.
+          {t('cta.p')}
         </p>
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -80,20 +82,20 @@ export function CTASection() {
               <>
                 <div className="text-4xl mb-3">🌸</div>
                 <h3 className="font-playfair text-2xl text-ink font-bold mb-1">
-                  Escuela Online
+                  {t('cta.b1')}
                 </h3>
                 <p className="text-bloom-deep font-medium text-sm mb-3 italic">
-                  En construcción — pronto llegará algo hermoso
+                  {t('cta.b2')}
                 </p>
                 <p className="text-ink/60 text-sm leading-relaxed mb-6">
-                  Mientras tanto, recibe gratis nuestra guía <strong>"Las 3 dimensiones de tu transformación: SER, HACER y TENER"</strong> y sé de las primeras personas en enterarte cuando abramos.
+                  {t('cta.b3')} <strong>{t('cta.guideName')}</strong>{t('cta.b4')}
                 </p>
 
                 <form onSubmit={handleSubmit} className="flex flex-col gap-3">
                   <input
                     type="email"
                     required
-                    placeholder="Tu correo electrónico"
+                    placeholder={t('cta.placeholder')}
                     value={email}
                     onChange={e => setEmail(e.target.value)}
                     className="w-full px-4 py-3 rounded-xl border border-bloom/30 bg-white text-ink text-sm focus:outline-none focus:ring-2 focus:ring-bloom-deep"
@@ -103,7 +105,7 @@ export function CTASection() {
                     disabled={loading}
                     className="bg-bloom-deep text-white px-8 py-3 rounded-2xl font-medium hover:bg-bloom transition text-sm w-full disabled:opacity-60"
                   >
-                    {loading ? 'Enviando...' : 'Quiero mi guía gratuita 💕'}
+                    {loading ? t('cta.enviando') : t('cta.enviar')}
                   </button>
                 </form>
 
@@ -111,26 +113,26 @@ export function CTASection() {
                   onClick={() => setShowModal(false)}
                   className="mt-4 text-xs text-ink/30 hover:text-ink/50 transition"
                 >
-                  Ahora no
+                  {t('cta.ahoraNo')}
                 </button>
               </>
             ) : (
               <>
                 <div className="text-5xl mb-4">💌</div>
                 <h3 className="font-playfair text-2xl text-ink font-bold mb-3">
-                  ¡Gracias!
+                  {t('cta.gracias')}
                 </h3>
                 <p className="text-ink/60 text-sm leading-relaxed mb-6">
-                  Tu guía está en camino a <strong>{email}</strong>. Revisa tu bandeja de entrada — y si no la ves, revisa el spam.
+                  {t('cta.guiaCamino1')} <strong>{email}</strong>{t('cta.guiaCamino2')}
                 </p>
                 <p className="text-bloom-deep font-medium text-sm italic mb-6">
-                  Tu Decisión. Tu Vida. 🌸
+                  {t('cta.tagline')}
                 </p>
                 <button
                   onClick={() => { setShowModal(false); setSubmitted(false); setEmail('') }}
                   className="bg-bloom-deep text-white px-8 py-3 rounded-2xl font-medium hover:bg-bloom transition text-sm w-full"
                 >
-                  Cerrar
+                  {t('cta.cerrar')}
                 </button>
               </>
             )}

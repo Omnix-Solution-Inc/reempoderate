@@ -2,6 +2,8 @@
 import { useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
+import { useI18n } from '@/lib/i18n'
+import { LangToggle } from '@/components/shared/LangToggle'
 
 const WHATSAPP_NUMBER = "13217329993"
 
@@ -25,10 +27,15 @@ const timeSlots = [
   "04:00 PM", "05:00 PM", "06:00 PM",
 ]
 
-const monthNames = ["Ene", "Feb", "Mar", "Abr", "May", "Jun", "Jul", "Ago", "Sep", "Oct", "Nov", "Dic"]
-const dayNames = ["Dom", "Lun", "Mar", "Mié", "Jue", "Vie", "Sáb"]
+const monthNamesEs = ["Ene", "Feb", "Mar", "Abr", "May", "Jun", "Jul", "Ago", "Sep", "Oct", "Nov", "Dic"]
+const dayNamesEs = ["Dom", "Lun", "Mar", "Mié", "Jue", "Vie", "Sáb"]
+const monthNamesEn = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
+const dayNamesEn = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
 
 export default function AgendarPage() {
+  const { lang, t } = useI18n()
+  const monthNames = lang === 'en' ? monthNamesEn : monthNamesEs
+  const dayNames = lang === 'en' ? dayNamesEn : dayNamesEs
   const [selectedDate, setSelectedDate] = useState<Date | null>(null)
   const [selectedTime, setSelectedTime] = useState<string>('')
   const [confirmed, setConfirmed] = useState(false)
@@ -37,9 +44,11 @@ export default function AgendarPage() {
   const handleConfirm = () => {
     if (!selectedDate || !selectedTime) return
 
-    const dateStr = `${dayNames[selectedDate.getDay()]} ${selectedDate.getDate()} de ${monthNames[selectedDate.getMonth()]}`
+    const dateStr = lang === 'en'
+      ? `${dayNames[selectedDate.getDay()]}, ${monthNames[selectedDate.getMonth()]} ${selectedDate.getDate()}`
+      : `${dayNames[selectedDate.getDay()]} ${selectedDate.getDate()} de ${monthNames[selectedDate.getMonth()]}`
     
-    const message = `Hola Mariela, agendé mi sesión de coaching.\n\nFecha: ${dateStr}\nHora: ${selectedTime}\n\n¿Cuándo quieres comenzar? — ¡Ya elegí mi fecha! 🌸`
+    const message = t('agendar.waMsg').replace('{date}', dateStr).replace('{time}', selectedTime)
     
     window.open(
       `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`,
@@ -55,13 +64,13 @@ export default function AgendarPage() {
         <div className="max-w-xl mx-auto text-center">
           <div className="text-5xl mb-6">🌸</div>
           <h1 className="font-playfair text-3xl text-ink font-bold mb-4">
-            ¡Tu sesión está agendada!
+            {t('agendar.confH')}
           </h1>
           <p className="text-ink/60 mb-8">
-            Hemos abierto WhatsApp para confirmar tu cita. Mariela te contactará pronto para los detalles.
+            {t('agendar.confP')}
           </p>
           <Link href="/" className="text-bloom-deep hover:underline text-sm">
-            ← Volver al inicio
+            {t('agendar.volver')}
           </Link>
         </div>
       </div>
@@ -73,6 +82,9 @@ export default function AgendarPage() {
       <div className="max-w-2xl mx-auto px-6">
         {/* Header */}
         <div className="text-center mb-10">
+          <div className="flex justify-center mb-3">
+            <LangToggle />
+          </div>
           <Image
             src="/logo.png"
             alt="ReEmpodérate"
@@ -81,17 +93,17 @@ export default function AgendarPage() {
             className="w-16 h-16 object-contain mx-auto mb-4"
           />
           <h1 className="font-playfair text-3xl text-ink font-bold mb-2">
-            Agenda tu sesión
+            {t('agendar.h1')}
           </h1>
           <p className="text-ink/50 text-sm">
-            ¿Cuándo quieres comenzar? Elige el día y hora que mejor te funcione.
+            {t('agendar.p')}
           </p>
         </div>
 
         {/* Calendar */}
         <div className="bg-white/70 backdrop-blur-sm rounded-3xl p-6 mb-6 border border-bloom/15 shadow-lg shadow-bloom/5">
           <h2 className="text-sm font-semibold text-ink/70 mb-4 uppercase tracking-wider">
-            Selecciona un día
+            {t('agendar.selDia')}
           </h2>
           <div className="grid grid-cols-4 sm:grid-cols-6 gap-2">
             {availableDays.map((date, i) => {
@@ -119,7 +131,7 @@ export default function AgendarPage() {
         {selectedDate && (
           <div className="bg-white/70 backdrop-blur-sm rounded-3xl p-6 mb-6 border border-bloom/15 shadow-lg shadow-bloom/5 animate-in fade-in duration-300">
             <h2 className="text-sm font-semibold text-ink/70 mb-4 uppercase tracking-wider">
-              Horarios disponibles
+              {t('agendar.horarios')}
             </h2>
             <div className="grid grid-cols-3 gap-2">
               {timeSlots.map((time) => (
@@ -149,16 +161,16 @@ export default function AgendarPage() {
             <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" viewBox="0 0 24 24">
               <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
             </svg>
-            Confirmar por WhatsApp
+            {t('agendar.confirmar')}
           </button>
           <p className="text-xs text-ink/40 mt-4">
-            Al confirmar, abrirás WhatsApp para finalizar tu agendamiento con Mariela.
+            {t('agendar.nota')}
           </p>
         </div>
 
         <div className="text-center mt-8">
           <Link href="/" className="text-xs text-ink/40 hover:text-ink/60 transition">
-            ← Volver al inicio
+            {t('agendar.volver')}
           </Link>
         </div>
       </div>

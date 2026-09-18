@@ -9,14 +9,17 @@ const WA_MESSAGE = encodeURIComponent(
 )
 const WA_URL = `https://wa.me/13217329993?text=${WA_MESSAGE}`
 
+import { useI18n } from '@/lib/i18n'
+
 export function FloatingWhatsApp() {
+  const { t } = useI18n()
   return (
     <a
       href={WA_URL}
       target="_blank"
       rel="noopener noreferrer"
-      aria-label="Escríbenos por WhatsApp"
-      title="Escríbenos por WhatsApp"
+      aria-label={t('wa.label')}
+      title={t('wa.label')}
       className="fixed bottom-6 right-6 z-[60] group"
     >
       <span className="block w-14 h-14 rounded-full shadow-lg transition-transform duration-200 group-hover:scale-110 group-active:scale-95">

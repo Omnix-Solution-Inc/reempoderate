@@ -1,21 +1,13 @@
 'use client'
 import { useState, useEffect, useRef, useCallback } from 'react'
 import Link from 'next/link'
+import { useI18n, RUEDA_AREAS } from '@/lib/i18n'
+import { LangToggle } from '@/components/shared/LangToggle'
 
 type Area = { id: string; name: string; now: number; goal: number }
 
-const DEFAULT_AREAS: { name: string }[] = [
-  { name: 'Familia' },
-  { name: 'Amor y pareja' },
-  { name: 'Amistades' },
-  { name: 'Salud y bienestar' },
-  { name: 'Trabajo y propósito' },
-  { name: 'Finanzas' },
-  { name: 'Crecimiento personal' },
-  { name: 'SER · Espiritualidad' },
-  { name: 'Diversión y descanso' },
-  { name: 'Hogar y entorno' },
-]
+const DEFAULT_AREAS_ES = RUEDA_AREAS.es
+const DEFAULT_AREAS_EN = RUEDA_AREAS.en
 
 const C = {
   ink: '#5D4E5C',
@@ -26,14 +18,14 @@ const C = {
   soft: '#F5D0E0',
 }
 
-const WA = 'https://wa.me/13217329993?text=' + encodeURIComponent(
-  'Hola, completé la Rueda de mi Vida en el sitio de ReEmpodérate y quiero conversar mis resultados'
-)
+function waUrl(msg: string) {
+  return 'https://wa.me/13217329993?text=' + encodeURIComponent(msg)
+}
 
-function makeAreas(): Area[] {
-  return DEFAULT_AREAS.map((a, i) => ({
+function makeAreas(lang: 'es' | 'en'): Area[] {
+  return RUEDA_AREAS[lang].map((name, i) => ({
     id: `a${i}`,
-    name: a.name,
+    name,
     now: 5,
     goal: 10,
   }))
@@ -156,7 +148,8 @@ function drawWheel(
 }
 
 export default function RuedaClient() {
-  const [areas, setAreas] = useState<Area[]>(makeAreas)
+  const { lang, t } = useI18n()
+  const [areas, setAreas] = useState<Area[]>(() => makeAreas('es'))
   const [showModal, setShowModal] = useState(false)
   const [leadSaved, setLeadSaved] = useState(false)
   const [sending, setSending] = useState(false)
@@ -165,6 +158,19 @@ export default function RuedaClient() {
   const [error, setError] = useState('')
   const canvasRef = useRef<HTMLCanvasElement>(null)
   const [avg, setAvg] = useState({ now: 5, goal: 10 })
+
+  // Cambio de idioma: renombra áreas que aún tienen el nombre por defecto en el otro idioma
+  useEffect(() => {
+    setAreas(prev =>
+      prev.map(a => {
+        const iEs = DEFAULT_AREAS_ES.indexOf(a.name)
+        if (lang === 'en' && iEs >= 0) return { ...a, name: DEFAULT_AREAS_EN[iEs] }
+        const iEn = DEFAULT_AREAS_EN.indexOf(a.name)
+        if (lang === 'es' && iEn >= 0) return { ...a, name: DEFAULT_AREAS_ES[iEn] }
+        return a
+      })
+    )
+  }, [lang])
 
   useEffect(() => {
     const canvas = canvasRef.current
@@ -190,7 +196,7 @@ export default function RuedaClient() {
   const addArea = () =>
     setAreas((prev) => [
       ...prev,
-      { id: `a${Date.now()}`, name: 'Nueva área', now: 5, goal: 10 },
+      { id: `a${Date.now()}`, name: t('rueda.nuevaArea'), now: 5, goal: 10 },
     ])
 
   const removeArea = (id: string) =>
@@ -213,10 +219,10 @@ export default function RuedaClient() {
     ctx.fillText('R E E M P O D É R A T E', s / 2, 90)
     ctx.fillStyle = C.ink
     ctx.font = '700 68px "Playfair Display", Georgia, serif'
-    ctx.fillText('Mi Rueda de la Vida', s / 2, 190)
+    ctx.fillText(t('rueda.exportTitle'), s / 2, 190)
     ctx.fillStyle = 'rgba(93, 78, 92, 0.6)'
     ctx.font = '400 30px Arimo, sans-serif'
-    ctx.fillText('¿Dónde estás hoy y hacia dónde quieres ir?', s / 2, 245)
+    ctx.fillText(t('rueda.exportSub'), s / 2, 245)
 
     // rueda
     const wheel = document.createElement('canvas')
@@ -233,7 +239,7 @@ export default function RuedaClient() {
     ctx.fillRect(s / 2 - 250, ly, 34, 34)
     ctx.fillStyle = C.ink
     ctx.font = '500 28px Arimo, sans-serif'
-    ctx.fillText('Ahora', s / 2 - 200, ly + 25)
+    ctx.fillText(t('rueda.ahora'), s / 2 - 200, ly + 25)
     ctx.strokeStyle = C.gold
     ctx.lineWidth = 5
     ctx.setLineDash([12, 8])
@@ -242,7 +248,7 @@ export default function RuedaClient() {
     ctx.lineTo(s / 2 + 120, ly + 17)
     ctx.stroke()
     ctx.setLineDash([])
-    ctx.fillText('Meta', s / 2 + 140, ly + 25)
+    ctx.fillText(t('rueda.meta'), s / 2 + 140, ly + 25)
 
     // resultados
     const perCol = Math.ceil(areas.length / 2)
@@ -263,33 +269,33 @@ export default function RuedaClient() {
     ctx.textAlign = 'center'
     ctx.fillStyle = 'rgba(93, 78, 92, 0.5)'
     ctx.font = '400 24px Arimo, sans-serif'
-    ctx.fillText('Tu vida empieza cuando decides quién quieres ser · reempoderate.com', s / 2, H - 40)
+    ctx.fillText(t('rueda.exportSlogan'), s / 2, H - 40)
 
     return cv.toDataURL('image/png')
-  }, [areas])
+  }, [areas, lang])
 
   const downloadPdf = async (png: string) => {
     const { jsPDF } = await import('jspdf')
     const pdf = new jsPDF({ orientation: 'portrait', unit: 'mm', format: 'a4' })
     pdf.addImage(png, 'PNG', 5, 5, 200, 283)
-    pdf.save('mi-rueda-de-la-vida.pdf')
+    pdf.save(t('rueda.filePdf'))
   }
 
   const downloadPng = (png: string) => {
     const link = document.createElement('a')
     link.href = png
-    link.download = 'mi-rueda-de-la-vida.png'
+    link.download = t('rueda.filePng')
     link.click()
   }
 
   const submitLead = async (action: 'png' | 'pdf') => {
     setError('')
     if (!form.name.trim()) {
-      setError('Ingresa tu nombre')
+      setError(t('rueda.errNombre'))
       return
     }
     if (!form.email.includes('@')) {
-      setError('Ingresa un correo válido para recibir tu rueda')
+      setError(t('rueda.errCorreo'))
       return
     }
     setSending(true)
@@ -311,7 +317,7 @@ export default function RuedaClient() {
       if (action === 'png') downloadPng(png)
       else await downloadPdf(png)
     } catch {
-      setError('Algo no salió bien. Inténtalo de nuevo.')
+      setError(t('rueda.errEnvio'))
     } finally {
       setSending(false)
     }
@@ -336,13 +342,16 @@ export default function RuedaClient() {
           <Link href="/" className="font-serif text-xl" style={{ color: C.deep }}>
             ReEmpodérate
           </Link>
-          <Link
-            href="/"
-            className="text-sm underline underline-offset-4"
-            style={{ color: C.ink }}
-          >
-            Volver al inicio
-          </Link>
+          <div className="flex items-center gap-4">
+            <LangToggle />
+            <Link
+              href="/"
+              className="text-sm underline underline-offset-4"
+              style={{ color: C.ink }}
+            >
+              {t('rueda.volver')}
+            </Link>
+          </div>
         </div>
       </header>
 
@@ -350,25 +359,23 @@ export default function RuedaClient() {
         {/* Presentación */}
         <div className="text-center mb-12">
           <p className="text-xs tracking-[0.3em] uppercase mb-4" style={{ color: C.deep }}>
-            Herramienta de coaching
+            {t('rueda.tag')}
           </p>
           <h1 className="font-serif text-4xl md:text-5xl mb-5" style={{ color: C.ink }}>
-            La Rueda de tu Vida
+            {t('rueda.h1')}
           </h1>
           <p className="max-w-2xl mx-auto text-base leading-relaxed" style={{ color: C.ink }}>
-            Un espejo honesto de dónde estás hoy y hacia dónde decides ir. Califica cada área
-            del 1 al 10 — primero cómo la vives <strong>ahora</strong>, luego dónde te gustaría
-            estar. Observa tu rueda dibujarse en tiempo real.
+            {t('rueda.p')}
           </p>
         </div>
 
         {/* Pasos */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-12">
           {[
-            ['1', 'Renombra o agrega áreas', 'Tu rueda, tus palabras.'],
-            ['2', 'Califica tu HOY', 'Del 1 al 10, con honestidad.'],
-            ['3', 'Marca tu META', 'El puntaje al que decides llegar.'],
-            ['4', 'Descárgala', 'En PNG o PDF, y recíbela en tu correo.'],
+            ['1', t('rueda.step1t'), t('rueda.step1d')],
+            ['2', t('rueda.step2t'), t('rueda.step2d')],
+            ['3', t('rueda.step3t'), t('rueda.step3d')],
+            ['4', t('rueda.step4t'), t('rueda.step4d')],
           ].map(([n, t, d]) => (
             <div
               key={n}
@@ -395,22 +402,22 @@ export default function RuedaClient() {
               <div className="flex items-center justify-center gap-6 text-sm py-3" style={{ color: C.ink }}>
                 <span className="inline-flex items-center gap-2">
                   <span className="w-4 h-4 rounded" style={{ background: 'rgba(232,165,199,0.7)' }} />
-                  Ahora
+                  {t('rueda.ahora')}
                 </span>
                 <span className="inline-flex items-center gap-2">
                   <span className="w-6 border-t-2 border-dashed" style={{ borderColor: C.gold }} />
-                  Meta
+                  {t('rueda.meta')}
                 </span>
               </div>
             </div>
 
             <div className="grid grid-cols-2 gap-4 mt-6">
               <div className="rounded-2xl p-4 text-center" style={{ background: C.soft }}>
-                <p className="text-xs uppercase tracking-wider" style={{ color: C.deep }}>Promedio ahora</p>
+                <p className="text-xs uppercase tracking-wider" style={{ color: C.deep }}>{t('rueda.promAhora')}</p>
                 <p className="font-serif text-3xl" style={{ color: C.ink }}>{avg.now} <span className="text-base" style={{ color: 'rgba(93,78,92,0.5)' }}>/ 10</span></p>
               </div>
               <div className="rounded-2xl p-4 text-center" style={{ background: 'rgba(201,162,39,0.14)' }}>
-                <p className="text-xs uppercase tracking-wider" style={{ color: C.gold }}>Promedio meta</p>
+                <p className="text-xs uppercase tracking-wider" style={{ color: C.gold }}>{t('rueda.promMeta')}</p>
                 <p className="font-serif text-3xl" style={{ color: C.ink }}>{avg.goal} <span className="text-base" style={{ color: 'rgba(93,78,92,0.5)' }}>/ 10</span></p>
               </div>
             </div>
@@ -421,21 +428,21 @@ export default function RuedaClient() {
                 className="rounded-full px-7 py-3 font-semibold text-sm text-white transition hover:opacity-90"
                 style={{ background: C.deep }}
               >
-                Descargar PNG
+                {t('rueda.descPng')}
               </button>
               <button
                 onClick={() => onDownload('pdf')}
                 className="rounded-full px-7 py-3 font-semibold text-sm border transition hover:bg-[#F5D0E0]"
                 style={{ borderColor: C.deep, color: C.deep }}
               >
-                Descargar PDF
+                {t('rueda.descPdf')}
               </button>
               <button
-                onClick={() => setAreas(makeAreas())}
+                onClick={() => setAreas(makeAreas(lang))}
                 className="rounded-full px-7 py-3 text-sm underline underline-offset-4"
                 style={{ color: C.ink }}
               >
-                Reiniciar
+                {t('rueda.reiniciar')}
               </button>
             </div>
           </div>
@@ -458,14 +465,14 @@ export default function RuedaClient() {
                         className="text-xs px-2 py-1 rounded-full border border-[#F5D0E0] hover:bg-[#F5D0E0]"
                         style={{ color: C.ink }}
                       >
-                        Quitar
+                        {t('rueda.quitar')}
                       </button>
                     )}
                   </div>
                   <div className="grid grid-cols-2 gap-4">
                     <div>
                       <p className="text-xs uppercase tracking-wider mb-1" style={{ color: C.deep }}>
-                        Ahora · {a.now}
+                        {t('rueda.ahora')} · {a.now}
                       </p>
                       <input
                         type="range" min={1} max={10} value={a.now}
@@ -475,7 +482,7 @@ export default function RuedaClient() {
                     </div>
                     <div>
                       <p className="text-xs uppercase tracking-wider mb-1" style={{ color: C.gold }}>
-                        Meta · {a.goal}
+                        {t('rueda.meta')} · {a.goal}
                       </p>
                       <input
                         type="range" min={1} max={10} value={a.goal}
@@ -493,7 +500,7 @@ export default function RuedaClient() {
               className="w-full mt-4 rounded-2xl py-3 text-sm font-semibold border border-dashed transition disabled:opacity-40"
               style={{ borderColor: C.deep, color: C.deep }}
             >
-              + Agregar área
+              {t('rueda.agregar')}
             </button>
           </div>
         </div>
@@ -502,27 +509,26 @@ export default function RuedaClient() {
         {leadSaved && (
           <div className="mt-16 rounded-3xl p-10 text-center" style={{ background: C.soft }}>
             <h2 className="font-serif text-3xl mb-4" style={{ color: C.ink }}>
-              Tu rueda está en camino 🌸
+              {t('rueda.savedH')}
             </h2>
             <p className="max-w-xl mx-auto mb-8 text-sm leading-relaxed" style={{ color: C.ink }}>
-              Enviamos tu rueda a tu correo. Las ruedas más valiosas son las que se conversan:
-              ¿qué conversación quieres abrir con la tuya?
+              {t('rueda.savedP')}
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <a
-                href={WA}
+                href={waUrl(t('rueda.waMsg'))}
                 target="_blank" rel="noopener noreferrer"
                 className="rounded-full px-8 py-4 font-semibold text-sm text-white"
                 style={{ background: '#25D366' }}
               >
-                Conversar mis resultados por WhatsApp
+                {t('rueda.savedCta')}
               </a>
               <Link
                 href="/agendar"
                 className="rounded-full px-8 py-4 font-semibold text-sm"
                 style={{ background: C.deep, color: '#fff' }}
               >
-                Agendar mi sesión de coaching
+                {t('rueda.savedAgendar')}
               </Link>
             </div>
           </div>
@@ -534,22 +540,21 @@ export default function RuedaClient() {
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4" style={{ background: 'rgba(93,78,92,0.45)' }}>
           <div className="rounded-3xl bg-white max-w-md w-full p-8">
             <h3 className="font-serif text-2xl mb-2" style={{ color: C.ink }}>
-              Recibe tu rueda
+              {t('rueda.modalH')}
             </h3>
             <p className="text-sm mb-6" style={{ color: 'rgba(93,78,92,0.75)' }}>
-              Déjanos tu nombre y correo: te enviamos tu rueda para que la conserves y la
-              compartas.
+              {t('rueda.modalP')}
             </p>
             <div className="space-y-3">
               <input
-                placeholder="Tu nombre"
+                placeholder={t('rueda.phNombre')}
                 value={form.name}
                 onChange={(e) => setForm({ ...form, name: e.target.value })}
                 className="w-full rounded-xl border border-[#F5D0E0] px-4 py-3 text-sm outline-none focus:border-[#D17BA8]"
                 style={{ color: C.ink }}
               />
               <input
-                placeholder="Tu correo"
+                placeholder={t('rueda.phCorreo')}
                 type="email"
                 value={form.email}
                 onChange={(e) => setForm({ ...form, email: e.target.value })}
@@ -557,7 +562,7 @@ export default function RuedaClient() {
                 style={{ color: C.ink }}
               />
               <input
-                placeholder="WhatsApp (opcional)"
+                placeholder={t('rueda.phPhone')}
                 value={form.phone}
                 onChange={(e) => setForm({ ...form, phone: e.target.value })}
                 className="w-full rounded-xl border border-[#F5D0E0] px-4 py-3 text-sm outline-none focus:border-[#D17BA8]"
@@ -572,14 +577,14 @@ export default function RuedaClient() {
                 className="flex-1 rounded-full px-6 py-3 font-semibold text-sm text-white disabled:opacity-60"
                 style={{ background: C.deep }}
               >
-                {sending ? 'Enviando…' : 'Recibir mi rueda'}
+                {sending ? t('rueda.enviando') : t('rueda.recibir')}
               </button>
               <button
                 onClick={() => setShowModal(false)}
                 className="px-6 py-3 text-sm underline underline-offset-4"
                 style={{ color: C.ink }}
               >
-                Volver
+                {t('rueda.volver')}
               </button>
             </div>
           </div>
@@ -588,7 +593,7 @@ export default function RuedaClient() {
 
       <footer className="border-t border-[#F5D0E0]/60 mt-12">
         <div className="max-w-5xl mx-auto px-6 py-8 text-center text-xs" style={{ color: 'rgba(93,78,92,0.6)' }}>
-          ReEmpodérate · Tu vida empieza cuando decides quién quieres ser
+          ReEmpodérate · {t('rueda.exportSlogan').split(' · ')[0]}
         </div>
       </footer>
     </div>

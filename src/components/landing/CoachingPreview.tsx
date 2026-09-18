@@ -1,129 +1,134 @@
+'use client'
+
+import { useI18n } from '@/lib/i18n'
+
 export function CoachingPreview() {
+  const { t } = useI18n()
   return (
     <section id="coaching" className="py-24 bg-cream">
       <div className="max-w-5xl mx-auto px-6">
         {/* Coaching Ontológico */}
         <div className="bg-white rounded-2xl p-8 shadow-sm mb-6">
-          <h3 className="font-playfair text-2xl text-bloom-deep mb-4">Coaching Ontológico</h3>
+          <h3 className="font-playfair text-2xl text-bloom-deep mb-4">{t('coach.ontoTitle')}</h3>
           <p className="text-gray-600 text-base leading-relaxed mb-6">
-            Es una conversación donde te acompaño a mirarte. A ver cómo piensas, cómo sientes y cómo te relacionas con todo lo que te rodea. A reconocer quién estás siendo hoy y quién eliges ser a partir de ahora.
+            {t('coach.ontoP')}
           </p>
-          <p className="text-ink font-medium text-sm mb-3">Aborda:</p>
+          <p className="text-ink font-medium text-sm mb-3">{t('coach.aborda')}</p>
           <div className="space-y-2">
             <div className="flex items-start gap-2">
               <span className="text-bloom-deep text-sm mt-1">✦</span>
-              <p className="text-gray-600 text-sm">¿Quién elijo ser ante lo que estoy viviendo?</p>
+              <p className="text-gray-600 text-sm">{t('coach.ontoQ1')}</p>
             </div>
             <div className="flex items-start gap-2">
               <span className="text-bloom-deep text-sm mt-1">✦</span>
-              <p className="text-gray-600 text-sm">¿Cómo son mis conversaciones internas y cómo me hablo?</p>
+              <p className="text-gray-600 text-sm">{t('coach.ontoQ2')}</p>
             </div>
             <div className="flex items-start gap-2">
               <span className="text-bloom-deep text-sm mt-1">✦</span>
-              <p className="text-gray-600 text-sm">¿Cómo son mis relaciones y vínculos?</p>
+              <p className="text-gray-600 text-sm">{t('coach.ontoQ3')}</p>
             </div>
             <div className="flex items-start gap-2">
               <span className="text-bloom-deep text-sm mt-1">✦</span>
-              <p className="text-gray-600 text-sm">¿Cuál es mi propósito y estoy viviendo en coherencia con lo que digo, siento y hago?</p>
+              <p className="text-gray-600 text-sm">{t('coach.ontoQ4')}</p>
             </div>
           </div>
         </div>
 
         {/* Coaching Laboral */}
         <div className="bg-white rounded-2xl p-8 shadow-sm mb-10">
-          <h3 className="font-playfair text-2xl text-bloom-deep mb-4">Coaching Laboral</h3>
+          <h3 className="font-playfair text-2xl text-bloom-deep mb-4">{t('coach.laboralTitle')}</h3>
           <p className="text-gray-600 text-base leading-relaxed mb-6">
-            Es una conversación donde te acompaño a mirar tu camino profesional. A ver dónde estás, hacia dónde quieres ir y qué pasos dar para llegar ahí. A tomar decisiones sobre tu trabajo con claridad y seguridad.
+            {t('coach.laboralP')}
           </p>
-          <p className="text-ink font-medium text-sm mb-3">Aborda:</p>
+          <p className="text-ink font-medium text-sm mb-3">{t('coach.aborda')}</p>
           <div className="space-y-2">
             <div className="flex items-start gap-2">
               <span className="text-bloom-deep text-sm mt-1">✦</span>
-              <p className="text-gray-600 text-sm">¿Hacia dónde quiero ir con mi carrera?</p>
+              <p className="text-gray-600 text-sm">{t('coach.laboralQ1')}</p>
             </div>
             <div className="flex items-start gap-2">
               <span className="text-bloom-deep text-sm mt-1">✦</span>
-              <p className="text-gray-600 text-sm">¿Qué decisiones tomo sobre empleo, emprendimiento o cambio de rumbo?</p>
+              <p className="text-gray-600 text-sm">{t('coach.laboralQ2')}</p>
             </div>
             <div className="flex items-start gap-2">
               <span className="text-bloom-deep text-sm mt-1">✦</span>
-              <p className="text-gray-600 text-sm">¿Cómo son mi liderazgo, comunicación y desempeño en el trabajo?</p>
+              <p className="text-gray-600 text-sm">{t('coach.laboralQ3')}</p>
             </div>
             <div className="flex items-start gap-2">
               <span className="text-bloom-deep text-sm mt-1">✦</span>
-              <p className="text-gray-600 text-sm">¿Cómo alineo mi propósito personal con mi vida profesional?</p>
+              <p className="text-gray-600 text-sm">{t('coach.laboralQ4')}</p>
             </div>
           </div>
         </div>
 
         {/* Ejecución Sistémica | Programa Élite XM */}
         <div className="bg-white rounded-2xl p-8 shadow-sm mb-10">
-          <h3 className="font-playfair text-2xl text-bloom-deep mb-4">Ejecución Sistémica | Programa Élite XM</h3>
+          <h3 className="font-playfair text-2xl text-bloom-deep mb-4">{t('coach.xmTitle')}</h3>
           <p className="text-gray-600 text-base leading-relaxed mb-6">
-            El Programa Élite XM transforma sistemas complejos y asegura resultados de alto impacto en 90 días, sin sacrificar la paz mental de tu equipo directivo. Diseñado específicamente para dueños de empresas, altos directivos (C-level) y comités gerenciales que enfrentan alta incertidumbre.
+            {t('coach.xmP1')}
           </p>
-          <p className="text-ink font-medium text-sm mb-3">¿En qué consiste?</p>
+          <p className="text-ink font-medium text-sm mb-3">{t('coach.xmConsiste')}</p>
           <p className="text-gray-600 text-base leading-relaxed mb-6">
-            Un programa de mentoría y consultoría de élite de 3 meses que sustituye la reflexión abstracta por un sistema riguroso de accountability y ejecución. Mediante el Modelo XM y el Kit de Ejecución Sistémica, diagnosticamos, alineamos y estructuramos tu compañía hacia metas exactas.
+            {t('coach.xmP2')}
           </p>
-          <p className="text-ink font-medium text-sm mb-3">El Camino a 90 Días</p>
+          <p className="text-ink font-medium text-sm mb-3">{t('coach.xmCamino')}</p>
           <div className="space-y-2 mb-6">
             <div className="flex items-start gap-2">
               <span className="text-bloom-deep text-sm mt-1">✦</span>
-              <p className="text-gray-600 text-sm"><strong className="text-ink">Fase 1 — Scanner XM:</strong> Diagnóstico profundo del sistema corporativo para aislar cuellos de botella operativos y brechas de liderazgo.</p>
+              <p className="text-gray-600 text-sm"><strong className="text-ink">{t('coach.xmF1')}</strong>{t('coach.xmF1p')}</p>
             </div>
             <div className="flex items-start gap-2">
               <span className="text-bloom-deep text-sm mt-1">✦</span>
-              <p className="text-gray-600 text-sm"><strong className="text-ink">Fase 2 — Procesos Limpios:</strong> Rediseño de flujos de trabajo directivos con herramientas de comunicación de alta precisión.</p>
+              <p className="text-gray-600 text-sm"><strong className="text-ink">{t('coach.xmF2')}</strong>{t('coach.xmF2p')}</p>
             </div>
             <div className="flex items-start gap-2">
               <span className="text-bloom-deep text-sm mt-1">✦</span>
-              <p className="text-gray-600 text-sm"><strong className="text-ink">Fase 3 — Ejecución SMART:</strong> Implementación de tableros de control con KPIs estrictos para garantizar rentabilidad y cumplimiento en plazo.</p>
+              <p className="text-gray-600 text-sm"><strong className="text-ink">{t('coach.xmF3')}</strong>{t('coach.xmF3p')}</p>
             </div>
             <div className="flex items-start gap-2">
               <span className="text-bloom-deep text-sm mt-1">✦</span>
-              <p className="text-gray-600 text-sm"><strong className="text-ink">Fase 4 — Equipos de Alto Rendimiento:</strong> Capacitación estratégica y alineación de equipos clave para consolidar una cultura de autonomía, alineación y excelencia en resultados.</p>
+              <p className="text-gray-600 text-sm"><strong className="text-ink">{t('coach.xmF4')}</strong>{t('coach.xmF4p')}</p>
             </div>
           </div>
-          <p className="text-ink font-medium text-sm mb-3">Por qué tu Empresa lo Necesita</p>
+          <p className="text-ink font-medium text-sm mb-3">{t('coach.xmPorque')}</p>
           <div className="space-y-2 mb-6">
             <div className="flex items-start gap-2">
               <span className="text-bloom-deep text-sm mt-1">✦</span>
-              <p className="text-gray-600 text-sm"><strong className="text-ink">100% ejecución:</strong> Pasamos de la idea a la acción medible y sostenida.</p>
+              <p className="text-gray-600 text-sm"><strong className="text-ink">{t('coach.xmW1')}</strong>{t('coach.xmW1p')}</p>
             </div>
             <div className="flex items-start gap-2">
               <span className="text-bloom-deep text-sm mt-1">✦</span>
-              <p className="text-gray-600 text-sm"><strong className="text-ink">Sin burnout directivo:</strong> Resultados tangibles para líderes que manejan operaciones complejas.</p>
+              <p className="text-gray-600 text-sm"><strong className="text-ink">{t('coach.xmW2')}</strong>{t('coach.xmW2p')}</p>
             </div>
           </div>
           <p className="text-gray-600 text-base leading-relaxed italic">
-            ¿Tu comité directivo está listo para asegurar resultados medibles?
+            {t('coach.xmCierre')}
           </p>
         </div>
 
         {/* Alquimia Floral */}
         <div className="bg-white rounded-2xl p-8 shadow-sm mb-10">
-          <h3 className="font-playfair text-2xl text-bloom-deep mb-4">Alquimia Floral</h3>
+          <h3 className="font-playfair text-2xl text-bloom-deep mb-4">{t('coach.alqTitle')}</h3>
           <p className="text-gray-600 text-base leading-relaxed mb-6">
-            Es un taller presencial donde creas con tus propias manos. La flor y los elementos naturales son tu espejo, para escucharte, procesar tus emociones y recordar quién eres más allá de tus roles. Más de una década en el mundo floral me llevó a unir mis dos pasiones: el arte floral y el coaching.
+            {t('coach.alqP')}
           </p>
-          <p className="text-ink font-medium text-sm mb-3">Aborda:</p>
+          <p className="text-ink font-medium text-sm mb-3">{t('coach.aborda')}</p>
           <div className="space-y-2">
             <div className="flex items-start gap-2">
               <span className="text-bloom-deep text-sm mt-1">✦</span>
-              <p className="text-gray-600 text-sm">¿Quién soy más allá de mis roles?</p>
+              <p className="text-gray-600 text-sm">{t('coach.alqQ1')}</p>
             </div>
             <div className="flex items-start gap-2">
               <span className="text-bloom-deep text-sm mt-1">✦</span>
-              <p className="text-gray-600 text-sm">¿Qué emociones estoy procesando a través de lo que creo?</p>
+              <p className="text-gray-600 text-sm">{t('coach.alqQ2')}</p>
             </div>
             <div className="flex items-start gap-2">
               <span className="text-bloom-deep text-sm mt-1">✦</span>
-              <p className="text-gray-600 text-sm">¿Qué me refleja la flor y los elementos que elijo?</p>
+              <p className="text-gray-600 text-sm">{t('coach.alqQ3')}</p>
             </div>
             <div className="flex items-start gap-2">
               <span className="text-bloom-deep text-sm mt-1">✦</span>
-              <p className="text-gray-600 text-sm">¿Cómo convierto esta creación en una herramienta de sanación y expansión de mi consciencia?</p>
+              <p className="text-gray-600 text-sm">{t('coach.alqQ4')}</p>
             </div>
           </div>
         </div>
@@ -131,24 +136,24 @@ export function CoachingPreview() {
         {/* Bloque unificado */}
         <div className="bg-shamrock/5 rounded-2xl p-8 border border-shamrock/10">
           <p className="text-gray-600 text-base leading-relaxed mb-6 text-center italic">
-            Es un proceso tuyo y las respuestas emergen de ti.
+            {t('coach.bloqueP')}
           </p>
           <div className="space-y-3 max-w-2xl mx-auto">
             <div className="flex items-start gap-3">
               <span className="text-bloom text-xl mt-1">✦</span>
-              <p className="text-gray-600 text-base"><strong className="text-ink">Reflexivo</strong> — indagación consciente sobre tu observador y tus posibilidades.</p>
+              <p className="text-gray-600 text-base"><strong className="text-ink">{t('coach.b1')}</strong>{t('coach.b1p')}</p>
             </div>
             <div className="flex items-start gap-3">
               <span className="text-bloom text-xl mt-1">✦</span>
-              <p className="text-gray-600 text-base"><strong className="text-ink">Transformacional</strong> — cambio profundo y sostenible.</p>
+              <p className="text-gray-600 text-base"><strong className="text-ink">{t('coach.b2')}</strong>{t('coach.b2p')}</p>
             </div>
             <div className="flex items-start gap-3">
               <span className="text-bloom text-xl mt-1">✦</span>
-              <p className="text-gray-600 text-base"><strong className="text-ink">No directivo</strong> — las respuestas emergen desde tu propia individualidad.</p>
+              <p className="text-gray-600 text-base"><strong className="text-ink">{t('coach.b3')}</strong>{t('coach.b3p')}</p>
             </div>
             <div className="flex items-start gap-3">
               <span className="text-bloom text-xl mt-1">✦</span>
-              <p className="text-gray-600 text-base"><strong className="text-ink">ICF</strong> — respaldado por el marco ético de la Federación Internacional de Coaching.</p>
+              <p className="text-gray-600 text-base"><strong className="text-ink">{t('coach.b4')}</strong>{t('coach.b4p')}</p>
             </div>
           </div>
         </div>

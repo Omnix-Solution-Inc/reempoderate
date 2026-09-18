@@ -1,6 +1,10 @@
+'use client'
+
 import Link from 'next/link'
+import { useI18n } from '@/lib/i18n'
 
 export function RuedaSection() {
+  const { t } = useI18n()
   return (
     <section className="py-16 md:py-20 bg-cream.dark">
       <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-10 items-center">
@@ -45,24 +49,22 @@ export function RuedaSection() {
         {/* Texto */}
         <div className="text-center md:text-left order-1 md:order-2">
           <p className="text-xs uppercase tracking-[0.3em] text-bloom-deep mb-4">
-            Herramienta gratuita
+            {t('ruedaSec.tag')}
           </p>
           <h2 className="font-playfair text-3xl md:text-4xl text-ink-dark mb-5">
-            La Rueda de tu Vida
+            {t('ruedaSec.h2')}
           </h2>
           <p className="text-ink/70 leading-relaxed mb-3">
-            Dibuja en minutos dónde estás hoy y hacia dónde decides ir. Califica cada área
-            de tu vida del 1 al 10 y observa tu rueda dibujarse en tiempo real.
+            {t('ruedaSec.p1')}
           </p>
           <p className="text-ink/70 leading-relaxed mb-8">
-            Al finalizar, recíbela en tu correo — con el círculo pleno como horizonte y tu
-            presente dibujado en él.
+            {t('ruedaSec.p2')}
           </p>
           <Link
             href="/rueda-de-la-vida"
             className="inline-block bg-bloom-deep text-white text-sm font-semibold px-8 py-4 rounded-full hover:bg-bloom transition"
           >
-            Dibuja tu Rueda →
+            {t('ruedaSec.cta')}
           </Link>
         </div>
       </div>

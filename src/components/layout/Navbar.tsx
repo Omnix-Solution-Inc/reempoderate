@@ -2,16 +2,18 @@
 
 import { useState } from 'react'
 import Link from 'next/link'
+import { useI18n } from '@/lib/i18n'
+import { LangToggle } from '@/components/shared/LangToggle'
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
+  const { t } = useI18n()
 
   const links = [
-    { href: '#metodo', label: 'Método' },
-    { href: '#coaching', label: 'Coaching' },
-    { href: '/rueda-de-la-vida', label: 'Rueda de la Vida' },
-    
-    { href: '#bio', label: 'Bio' },
+    { href: '#metodo', label: t('nav.metodo') },
+    { href: '#coaching', label: t('nav.coaching') },
+    { href: '/rueda-de-la-vida', label: t('nav.rueda') },
+    { href: '#bio', label: t('nav.bio') },
   ]
 
   return (
@@ -31,11 +33,12 @@ export function Navbar() {
         </div>
 
         <div className="flex items-center gap-4">
+          <LangToggle />
           <a
             href="/auth/login"
             className="bg-bloom-deep text-white text-sm px-5 py-2 rounded-full hover:bg-bloom transition"
           >
-            Acceder
+            {t('nav.acceder')}
           </a>
 
           <button

@@ -1,24 +1,29 @@
+'use client'
+
+import { useI18n } from '@/lib/i18n'
+
 export function Footer() {
+  const { t } = useI18n()
   return (
     <footer className="bg-ink text-white py-16">
       <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-10">
         <div>
           <h3 className="font-playfair text-xl text-bloom mb-3">ReEmpodérate</h3>
           <p className="text-white/50 text-sm leading-relaxed">
-            Transformación consciente a través del coaching ontológico, el arte y la comunidad.
+            {t('footer.p')}
           </p>
         </div>
         <div>
-          <h4 className="text-sm font-semibold mb-4 text-white/70">Plataforma</h4>
+          <h4 className="text-sm font-semibold mb-4 text-white/70">{t('footer.plataforma')}</h4>
           <ul className="space-y-2 text-sm text-white/50">
-            <li>Coaching 1:1</li>
-            <li>Talleres</li>
-            <li>Galería</li>
-            <li>Marketplace</li>
+            {t('footer.f1')}
+            {t('footer.f2')}
+            {t('footer.f3')}
+            {t('footer.f4')}
           </ul>
         </div>
                 <div>
-          <h4 className="text-sm font-semibold mb-4 text-white/70">Contacto</h4>
+          <h4 className="text-sm font-semibold mb-4 text-white/70">{t('footer.contacto')}</h4>
           <ul className="space-y-2 text-sm text-white/50">
             <li>hola@reempoderate.com</li>
           </ul>
@@ -62,7 +67,7 @@ export function Footer() {
         </div>
       </div>
       <div className="max-w-7xl mx-auto px-6 mt-10 pt-6 border-t border-white/10 text-xs text-white/30 text-center flex flex-col md:flex-row items-center justify-center gap-1 md:gap-2">
-        <span>2026 ReEmpodérate. Todos los derechos reservados. · New York – USA</span>
+        <span>{t('footer.copy')}</span>
         <span className="hidden md:inline">·</span>
         <a
           href="https://witmakers.com"

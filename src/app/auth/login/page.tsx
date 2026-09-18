@@ -6,12 +6,14 @@
 import { useState } from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
+import { useI18n } from '@/lib/i18n'
 
 const API = 'https://witmakers-1a5946c3.base44.app/functions'
 const MAILTO = 'mailto:hola@reempoderate.com?subject=Solicitud%20de%20Servicio%20T%C3%A9cnico'
 
 export default function LoginPage() {
   const router = useRouter()
+  const { t } = useI18n()
   const [form, setForm] = useState({ name: '', password: '' })
   const [show, setShow] = useState(false)
   const [error, setError] = useState('')
@@ -35,10 +37,10 @@ export default function LoginPage() {
         localStorage.setItem('ree_admin', JSON.stringify({ token: data.token, name: data.name }))
         router.push('/dashboard')
       } else {
-        setError(data.error || 'No pudimos iniciar sesión')
+        setError(data.error || t('login.error1'))
       }
     } catch {
-      setError('Hubo un problema de conexión. Inténtalo de nuevo.')
+      setError(t('login.error2'))
     } finally {
       setLoading(false)
     }
@@ -48,36 +50,36 @@ export default function LoginPage() {
     <main className="min-h-screen bg-light-bg flex items-center justify-center px-4">
       <div className="bg-white rounded-2xl shadow-xl p-10 w-full max-w-md text-center">
         <h1 className="font-playfair text-3xl text-bloom-deep mb-2">ReEmpodérate</h1>
-        <p className="text-gray-500 mb-8 text-sm">Accede a tu panel</p>
+        <p className="text-gray-500 mb-8 text-sm">{t('login.sub')}</p>
 
         <form onSubmit={handleSubmit} className="space-y-4 text-left">
           <div>
-            <label className="block text-sm font-medium text-gray-600 mb-1">Nombre</label>
+            <label className="block text-sm font-medium text-gray-600 mb-1">{t('login.nombre')}</label>
             <input
               type="text"
               value={form.name}
               onChange={set('name')}
               required
-              placeholder="Tu nombre de usuario"
+              placeholder={t('login.phNombre')}
               className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-bloom-deep"
             />
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-600 mb-1">Clave</label>
+            <label className="block text-sm font-medium text-gray-600 mb-1">{t('login.clave')}</label>
                           <div className="relative">
               <input
                             type={show ? 'text' : 'password'}
                             value={form.password}
                             onChange={set('password')}
                             required
-                            placeholder="Tu clave"
+                            placeholder={t('login.phClave')}
                             className="w-full border border-gray-200 rounded-xl px-4 py-3 pr-12 text-sm focus:outline-none focus:border-bloom-deep"
                           />
               <button
                 type="button"
                 onClick={() => setShow(v => !v)}
-                aria-label={show ? 'Ocultar clave' : 'Ver clave'}
+                aria-label={show ? t('login.ocultar') : t('login.ver')}
                 className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-bloom-deep transition"
               >
                 {show ? (
@@ -92,7 +94,7 @@ export default function LoginPage() {
                 href={MAILTO}
                 className="text-xs text-bloom-deep/70 hover:text-bloom-deep transition underline underline-offset-2"
               >
-                Olvidé mi clave
+                {t('login.olvide')}
               </a>
             </div>
           </div>
@@ -108,24 +110,24 @@ export default function LoginPage() {
             disabled={loading}
             className="w-full bg-bloom-deep text-white font-semibold text-sm py-3.5 rounded-full hover:bg-bloom transition disabled:opacity-60"
           >
-            {loading ? 'Entrando…' : 'Entrar'}
+            {loading ? t('login.entrando') : t('login.entrarBtn')}
           </button>
         </form>
 
         <p className="text-sm text-gray-500 mt-6">
-          ¿Primera vez?{' '}
+          {t('login.primeraVez')}{' '}
           <Link
             href="/auth/registro"
             className="text-bloom-deep font-medium hover:underline underline-offset-2 transition"
           >
-            Crea tu cuenta
+            {t('login.crear')}
           </Link>
         </p>
 
         <p className="text-xs text-gray-400 mt-6">
-          ¿Necesitas ayuda?{' '}
+          {t('login.ayuda')}{' '}
           <a href={MAILTO} className="text-bloom-deep/80 hover:text-bloom-deep transition underline underline-offset-2">
-            Servicio Técnico
+            {t('login.servicio')}
           </a>
           {' '}— hola@reempoderate.com
         </p>
