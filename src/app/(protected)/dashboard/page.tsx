@@ -52,7 +52,7 @@ export default function DashboardPage() {
           ) : (
             <>
               <DashCard title="Mis Sesiones" href="/sessions" icon="🧠" />
-              <DashCard title="Plan de Negocio" href="/business-plan" icon="📊" />
+              <DashCard title="GPS de Objetivos" href="/gps-objetivos" icon="🧭" />
               <DashCard title="Mi Perfil" href="/profile" icon="✨" />
             </>
           )}
