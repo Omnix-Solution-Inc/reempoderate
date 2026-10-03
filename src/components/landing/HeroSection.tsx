@@ -3,12 +3,12 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { useEffect, useState } from 'react'
 import { hasAdminSessionHint } from '@/lib/auth/adminSessionHint'
-import { useI18n } from '@/lib/i18n'
+import { useI18n, getWhatsAppUrl } from '@/lib/i18n'
 
 export function HeroSection() {
   const [hasSession, setHasSession] = useState(false)
   useEffect(() => setHasSession(hasAdminSessionHint()), [])
-  const { t } = useI18n()
+  const { t, lang } = useI18n()
 
   return (
     <section className="min-h-screen flex items-center justify-center relative overflow-hidden bg-gradient-to-br from-cream via-cream-light to-bloom/5 pt-24 pb-16">
@@ -39,7 +39,7 @@ export function HeroSection() {
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
           <a
-            href="https://wa.me/13217329993?text=%C2%A1Hola%2C%20quiero%20iniciar%20mi%20proceso%20de%20coaching%20transformacional%20y%20autoconsciente%20con%20ReEmpod%C3%A9rate%21"
+            href={getWhatsAppUrl(lang)}
             target="_blank"
             rel="noopener noreferrer"
             className="bg-bloom-deep text-white px-8 py-4 rounded-2xl font-medium hover:bg-bloom transition text-base shadow-lg shadow-bloom/25 inline-flex items-center gap-2"

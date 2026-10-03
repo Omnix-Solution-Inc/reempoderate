@@ -26,3 +26,5 @@ yarn-error.log*
 *.pem
 .vercel
 tsconfig.tsbuildinfo
+node_modules/
+server.log

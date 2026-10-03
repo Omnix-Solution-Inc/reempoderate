@@ -285,7 +285,7 @@ const en: Dict = {
   // ===== HERO =====
   'hero.h1a': 'Your life begins when',
   'hero.h1b': 'you decide who you want to be.',
-  'hero.p': 'ReEmpodérate is a space of accompaniment for people who already know something needs to change — and choose to be the ones who change it.',
+  'hero.p': 'ReEmpowerYou is a space of accompaniment for people who already know something needs to change — and choose to be the ones who change it.',
   'hero.cta': 'Start your transformation',
   'hero.portal': 'Go to my portal',
   'hero.dashboard': 'Go to my dashboard',
@@ -363,8 +363,8 @@ const en: Dict = {
   'coach.b4p': ' — backed by the ethical framework of the International Coaching Federation.',
 
   // ===== BIO =====
-  'bio.h3': 'Why was ReEmpodérate born? 🌿',
-  'bio.p1': 'ReEmpodérate was born as a response to those moments of transition in which we feel something must change. Our purpose is to be a mirror to accompany you, personally and professionally, to:',
+  'bio.h3': 'Why was ReEmpowerYou born? 🌿',
+  'bio.p1': 'ReEmpowerYou was born as a response to those moments of transition in which we feel something must change. Our purpose is to be a mirror to accompany you, personally and professionally, to:',
   'bio.i1': 'Redesign your future:',
   'bio.i1p': ' Question limiting beliefs and open new possibilities.',
   'bio.i2': 'Align Being, Doing, and Having:',
@@ -378,12 +378,12 @@ const en: Dict = {
 
   // ===== COACHES NETWORK =====
   'red.h2': 'Coaches Network 🌿',
-  'red.p': 'A team that accompanies transformations from different territories of experience, with the heart of ReEmpodérate.',
+  'red.p': 'A team that accompanies transformations from different territories of experience, with the heart of ReEmpowerYou.',
   'red.verMas': 'See more',
   'red.mostrarMenos': 'Show less',
   'red.marielaBadge': 'Founder',
   'red.marielaTitle': 'Ontological & Career Coach · ICF Member',
-  'red.marielaIntro': 'Venezuelan, an immigrant in the U.S. since 2015, mother of four children. Founder of ReEmpodérate.',
+  'red.marielaIntro': 'Venezuelan, an immigrant in the U.S. since 2015, mother of four children. Founder of ReEmpowerYou.',
   'red.marielaB1': 'Hello! 💜 I am Mariela Barbetti, Venezuelan, an immigrant in the U.S. since 2015, mother of four children (Paul, Abraham, Alena, and Ana), wife, daughter, sister, and friend.',
   'red.marielaB2': 'My path rests on a constant passion: learning. With prior training in Law in Venezuela, analytical rigor gave me a solid foundation, while my own life experience — emigrating, reinventing myself, and sustaining family balance — taught me that true growth requires rediscovering ourselves and transforming the way we see.',
   'red.marielaB3': 'That continuous search led me to become certified as an Ontological and Career Coach, to be in the process of Mindfulness certification, and to be a member of the International Coaching Federation (ICF).',
@@ -422,7 +422,7 @@ const en: Dict = {
   'footer.f3': 'Gallery',
   'footer.f4': 'Marketplace',
   'footer.contacto': 'Contact',
-  'footer.copy': '2026 ReEmpodérate. All rights reserved. · New York – USA',
+  'footer.copy': '2026 ReEmpowerYou. All rights reserved. · New York – USA',
 
   // ===== WHEEL OF LIFE (page) =====
   'rueda.volver': 'Back to home',
@@ -456,7 +456,7 @@ const en: Dict = {
   'rueda.savedP': 'We sent your wheel to your inbox. The most valuable wheels are the ones that get talked about: what conversation do you want to open with yours?',
   'rueda.savedCta': 'Talk about my results on WhatsApp',
   'rueda.savedAgendar': 'Book my coaching session',
-  'rueda.waMsg': 'Hi, I completed the Wheel of my Life on the ReEmpodérate website and I would like to talk about my results',
+  'rueda.waMsg': 'Hi, I completed the Wheel of my Life on the ReEmpowerYou website and I would like to talk about my results',
   'rueda.modalH': 'Receive your wheel',
   'rueda.modalP': 'Leave us your name and email: we will send you your wheel so you can keep it and share it.',
   'rueda.phNombre': 'Your name',
@@ -467,7 +467,7 @@ const en: Dict = {
   'rueda.errEnvio': 'Something went wrong. Please try again.',
   'rueda.enviando': 'Sending…',
   'rueda.recibir': 'Receive my wheel',
-  'rueda.footer': 'ReEmpodérate · Your life begins when you decide who you want to be',
+  'rueda.footer': 'ReEmpowerYou · Your life begins when you decide who you want to be',
 
   // ===== BOOKING =====
   'agendar.h1': 'Book your session',
@@ -484,7 +484,7 @@ const en: Dict = {
   // ===== DIAGNOSTIC =====
   'diag.h1': 'Initial Inquiry',
   'diag.p': 'A space for conscious reflection · 3 powerful questions',
-  'diag.welcome': 'Welcome to ReEmpodérate. This is a space for conscious inquiry.\n\nWrite an opening message about what brings you here. I will accompany you with three questions, one at a time.',
+  'diag.welcome': 'Welcome to ReEmpowerYou. This is a space for conscious inquiry.\n\nWrite an opening message about what brings you here. I will accompany you with three questions, one at a time.',
   'diag.q1': 'What brings you to seek this space of transformation at this moment of your life, and what do you notice about the urgency you feel?',
   'diag.q1h': 'Take a moment. Breathe. Write from honesty, not from what you think you should say.',
   'diag.q2': 'If you imagine you have already reached the change you seek... who would you be, being different from who you are today?',
@@ -493,7 +493,7 @@ const en: Dict = {
   'diag.q3h': 'Sustainable change always requires letting go of something. Identifying it is the first act of power.',
   'diag.final': 'Thank you for your honesty and your courage in answering these three questions.\n\nWhat you have written reveals a readiness for change that is worth honoring.\n\nI invite you to take the next step: an ontological coaching session where we can deepen into what you have shared.\n\nTap the button below to connect directly with Mariela and book your session.',
   'diag.enviar': 'Send to Mariela and book my session',
-  'diag.summaryHeader': '🌸 *ReEmpodérate Diagnostic* 🌸\n\n',
+  'diag.summaryHeader': '🌸 *ReEmpowerYou Diagnostic* 🌸\n\n',
   'diag.summaryP1': 'A person has completed their initial inquiry process.\n\n',
   'diag.summaryInit': '--- *Opening message* ---\n',
   'diag.summaryQ': '--- *Question {n}* ---\n',
@@ -540,6 +540,16 @@ const en: Dict = {
 
 const dicts: Record<Lang, Dict> = { es, en }
 
+// Enlace de WhatsApp según idioma:
+// ES mantiene la frase exacta que activa el flujo de bienvenida del agente.
+// EN usa la versión en inglés con la marca ReEmpowerYou (atención personal del equipo).
+export function getWhatsAppUrl(lang: Lang): string {
+  if (lang === 'en') {
+    return 'https://wa.me/13217329993?text=Hello%2C%20I%20want%20to%20start%20my%20transformational%20and%20self-aware%20coaching%20process%20with%20ReEmpowerYou%21'
+  }
+  return 'https://wa.me/13217329993?text=%C2%A1Hola%2C%20quiero%20iniciar%20mi%20proceso%20de%20coaching%20transformacional%20y%20autoconsciente%20con%20ReEmpod%C3%A9rate%21'
+}
+
 // Áreas por defecto de la Rueda, por idioma
 export const RUEDA_AREAS: Record<Lang, string[]> = {
   es: [
@@ -579,7 +589,13 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     try {
       const saved = window.localStorage.getItem('re_lang')
-      if (saved === 'en' || saved === 'es') setLangState(saved)
+      if (saved === 'en' || saved === 'es') {
+        setLangState(saved)
+      } else if (typeof window.location.hostname === 'string'
+        && window.location.hostname.includes('reempoweryou')) {
+        // reempoweryou.com abre en inglés; reempoderate.com en español
+        setLangState('en')
+      }
     } catch {}
   }, [])
 

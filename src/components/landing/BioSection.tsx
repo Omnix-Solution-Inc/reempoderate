@@ -1,9 +1,9 @@
 'use client'
 
-import { useI18n } from '@/lib/i18n'
+import { useI18n, getWhatsAppUrl } from '@/lib/i18n'
 
 export function BioSection() {
-  const { t } = useI18n()
+  const { t, lang } = useI18n()
   return (
     <section id="bio" className="py-24 bg-gradient-to-b from-cream to-cream-dark">
       <div className="max-w-5xl mx-auto px-6">
@@ -44,7 +44,7 @@ export function BioSection() {
             {t('bio.ctaP')}
           </p>
           <a
-            href="https://wa.me/13217329993?text=%C2%A1Hola%2C%20quiero%20iniciar%20mi%20proceso%20de%20coaching%20transformacional%20y%20autoconsciente%20con%20ReEmpod%C3%A9rate%21"
+            href={getWhatsAppUrl(lang)}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 bg-bloom-deep text-white px-8 py-4 rounded-2xl font-medium hover:bg-bloom transition text-base shadow-lg shadow-bloom/25"

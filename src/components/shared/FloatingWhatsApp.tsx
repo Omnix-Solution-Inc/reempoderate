@@ -1,21 +1,17 @@
 'use client'
 
-// Botón flotante de WhatsApp — ReEmpodérate
+// Botón flotante de WhatsApp — ReEmpodérate / ReEmpowerYou
 // Logo oficial, esquina inferior derecha, presente en todas las páginas.
-// Usa la frase exacta del botón del sitio para activar el flujo de bienvenida.
+// ES usa la frase exacta que activa el flujo de bienvenida del agente.
+// EN usa la versión en inglés con la marca ReEmpowerYou.
 
-const WA_MESSAGE = encodeURIComponent(
-  '¡Hola, quiero iniciar mi proceso de coaching transformacional y autoconsciente con ReEmpodérate!'
-)
-const WA_URL = `https://wa.me/13217329993?text=${WA_MESSAGE}`
-
-import { useI18n } from '@/lib/i18n'
+import { useI18n, getWhatsAppUrl } from '@/lib/i18n'
 
 export function FloatingWhatsApp() {
-  const { t } = useI18n()
+  const { t, lang } = useI18n()
   return (
     <a
-      href={WA_URL}
+      href={getWhatsAppUrl(lang)}
       target="_blank"
       rel="noopener noreferrer"
       aria-label={t('wa.label')}
