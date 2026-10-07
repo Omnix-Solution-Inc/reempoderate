@@ -13,6 +13,7 @@ export function Navbar() {
     { href: '#metodo', label: t('nav.metodo') },
     { href: '#coaching', label: t('nav.coaching') },
     { href: '/rueda-de-la-vida', label: t('nav.rueda') },
+    { href: '/galeria', label: t('nav.galeria') },
     { href: '#bio', label: t('nav.bio') },
   ]
 

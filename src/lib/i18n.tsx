@@ -17,6 +17,21 @@ const es: Dict = {
   'nav.rueda': 'Rueda de la Vida',
   'nav.bio': 'Bio',
   'nav.acceder': 'Acceder',
+  'nav.galeria': 'Galería',
+
+  // ===== GALERÍA =====
+  'gal.volver': 'Volver al inicio',
+  'gal.title': 'Galería',
+  'gal.intro': 'Las paletas de colores que inspiran cada lámina: pinta tu libro con tus flores de referencia a la vista.',
+  'gal.b1.book': 'Peonías Mándalas',
+  'gal.b1.sub': 'Paleta de colores · Cuaderno de Arte y Coaching',
+  'gal.b1.note': 'Las fotografías originales de Marie Barbetti: tu referencia de color para pintar cada lámina.',
+  'gal.b2.book': 'Peonies & Mandalas',
+  'gal.b2.sub': 'Paleta de colores · Edición en inglés',
+  'gal.b2.note': 'Las mismas peonías de Marie Barbetti: tu referencia de color para pintar cada página.',
+  'gal.b3.book': 'Flores',
+  'gal.b3.sub': 'Paleta de colores · Próximamente',
+  'gal.b3.note': 'Las fotografías variadas que inspiran la paleta de colores del próximo libro.',
 
   // ===== HERO =====
   'hero.h1a': 'Tu vida empieza cuando',
@@ -281,6 +296,21 @@ const en: Dict = {
   'nav.rueda': 'Wheel of Life',
   'nav.bio': 'About',
   'nav.acceder': 'Log in',
+  'nav.galeria': 'Gallery',
+
+  // ===== GALLERY =====
+  'gal.volver': 'Back to home',
+  'gal.title': 'Gallery',
+  'gal.intro': 'The color palettes behind each page: paint your journal with your reference flowers in view.',
+  'gal.b1.book': 'Peonías Mándalas',
+  'gal.b1.sub': 'Color palette · Spanish edition',
+  'gal.b1.note': 'Marie Barbetti’s original photographs: your color reference for painting each page.',
+  'gal.b2.book': 'Peonies & Mandalas',
+  'gal.b2.sub': 'Color palette · An Art and Coaching Journal',
+  'gal.b2.note': 'The same peonies by Marie Barbetti: your color reference for painting each page.',
+  'gal.b3.book': 'Flowers',
+  'gal.b3.sub': 'Color palette · Coming soon',
+  'gal.b3.note': 'The varied photographs that inspire the next book’s color palette.',
 
   // ===== HERO =====
   'hero.h1a': 'Your life begins when',

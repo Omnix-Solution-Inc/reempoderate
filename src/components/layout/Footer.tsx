@@ -18,7 +18,7 @@ export function Footer() {
           <ul className="space-y-2 text-sm text-white/50">
             {t('footer.f1')}
             {t('footer.f2')}
-            {t('footer.f3')}
+            <li><a href="/galeria" className="hover:text-bloom transition-colors duration-200">{t('footer.f3')}</a></li>
             {t('footer.f4')}
           </ul>
         </div>
