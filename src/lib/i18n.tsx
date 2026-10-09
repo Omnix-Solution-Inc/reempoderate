@@ -593,7 +593,7 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
         setLangState(saved)
       } else if (typeof window.location.hostname === 'string'
         && window.location.hostname.includes('reempower')) {
-        // reempower.live y reempoweryou.com abren en inglés; reempoderate.com en español
+        // reempower.life y reempoweryou.com abren en inglés; reempoderate.com en español
         setLangState('en')
       }
     } catch {}
