@@ -2,5 +2,10 @@
   "buildCommand": "npm run build",
   "outputDirectory": ".next",
   "framework": "nextjs",
-  "domains": ["reempower.life", "www.reempower.life"]
+  "domains": [
+    "reempoweryou.com",
+    "www.reempoweryou.com",
+    "reempower.life",
+    "www.reempower.life"
+  ]
 }
