@@ -308,6 +308,7 @@ export default function RuedaClient() {
           name: form.name,
           email: form.email,
           phone: form.phone,
+          lang,
           areas: areas.map((a) => ({ name: a.name, now: a.now, goal: a.goal })),
           png,
         }),
