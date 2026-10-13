@@ -7,6 +7,7 @@ import { ServicesSection } from '@/components/landing/ServicesSection'
 import { CoachingPreview } from '@/components/landing/CoachingPreview'
 import { ClaridadSection } from '@/components/landing/ClaridadSection'
 import { CoherenciaSection } from '@/components/landing/CoherenciaSection'
+import { LibrosSection } from '@/components/landing/LibrosSection'
 import { BioSection } from '@/components/landing/BioSection'
 import { RedCoachesSection } from '@/components/landing/RedCoachesSection'
 import { CTASection } from '@/components/landing/CTASection'
@@ -23,6 +24,7 @@ export default function HomePage() {
       <CoachingPreview />
       <ClaridadSection />
       <CoherenciaSection />
+      <LibrosSection />
       <BioSection />
       <RedCoachesSection />
       <CTASection />
