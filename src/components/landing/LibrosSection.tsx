@@ -11,26 +11,26 @@ const AMAZON_ES = 'https://a.co/d/08KFQjMx'
 const AMAZON_EN = 'https://a.co/d/06wnu679'
 
 export function LibrosSection() {
-  const { t } = useI18n()
+  const { t, lang } = useI18n()
 
-  const books = [
-    {
+  // La edición en el idioma del cliente aparece primero
+  const esBook = {
       key: 'es',
       cover: '/libro-coleccion-es.png',
       title: t('libros.esTitle'),
       desc: t('libros.esDesc'),
       url: AMAZON_ES,
       badge: 'Español',
-    },
-    {
+  }
+  const enBook = {
       key: 'en',
       cover: '/libro-coleccion-en.png',
       title: t('libros.enTitle'),
       desc: t('libros.enDesc'),
       url: AMAZON_EN,
       badge: 'English',
-    },
-  ]
+  }
+  const books = lang === 'en' ? [enBook, esBook] : [esBook, enBook]
 
   return (
     <section id="libros" className="py-24 bg-gradient-to-b from-bloom/5 to-cream">
