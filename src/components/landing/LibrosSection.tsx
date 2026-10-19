@@ -1,14 +1,14 @@
 'use client'
 // LibrosSection — Colecciones Florales a la venta en Amazon (reempoderate.com)
 // Añadida Oct 2026 a pedido de Mariela: botón de compra para los libros publicados en KDP.
-// ES: https://a.co/d/08KFQjMx · EN: https://a.co/d/06wnu679
+// ES: https://a.co/d/0bwS9lDe · EN: https://a.co/d/05ONhF3p
 
 import Image from 'next/image'
 
 import { useI18n } from '@/lib/i18n'
 
-const AMAZON_ES = 'https://a.co/d/08KFQjMx'
-const AMAZON_EN = 'https://a.co/d/06wnu679'
+const AMAZON_ES = 'https://a.co/d/0bwS9lDe'
+const AMAZON_EN = 'https://a.co/d/05ONhF3p'
 
 export function LibrosSection() {
   const { t, lang } = useI18n()
