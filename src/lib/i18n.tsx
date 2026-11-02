@@ -11,6 +11,9 @@ export type Lang = 'es' | 'en'
 type Dict = Record<string, string>
 
 const es: Dict = {
+  'version.texto': 'Hay una versión nueva de esta página disponible.',
+  'version.boton': 'Recargar',
+  'version.recargando': 'Recargando…',
   // ===== NABVAR =====
   'nav.metodo': 'Método',
   'nav.coaching': 'Coaching',
@@ -306,6 +309,9 @@ const es: Dict = {
 }
 
 const en: Dict = {
+  'version.texto': 'A new version of this page is available.',
+  'version.boton': 'Reload',
+  'version.recargando': 'Reloading…',
   // ===== NAVBAR =====
   'nav.metodo': 'Method',
   'nav.coaching': 'Coaching',

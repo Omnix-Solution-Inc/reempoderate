@@ -3,6 +3,7 @@ import './globals.css'
 import { Providers } from '@/components/shared/Providers'
 import { VisitTracker } from '@/components/shared/VisitTracker'
 import { FloatingWhatsApp } from '@/components/shared/FloatingWhatsApp'
+import { NewVersionBanner } from '@/components/shared/NewVersionBanner'
 
 export const metadata: Metadata = {
   title: 'ReEmpodérate · Autotransformación Consciente',
@@ -39,7 +40,7 @@ export default function RootLayout({
   return (
     <html lang="es">
       <body>
-        <Providers><VisitTracker /><FloatingWhatsApp />{children}</Providers>
+        <Providers><VisitTracker /><FloatingWhatsApp /><NewVersionBanner />{children}</Providers>
       </body>
     </html>
   )
