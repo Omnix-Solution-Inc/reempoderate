@@ -156,6 +156,7 @@ export default function RuedaClient() {
   const [form, setForm] = useState({ name: '', email: '', phone: '' })
   const [pendingAction, setPendingAction] = useState<'png' | 'pdf' | null>(null)
   const [error, setError] = useState('')
+  const [resultPng, setResultPng] = useState('')
   const canvasRef = useRef<HTMLCanvasElement>(null)
   const [avg, setAvg] = useState({ now: 5, goal: 10 })
 
@@ -290,10 +291,6 @@ export default function RuedaClient() {
 
   const submitLead = async (action: 'png' | 'pdf') => {
     setError('')
-    if (!form.name.trim()) {
-      setError(t('rueda.errNombre'))
-      return
-    }
     if (!form.email.includes('@')) {
       setError(t('rueda.errCorreo'))
       return
@@ -315,6 +312,7 @@ export default function RuedaClient() {
       })
       setLeadSaved(true)
       setShowModal(false)
+      setResultPng(png)
       if (action === 'png') downloadPng(png)
       else await downloadPdf(png)
     } catch {
@@ -512,9 +510,16 @@ export default function RuedaClient() {
             <h2 className="font-serif text-3xl mb-4" style={{ color: C.ink }}>
               {t('rueda.savedH')}
             </h2>
-            <p className="max-w-xl mx-auto mb-8 text-sm leading-relaxed" style={{ color: C.ink }}>
+            <p className="max-w-xl mx-auto mb-6 text-sm leading-relaxed" style={{ color: C.ink }}>
               {t('rueda.savedP')}
             </p>
+            {resultPng && (
+              <img
+                src={resultPng}
+                alt={t('rueda.savedH')}
+                className="mx-auto mb-8 w-full max-w-md rounded-2xl shadow-sm"
+              />
+            )}
             <div className="flex flex-wrap justify-center gap-4">
               <a
                 href={waUrl(t('rueda.waMsg'))}
@@ -548,7 +553,7 @@ export default function RuedaClient() {
             </p>
             <div className="space-y-3">
               <input
-                placeholder={t('rueda.phNombre')}
+                placeholder={t('rueda.phNombre') + ' (' + t('rueda.opcional') + ')'}
                 value={form.name}
                 onChange={(e) => setForm({ ...form, name: e.target.value })}
                 className="w-full rounded-xl border border-[#F5D0E0] px-4 py-3 text-sm outline-none focus:border-[#D17BA8]"
