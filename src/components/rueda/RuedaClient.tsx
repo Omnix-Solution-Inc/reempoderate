@@ -154,7 +154,7 @@ export default function RuedaClient() {
   const [leadSaved, setLeadSaved] = useState(false)
   const [sending, setSending] = useState(false)
   const [form, setForm] = useState({ name: '', email: '', phone: '' })
-  const [pendingAction, setPendingAction] = useState<'png' | 'pdf' | null>(null)
+  const [, setPendingAction] = useState<'png' | 'pdf' | null>(null)
   const [error, setError] = useState('')
   const [resultPng, setResultPng] = useState('')
   const canvasRef = useRef<HTMLCanvasElement>(null)
@@ -289,7 +289,7 @@ export default function RuedaClient() {
     link.click()
   }
 
-  const submitLead = async (action: 'png' | 'pdf') => {
+  const submitLead = async () => {
     setError('')
     if (!form.email.includes('@')) {
       setError(t('rueda.errCorreo'))
@@ -297,8 +297,8 @@ export default function RuedaClient() {
     }
     setSending(true)
     try {
-      const png = buildExportCanvas()
-      await fetch('https://witmakers-1a5946c3.base44.app/functions/saveRuedaLead', {
+      const png = resultPng || buildExportCanvas()
+      const res = await fetch('https://witmakers-1a5946c3.base44.app/functions/saveRuedaLead', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -310,11 +310,10 @@ export default function RuedaClient() {
           png,
         }),
       })
+      if (!res.ok) throw new Error('servicio no disponible')
       setLeadSaved(true)
       setShowModal(false)
       setResultPng(png)
-      if (action === 'png') downloadPng(png)
-      else await downloadPdf(png)
     } catch {
       setError(t('rueda.errEnvio'))
     } finally {
@@ -323,11 +322,13 @@ export default function RuedaClient() {
   }
 
   const onDownload = (action: 'png' | 'pdf') => {
-    if (leadSaved) {
-      const png = buildExportCanvas()
-      if (action === 'png') downloadPng(png)
-      else void downloadPdf(png)
-    } else {
+    // 1) la rueda se genera y se descarga en el mismo gesto: funciona en teléfonos
+    const png = buildExportCanvas()
+    setResultPng(png)
+    if (action === 'png') downloadPng(png)
+    else void downloadPdf(png)
+    // 2) si aún no dejó su correo, se le invita a recibirla también por correo
+    if (!leadSaved) {
       setPendingAction(action)
       setShowModal(true)
     }
@@ -578,7 +579,7 @@ export default function RuedaClient() {
             {error && <p className="text-xs mt-3" style={{ color: '#C0392B' }}>{error}</p>}
             <div className="flex gap-3 mt-6">
               <button
-                onClick={() => submitLead(pendingAction || 'png')}
+                onClick={() => submitLead()}
                 disabled={sending}
                 className="flex-1 rounded-full px-6 py-3 font-semibold text-sm text-white disabled:opacity-60"
                 style={{ background: C.deep }}
