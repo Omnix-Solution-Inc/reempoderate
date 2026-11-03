@@ -4,6 +4,7 @@
 // ES: https://a.co/d/0bwS9lDe · EN: https://www.amazon.com/dp/B0HP9K5WTL (enlace corregido edición inglés, 26 Oct 2026)
 
 import Image from 'next/image'
+import Link from 'next/link'
 
 import { useI18n } from '@/lib/i18n'
 
@@ -81,6 +82,18 @@ export function LibrosSection() {
         </div>
 
         <p className="font-arimo text-sm text-ink/50 italic">{t('libros.note')}</p>
+
+        <div className="mt-6">
+          <Link
+            href="/libros"
+            className="inline-flex items-center gap-2 rounded-full border border-bloom-deep/30 px-7 py-3 font-arimo text-sm font-bold text-bloom-deep transition-colors hover:bg-bloom-deep hover:text-white"
+          >
+            {t('librosPage.seeAll')}
+            <svg className="h-4 w-4" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+              <path d="M7 17L17 7M17 7H8M17 7v9" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+          </Link>
+        </div>
       </div>
     </section>
   )

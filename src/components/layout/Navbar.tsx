@@ -33,6 +33,12 @@ export function Navbar() {
         </div>
 
         <div className="flex items-center gap-4">
+          <Link
+            href="/libros"
+            className="hidden md:inline text-sm font-medium text-ink/70 hover:text-bloom-deep transition"
+          >
+            {t('nav.libros')}
+          </Link>
           <LangToggle />
           <a
             href="/auth/login"
@@ -63,6 +69,9 @@ export function Navbar() {
               {l.label}
             </a>
           ))}
+          <Link href="/libros" className="hover:text-bloom-deep transition" onClick={() => setIsOpen(false)}>
+            {t('nav.libros')}
+          </Link>
         </div>
       )}
     </nav>
