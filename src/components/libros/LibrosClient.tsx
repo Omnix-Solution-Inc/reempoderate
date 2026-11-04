@@ -36,6 +36,16 @@ export default function LibrosClient() {
       featured: true,
     },
     {
+      key: 'synchrony',
+      cover: '/synchrony-portada.png',
+      title: t('librosPage.synEnTitle'),
+      subtitle: t('librosPage.synEnSub'),
+      format: t('librosPage.synEnFormat'),
+      url: 'https://www.amazon.com/dp/B0HQ5XS82P',
+      badge: t('librosPage.badgeEn'),
+      featured: true,
+    },
+    {
       key: 'floral-es',
       cover: '/libro-coleccion-es.png',
       title: t('libros.esTitle'),
@@ -73,7 +83,7 @@ export default function LibrosClient() {
             </p>
           </div>
 
-          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3 items-stretch">
+          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4 items-stretch">
             {books.map((book) => (
               <article
                 key={book.key}
@@ -81,7 +91,7 @@ export default function LibrosClient() {
                   book.featured ? 'lg:ring-1 lg:ring-bloom/20' : ''
                 }`}
               >
-                <div className="relative mb-6 h-64 w-full">
+                <div className="relative mb-6 h-60 w-full">
                   <Image
                     src={book.cover}
                     alt={book.title}
