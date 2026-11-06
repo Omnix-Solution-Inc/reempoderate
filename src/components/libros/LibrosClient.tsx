@@ -21,6 +21,8 @@ type Book = {
   featured?: boolean
 }
 
+const AUTHOR_PAGE = 'https://www.amazon.com/author/www.reempoderate.com'
+
 export default function LibrosClient() {
   const { t } = useI18n()
 
@@ -139,6 +141,21 @@ export default function LibrosClient() {
           <p className="mt-10 text-center font-arimo text-sm italic text-ink/50">
             {t('librosPage.note')}
           </p>
+
+          <div className="mt-10 flex flex-col items-center gap-3">
+            <a
+              href={AUTHOR_PAGE}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 rounded-full bg-bloom-deep px-8 py-3 font-arimo text-sm font-bold text-white shadow-sm transition-colors hover:bg-bloom"
+            >
+              {t('librosPage.author')}
+              <svg className="h-4 w-4" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+                <path d="M7 17L17 7M17 7H8M17 7v9" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </a>
+            <p className="font-arimo text-xs text-ink/50">{t('librosPage.authorNote')}</p>
+          </div>
 
           <div className="mt-8 text-center">
             <Link
