@@ -10,6 +10,7 @@ import { useI18n } from '@/lib/i18n'
 
 const AMAZON_ES = 'https://a.co/d/0bwS9lDe'
 const AMAZON_EN = 'https://www.amazon.com/dp/B0HP9K5WTL'
+const AUTHOR_PAGE = 'https://www.amazon.com/author/www.reempoderate.com'
 
 export function LibrosSection() {
   const { t, lang } = useI18n()
@@ -93,6 +94,17 @@ export function LibrosSection() {
               <path d="M7 17L17 7M17 7H8M17 7v9" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
           </Link>
+        </div>
+
+        <div className="mt-4">
+          <a
+            href={AUTHOR_PAGE}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-arimo text-sm font-medium text-bloom-deep underline underline-offset-4 transition-colors hover:text-bloom"
+          >
+            {t('librosPage.author')}
+          </a>
         </div>
       </div>
     </section>

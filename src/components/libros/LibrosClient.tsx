@@ -83,6 +83,16 @@ export default function LibrosClient() {
             <p className="font-arimo text-base text-ink/70 max-w-2xl mx-auto leading-relaxed">
               {t('librosPage.sub')}
             </p>
+            <div className="mt-5">
+              <a
+                href={AUTHOR_PAGE}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-arimo text-sm font-medium text-bloom-deep underline underline-offset-4 transition-colors hover:text-bloom"
+              >
+                {t('librosPage.author')}
+              </a>
+            </div>
           </div>
 
           <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4 items-stretch">
