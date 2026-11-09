@@ -36,6 +36,7 @@ export async function POST(req: Request) {
 
   const muestra = {
     ...cuerpo,
+    site: 'reempoderate',
     city: decodificar(h.get('x-vercel-ip-city')),
     region: limpiar(h.get('x-vercel-ip-country-region'), 40),
     postal_code: limpiar(h.get('x-vercel-ip-postal-code'), 16),
