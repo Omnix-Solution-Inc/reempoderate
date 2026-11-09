@@ -13,6 +13,29 @@
   h1, h2, h3 {
     font-family: 'Playfair Display', serif;
   }
+
+  /* Texto editorial: los párrafos van justificados, con partición de palabras
+     para que las líneas queden parejas también en columnas estrechas.
+     Las utilidades text-center / text-left del propio elemento siguen mandando. */
+  p {
+    text-align: justify;
+    text-justify: inter-word;
+    hyphens: auto;
+    -webkit-hyphens: auto;
+    text-wrap: pretty;
+  }
+
+  /* Los textos de interfaz (botones, etiquetas y navegación) conservan su alineación */
+  button p,
+  a[role='button'] p,
+  nav p,
+  label p,
+  .no-justify,
+  .no-justify p {
+    text-align: inherit;
+    hyphens: manual;
+    -webkit-hyphens: manual;
+  }
 }
 
 @layer components {
