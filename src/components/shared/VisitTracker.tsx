@@ -5,15 +5,14 @@ import { usePathname } from 'next/navigation'
 
 /**
  * VisitTracker — Registra cada visita al sitio en la entidad SiteVisit
- * (vía la función trackVisit de Base44). Anónimo: solo path, referrer,
- * session_id aleatorio local, idioma del navegador.
+ * Pasa por /api/track, que añade la ubicación aproximada (ciudad, estado y
+ * código postal que entrega Vercel) y luego la envía a Base44.
+ * Guarda zona aproximada; la dirección IP del visitante queda fuera.
  */
 export function VisitTracker() {
   const pathname = usePathname()
 
   useEffect(() => {
-    const API_URL = process.env.NEXT_PUBLIC_BASE44_API_URL || 'https://witmakers-1a5946c3.base44.app/functions'
-
     // Sesión anónima persistente (24h) — no guarda datos personales
     let sessionId: string | null = null
     try {
@@ -36,7 +35,7 @@ export function VisitTracker() {
       language: typeof navigator !== 'undefined' ? navigator.language : '',
     }
 
-    fetch(`${API_URL}/trackVisit`, {
+    fetch('/api/track', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(payload),
