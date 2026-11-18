@@ -18,6 +18,8 @@ type Book = {
   format: string
   url: string
   badge: string
+  altUrl?: string
+  altLabel?: string
   featured?: boolean
 }
 
@@ -34,6 +36,8 @@ export default function LibrosClient() {
       subtitle: t('librosPage.sinSub'),
       format: t('librosPage.sinFormat'),
       url: 'https://www.amazon.com/dp/B0HQ3LFMYV',
+      altUrl: 'https://a.co/d/01vylx0q',
+      altLabel: t('librosPage.hardcoverLink'),
       badge: t('librosPage.badgeEs'),
       featured: true,
     },
@@ -144,6 +148,17 @@ export default function LibrosClient() {
                     <path d="M7 17L17 7M17 7H8M17 7v9" strokeLinecap="round" strokeLinejoin="round" />
                   </svg>
                 </a>
+
+                {book.altUrl && (
+                  <a
+                    href={book.altUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-3 font-arimo text-xs font-medium text-bloom-deep underline underline-offset-4 transition-colors hover:text-bloom"
+                  >
+                    {book.altLabel}
+                  </a>
+                )}
               </article>
             ))}
           </div>
