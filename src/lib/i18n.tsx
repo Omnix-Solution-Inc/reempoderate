@@ -203,6 +203,7 @@ const es: Dict = {
   'footer.f4': 'Marketplace',
   'footer.contacto': 'Contacto',
   'footer.copy': '2026 ReEmpodérate. Todos los derechos reservados. · New York – USA',
+  'footer.icf': 'Miembro de la International Coaching Federation',
 
   // ===== RUEDA DE LA VIDA (página) =====
   'rueda.volver': 'Volver al inicio',
@@ -512,6 +513,7 @@ const en: Dict = {
   'footer.f4': 'Marketplace',
   'footer.contacto': 'Contact',
   'footer.copy': '2026 ReEmpowerYou. All rights reserved. · New York – USA',
+  'footer.icf': 'Member of the International Coaching Federation',
 
   // ===== WHEEL OF LIFE (page) =====
   'rueda.volver': 'Back to home',

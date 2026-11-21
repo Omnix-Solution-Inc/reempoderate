@@ -66,6 +66,22 @@ export function Footer() {
           </div>
         </div>
       </div>
+      <div className="max-w-7xl mx-auto px-6 mt-12 flex flex-col items-center">
+        <div className="bg-cream rounded-2xl px-8 py-6 flex flex-col items-center shadow-sm">
+          <img
+            src="/icf-member.png"
+            alt="Miembro de la International Coaching Federation (ICF)"
+            width={110}
+            height={111}
+            className="w-[92px] md:w-[110px] h-auto"
+            loading="lazy"
+            decoding="async"
+          />
+          <p className="mt-3 text-center text-[11px] md:text-xs font-semibold tracking-[0.14em] uppercase text-ink/60">
+            {t('footer.icf')}
+          </p>
+        </div>
+      </div>
       <div className="max-w-7xl mx-auto px-6 mt-10 pt-6 border-t border-white/10 text-xs text-white/30 text-center flex flex-col md:flex-row items-center justify-center gap-1 md:gap-2">
         <span>{t('footer.copy')}</span>
         <span className="hidden md:inline">·</span>
