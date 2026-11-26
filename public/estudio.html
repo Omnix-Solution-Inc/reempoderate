@@ -260,6 +260,9 @@
         <button class="btn" id="play">Reproducir</button>
         <button class="btn ghost" id="rec">Grabar</button>
       </div>
+      <div class="row" style="margin-top:7px">
+        <button class="btn ghost" id="fadeBtn">Fade-out suave</button>
+      </div>
 
       <div class="label" style="margin-top:14px">Sesión</div>
       <div class="chips" id="timerChips" style="grid-template-columns:repeat(4,1fr)"></div>
@@ -585,7 +588,7 @@ class AudioEngine {
   pause(){
     if (!this.ctx) return;
     this.playing = false;
-    this.master.gain.setTargetAtTime(0, this.ctx.currentTime, 0.8);
+    this.master.gain.setTargetAtTime(0, this.ctx.currentTime, 3.5);
   }
 
   async fadeOut(seconds = 8){
@@ -934,6 +937,20 @@ playBtn.onclick = async () => {
     playBtn.textContent = 'Reproducir';
   }
   syncWaves();
+};
+
+/* ── fade-out suave ── */
+const fadeBtn = document.getElementById('fadeBtn');
+fadeBtn.onclick = () => {
+  if (!playing){ toast('El audio ya está en silencio'); return; }
+  audio.fadeOut(8);
+  playing = false;
+  playBtn.textContent = 'Reproducir';
+  fadeBtn.textContent = 'Desvaneciendo…';
+  const w = document.getElementById('wavesAudio');
+  if (w){ let v = w.volume; const id = setInterval(()=>{ v = Math.max(0, v-0.012); w.volume = v; if (v<=0){ w.pause(); clearInterval(id);} }, 200); }
+  toast('El audio se desvanece en 8 segundos');
+  setTimeout(() => { fadeBtn.textContent = 'Fade-out suave'; }, 8200);
 };
 
 /* ── temporizador ── */
