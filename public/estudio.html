@@ -18,6 +18,7 @@
     --ink:#2A2F22;
     --line:rgba(59,68,43,.16);
     --panel:rgba(245,242,235,.92);
+    --accent:#3B442B;
   }
   *{box-sizing:border-box;margin:0;padding:0}
   html,body{height:100%}
@@ -104,7 +105,7 @@
     transition:all .25s ease;font-family:inherit;
   }
   .chip:hover{border-color:var(--sage);background:rgba(138,154,91,.08)}
-  .chip[aria-pressed="true"]{background:var(--olive);border-color:var(--olive);color:var(--cream)}
+  .chip[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--cream)}
   .chip small{display:block;font-size:8.5px;letter-spacing:.1em;text-transform:uppercase;opacity:.65;margin-top:2px}
 
   input[type=range]{
@@ -122,6 +123,12 @@
   }
 
   .row{display:flex;gap:7px;margin-top:4px}
+  .field{width:100%;padding:9px 11px;border:1px solid var(--line);border-radius:9px;background:rgba(255,255,255,.55);color:var(--olive);font:inherit;font-size:11.5px;letter-spacing:.02em}
+  .field:focus{outline:none;border-color:var(--accent);background:#fff}
+  .field::placeholder{color:rgba(59,68,43,.42)}
+  .swatches{display:flex;gap:7px;margin-top:9px}
+  .swatch{width:22px;height:22px;border-radius:50%;border:2px solid transparent;cursor:pointer}
+  .swatch[aria-pressed="true"]{border-color:var(--ink);transform:scale(1.08)}
   .btn{
     flex:1;appearance:none;border:1px solid var(--olive);background:var(--olive);
     color:var(--cream);border-radius:9px;padding:10px 12px;cursor:pointer;
@@ -237,6 +244,15 @@
 
       <div class="rule"></div>
 
+      <div class="label">Proyecto <b id="projNow">ReEmpodérate</b></div>
+      <div class="chips" id="projChips"></div>
+      <div class="swatches" id="swatches" hidden></div>
+
+      <div class="label" style="margin-top:11px">Tema del video <b id="topicHint">libre</b></div>
+      <input id="topic" class="field" type="text" placeholder="Ej: calma para decidir, bodas de otoño, dormir profundo" />
+
+      <div class="rule"></div>
+
       <div class="label">Frecuencia <b id="freqNow">528 Hz</b></div>
       <div class="chips" id="freqChips"></div>
 
@@ -326,6 +342,39 @@ const FREQS = [
   { hz: 741, name: 'Expresión', short: 'Expresión', tag: 'limpieza y expresión' },
   { hz: 852, name: 'Intuición', short: 'Intuición', tag: 'intuición y descanso' },
 ];
+
+const PROJECTS = [
+  { id:'reempoderate', short:'ReEmpodérate', name:'ReEmpodérate', accent:'#D17BA8', theme:'bosque',
+    tagline:'Coaching ontológico y laboral · Tu decisión, tu vida.',
+    audience:'volver a tu centro y decidir con calma',
+    keywords:['coaching ontológico','decisiones conscientes','calma mental','mindfulness','bienestar emocional'],
+    cta:'Agenda tu sesión en reempoderate.com/agendar.' },
+  { id:'bella', short:'Bella Wildflower', name:'The Bella Wildflower', accent:'#B88373', theme:'atardecer',
+    tagline:'Flores y experiencias · Despertando almas a través de las flores.',
+    audience:'crear con las manos y habitar la belleza',
+    keywords:['flores','bodas','diseño floral','jardinería','eventos'],
+    cta:'Descubre las colecciones en thebellawildflower.com.' },
+  { id:'libros', short:'Libros', name:'Libros de Marie Barbetti', accent:'#D4AF37', theme:'noche',
+    tagline:'Cuatro libros para decidir y habitar tu vida.',
+    audience:'leer, escribir y volver a ti',
+    keywords:['libros','diarios guiados','escritura terapéutica','sincronía','hábitos'],
+    cta:'Encuentra los libros en Amazon.' },
+  { id:'podcast', short:'Pódcast', name:'Tu decisión, tu vida', accent:'#7A8B7B', theme:'bosque',
+    tagline:'Conversaciones que se vuelven decisiones.',
+    audience:'escuchar y pensar distinto',
+    keywords:['pódcast','conversaciones','crecimiento personal','reflexión','decisiones'],
+    cta:'Escucha los episodios y comparte el que te mueva.' },
+  { id:'propio', short:'Proyecto propio', name:'Proyecto propio', accent:'#8A9A5B', theme:'bosque',
+    tagline:'Tu marca, tu tema, tu paisaje.',
+    audience:'tu audiencia',
+    keywords:[],
+    cta:'' },
+];
+
+const SWATCHES = ['#8A9A5B','#3B442B','#C67D53','#D4AF37','#B88373','#7A8B7B','#D17BA8','#5D4E5C'];
+
+let currentProject = PROJECTS[0];
+let currentTopic = '';
 
 const THEMES = {
   bosque: {
@@ -848,6 +897,92 @@ Object.entries(THEMES).forEach(([key, th], i) => {
   themeChips.appendChild(b);
 });
 
+const projChips = document.getElementById('projChips');
+PROJECTS.forEach(pr => {
+  const b = document.createElement('button');
+  b.className = 'chip';
+  b.type = 'button';
+  b.dataset.proj = pr.id;
+  b.setAttribute('aria-pressed', pr.id === currentProject.id ? 'true' : 'false');
+  b.innerHTML = `${pr.short}`;
+  b.style.fontSize = '9.5px';
+  b.onclick = () => selectProject(pr.id);
+  projChips.appendChild(b);
+});
+
+const swatches = document.getElementById('swatches');
+SWATCHES.forEach(col => {
+  const d = document.createElement('div');
+  d.className = 'swatch';
+  d.style.background = col;
+  d.setAttribute('aria-pressed','false');
+  d.onclick = () => {
+    [...swatches.children].forEach(x => x.setAttribute('aria-pressed','false'));
+    d.setAttribute('aria-pressed','true');
+    document.documentElement.style.setProperty('--accent', col);
+    currentProject.accent = col;
+    saveStudio();
+  };
+  swatches.appendChild(d);
+});
+
+const topicInput = document.getElementById('topic');
+topicInput.addEventListener('input', () => {
+  currentTopic = topicInput.value;
+  document.getElementById('topicHint').textContent = currentTopic.trim() ? 'definido' : 'libre';
+  buildSeo();
+  saveStudio();
+});
+
+function selectProject(id){
+  currentProject = PROJECTS.find(p => p.id === id) || PROJECTS[0];
+  [...projChips.children].forEach(c => c.setAttribute('aria-pressed', c.dataset.proj === id ? 'true' : 'false'));
+  document.getElementById('projNow').textContent = currentProject.short;
+  document.documentElement.style.setProperty('--accent', currentProject.accent);
+  swatches.hidden = currentProject.id !== 'propio';
+  if (currentProject.theme && currentProject.theme !== currentTheme) {
+    const btn = [...themeChips.children].find(b => b.dataset.theme === currentProject.theme);
+    if (btn) selectTheme(currentProject.theme, btn);
+  }
+  buildSeo();
+  saveStudio();
+}
+
+function saveStudio(){
+  try {
+    localStorage.setItem('fcs.estudio', JSON.stringify({
+      project: currentProject.id, accent: currentProject.accent,
+      topic: currentTopic, theme: currentTheme, hz: currentFreq.hz,
+    }));
+  } catch(e) {}
+}
+
+function restaurarStudio(){
+  try {
+    const d = JSON.parse(localStorage.getItem('fcs.estudio') || 'null');
+    if (!d) return;
+    if (d.topic) { currentTopic = d.topic; topicInput.value = d.topic; }
+    if (d.hz) {
+      const fq = FREQS.find(x => x.hz === d.hz);
+      const btn = fq ? [...freqChips.children].find(b => b.textContent.startsWith(String(fq.hz))) : null;
+      if (fq && btn) selectFreq(fq, btn);
+    }
+    const pr = PROJECTS.find(p => p.id === d.project);
+    if (pr) {
+      if (d.accent) pr.accent = d.accent;
+      selectProject(pr.id);
+      if (d.theme && THEMES[d.theme]) {
+        const tb = [...themeChips.children].find(b => b.dataset.theme === d.theme);
+        if (tb) selectTheme(d.theme, tb);
+      }
+      if (pr.id === 'propio') {
+        [...swatches.children].forEach(x => x.setAttribute('aria-pressed',
+          x.style.background && d.accent ? 'true' : 'false'));
+      }
+    }
+  } catch(e) {}
+}
+
 const timerChips = document.getElementById('timerChips');
 [[15,'15m'],[60,'1h'],[180,'3h'],[480,'8h'],[0,'∞']].forEach(([min, label], idx) => {
   const b = document.createElement('button');
@@ -1043,12 +1178,25 @@ recBtn.onclick = () => recording ? stopRecording() : startRecording();
 
 /* ── metadatos ── */
 function buildSeo(){
-  const f = currentFreq, th = THEMES[currentTheme];
-  const titles = [
-    `${f.hz} Hz · ${f.name} · ${th.name} · Música para dormir y meditar`,
-    `${f.hz} Hz Frecuencia Solfeggio · ${th.name} · Sonido para calmar la mente`,
-    `Frecuencia ${f.hz} Hz para ${f.tag} · Paisaje sonoro · ${th.name}`,
-  ].map(t => t.length > 100 ? t.slice(0, 97) + '…' : t);
+  const f = currentFreq, th = THEMES[currentTheme], pr = currentProject;
+  const tema = (currentTopic || '').trim();
+  const base = tema || `${f.hz} Hz · ${f.name}`;
+
+  const t1Largo = `${tema} · ${th.name} · Sonido y visuales para ${pr.audience}`;
+  const t1Corto = `${tema} · ${th.short} · Paisaje sonoro en bucle`;
+  let titles = tema
+    ? [
+        t1Largo.length <= 100 ? t1Largo : t1Corto,
+        `${tema} · ${f.hz} Hz · ${pr.name}`,
+        `${pr.name} · ${tema} · Paisaje sonoro en bucle`,
+      ]
+    : [
+        `${f.hz} Hz · ${f.name} · ${th.name} · Música para dormir y meditar`,
+        `${f.hz} Hz Frecuencia Solfeggio · ${th.name} · Sonido para calmar la mente`,
+        `Frecuencia ${f.hz} Hz para ${f.tag} · Paisaje sonoro · ${th.name}`,
+      ];
+  titles = titles.map(t => t.length > 100 ? t.slice(0, 97) + '…' : t);
+
   const titleBox = document.getElementById('seoTitles');
   titleBox.innerHTML = '';
   titles.forEach(t => {
@@ -1061,38 +1209,43 @@ function buildSeo(){
   });
 
   const desc = [
-    `${f.hz} Hz · ${f.name}`,
-    ``,
-    `Paisaje sonoro de ${f.hz} Hz, la frecuencia Solfeggio asociada a ${f.tag}, con un tema visual de ${th.desc}. Un espacio para respirar, descansar y volver a tu centro.`,
-    ``,
-    `La música y los visuales se generan en vivo, sin cortes: puedes dejar la sesión corriendo mientras duermes, trabajas o meditas.`,
-    ``,
-    `Recomendaciones`,
-    `· Usa auriculares para percibir la profundidad de los armónicos.`,
-    `· Baja el volumen de la lluvia si prefieres solo el tono puro.`,
-    `· Respiración guiada por el visual: inhalar 4 segundos, sostener 2, exhalar 6.`,
-    ``,
-    `Frecuencias de la serie`,
-    `432 Hz · Armonía natural`,
-    `528 Hz · Coherencia y calma`,
-    `639 Hz · Conexión`,
-    `741 Hz · Expresión`,
-    `852 Hz · Intuición y descanso`,
-    ``,
-    `Suscríbete para acompañar tus noches de calma y activa la campana para no perderte las sesiones nuevas.`,
-    ``,
-    `#${f.hz}Hz #FrecuenciasSolfeggio #Relajación #Meditación #SonidoParaDormir`,
+    base,
+    '',
+    pr.tagline,
+    '',
+    tema
+      ? `Paisaje sonoro de ${f.hz} Hz para ${tema}, con un tema visual de ${th.desc}. La música y los visuales se generan en vivo, sin cortes: deja la sesión corriendo mientras descansas, trabajas o meditas.`
+      : `Paisaje sonoro de ${f.hz} Hz, la frecuencia Solfeggio asociada a ${f.tag}, con un tema visual de ${th.desc}. Un espacio para respirar, descansar y volver a tu centro.`,
+    '',
+    'Recomendaciones',
+    '· Usa auriculares para percibir la profundidad de los armónicos.',
+    '· Ajusta el sonido de la naturaleza a tu gusto.',
+    '· Respiración guiada por el visual: inhalar 4 segundos, sostener 2, exhalar 6.',
+    '',
+    'Frecuencias de la serie',
+    ...FREQS.map(x => `${x.hz} Hz · ${x.name}`),
+    '',
+    pr.cta || 'Suscríbete para acompañar las sesiones nuevas y activa la campana.',
+    '',
+    '#Solfeggio #Bienestar #Calma #Meditación #PaisajesSonoros',
   ].join('\n');
+
   document.getElementById('seoDesc').value = desc;
 
-  const tags = [
-    `${f.hz} hz`, `frecuencia ${f.hz}`, 'frecuencias solfeggio', 'solfeggio',
-    f.tag.replace(/ /g,' '), 'sonido para dormir', 'música para dormir',
-    'relajación profunda', 'meditación guiada', 'meditación para dormir',
-    'sonidos de la naturaleza', 'lluvia relajante', 'ruido rosa',
-    'calmar la ansiedad', 'frecuencia de sanación', th.desc,
-    'música ambiental', 'paisaje sonoro', 'bienestar', 'mindfulness',
-  ].join(', ');
+  const tags = [...new Set([
+    tema.toLowerCase(),
+    ...(pr.keywords || []),
+    `${f.hz} hz`,
+    'frecuencias solfeggio',
+    th.name.toLowerCase(),
+    'paisaje sonoro',
+    'música para dormir',
+    'relajación',
+    'meditación',
+    'sonido ambiental',
+    'bienestar',
+  ].filter(Boolean))].join(', ').slice(0, 500);
+
   document.getElementById('seoTags').value = tags;
 }
 document.querySelectorAll('.copy').forEach(btn => {
@@ -1174,6 +1327,7 @@ function loop(now){
 requestAnimationFrame(loop);
 
 updateZenLabel();
+restaurarStudio();
 buildSeo();
 updateTimerUI();
 
